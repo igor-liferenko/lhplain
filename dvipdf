@@ -1,8 +1,4 @@
 #!/bin/sh
-export TEXCONFIG=~/lhplain:~/dvips
-export DVIPSHEADERS=~/lhplain:~/dvips
-export VFFONTS=~/lhplain/vf
-export TEXFONTS=~/lhplain/tfm:~/tex/TeXfonts
 file=$1.dvi
 for i in `dvitype -output-level 0 $file | sed -n '/^Postamble starts at byte/,${s/^Font [0-9]\+: \([.[:alnum:]/]\+\).*/\1/p}'`; do
   if [ $i = ${i#*/} ]; then
@@ -16,6 +12,10 @@ for i in `dvitype -output-level 0 $file | sed -n '/^Postamble starts at byte/,${
   fi
 done
 eval "$(hexdump -s 15 -n `hexdump -s 14 -n 1 -e '/1 "%d"' $file` -v -e '/1 "%c"' $file | sed 's/.* /p=/;s/x/sp,/;s/[+-][0-9]*/sp x=& y=/')"
+export TEXCONFIG=~/lhplain:~/dvips
+export DVIPSHEADERS=~/lhplain:~/dvips
+export VFFONTS=~/lhplain/vf
+export TEXFONTS=~/lhplain/tfm:~/tex/TeXfonts
 ~/dvips/dvips -T $p -O $((x-4736287))sp,$((y-4736287))sp -P t1 -q $file
 if [ $? = 0 ]; then
   ps2pdf $1.ps $1.pdf || echo PS2PDF ERROR

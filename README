@@ -1,0 +1,11 @@
+parse_first_line.tex = t
+shell_escape.lhplain = f
+
+  The road to wisdom? Well, it's plain
+  And simple to express:
+  Err
+  and err
+  and err again,
+  but less
+  and less
+  and less.

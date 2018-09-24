@@ -1,16 +1,2 @@
-texmf.cnf:
-parse_first_line.tex = t
-shell_escape.lhplain = f
-
 tex -ini -jobname tex lhplain.ini >/dev/null # override tex.fmt to use A4 paper
-tex -ini -enc lhplain.ini >/dev/null # use %&lhplain on first line of .tex file
-
-
-  The road to wisdom? Well, it's plain
-  And simple to express:
-  Err
-  and err
-  and err again,
-  but less
-  and less
-  and less.
+tex -ini -enc -jobname ru lhplain.ini >/dev/null # call TeX as "tex \&ru"

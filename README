@@ -1,2 +1,2 @@
-tex -ini -jobname tex lhplain.ini >/dev/null # override tex.fmt to use A4 paper
+tex -ini -jobname plain lhplain.ini >/dev/null # override tex.fmt to use A4 paper
 tex -ini -enc -jobname ru lhplain.ini >/dev/null # call TeX as "tex \&ru"

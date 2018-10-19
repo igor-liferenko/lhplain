@@ -1,2 +1,4 @@
-tex -ini -jobname plain lhplain.ini >/dev/null # override tex.fmt to use A4 paper
+tex -ini -jobname tex lhplain.ini >/dev/null # override tex.fmt to use A4 paper
 tex -ini -enc -jobname ru lhplain.ini >/dev/null
+
+NOTE: \xordcode is used to convert hyphenation tables from koi8-r to cp866 automatically

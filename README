@@ -3,8 +3,8 @@
 
 for MetaPost labels use this:
 
-perl -ne 'print unless /hoffset/../catcode...=12/' lhplain.ini >mpost-no-offset.ini
-/usr/bin/tex -ini -enc mpost-no-offset.ini >/dev/null
+perl -ne 'print unless /hoffset/../catcode...=12/' lhplain.ini | sed '/dump/s/^/\\language255\n/' >mpost-no-offset-no-hyph.ini
+/usr/bin/tex -ini -enc mpost-no-offset-no-hyph.ini >/dev/null
 
 -------------------
 

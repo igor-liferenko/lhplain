@@ -4,7 +4,7 @@
 for MetaPost labels use this:
 
 perl -ne 'print unless /hoffset/../catcode...=12/' lhplain.ini >mpost-no-offset.ini
-/usr/bin/tex -ini mpost-no-offset.ini >/dev/null
+/usr/bin/tex -ini -enc mpost-no-offset.ini >/dev/null
 
 -------------------
 

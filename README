@@ -3,7 +3,7 @@
 
 for MetaPost labels use this:
 
-sed '/hoffset/,/catcode...=12/d; /Hyphenation/,/mubytein=1/d' lhplain.ini >mpost-no-offset.ini
+sed -e /hoffset/,/catcode...=12/d -e /Hyphenation/,/mubytein=1/d lhplain.ini >mpost-no-offset.ini
 /usr/bin/tex -ini -enc mpost-no-offset.ini >/dev/null
 
 -------------------

@@ -1,10 +1,11 @@
 /usr/bin/tex -ini -jobname tex lhplain.ini >/dev/null
 /usr/bin/tex -ini -enc -jobname ru lhplain.ini >/dev/null
 
-for MetaPost labels use this:
+For MetaPost labels use this:
 
-sed -e /hoffset/,/catcode...=12/d -e /Hyphenation/,/mubytein=1/d -n -e /originalfont/d -e /transformfont/d -e '/plain/,$p' lhplain.ini >mpost-no-offset.ini # `-n' and the following commands avoid overriding CM-fonts with LH-fonts
-/usr/bin/tex -ini -enc mpost-no-offset.ini >/dev/null
+sed /hoffset/,/catcode...=12/d lhplain.ini >mpost-no-offset.ini
+/usr/bin/tex -ini mpost-no-offset.ini >/dev/null
+/usr/bin/tex -ini -enc -jobname ru mpost-no-offset.ini >/dev/null
 
 -------------------
 

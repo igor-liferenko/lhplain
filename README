@@ -1,7 +1,8 @@
 /usr/bin/tex -ini -jobname tex lhplain.ini >/dev/null
 /usr/bin/tex -ini -enc -jobname ru lhplain.ini >/dev/null
 
-For MetaPost labels use this:
+Until there is a way to account for offsets in dvitomp, use this for MetaPost labels
+(and &%lhplain instead of %&ru in verbatimtex):
 
 sed /hoffset/,/catcode...=12/d lhplain.ini >mpost-no-offset.ini
 /usr/bin/tex -ini mpost-no-offset.ini >/dev/null

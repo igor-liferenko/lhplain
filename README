@@ -5,7 +5,7 @@ For MetaPost labels use this:
 
 sed /hoffset/,/catcode...=12/d lhplain.ini >mpost-no-offset.ini
 /usr/bin/tex -ini mpost-no-offset.ini >/dev/null
-/usr/bin/tex -ini -enc -jobname ru mpost-no-offset.ini >/dev/null # NOTE: this ru.fmt is different from previous ru.fmt and must be used only by tex called by MetaPost (in my setup 'tex' and '/usr/bin/tex' are different executables which search format in different places, so it is possible to use one format name)
+/usr/bin/tex -ini -enc -jobname lhplain mpost-no-offset.ini >/dev/null
 
 -------------------
 

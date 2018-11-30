@@ -11,3 +11,9 @@ sed /hoffset/,/catcode...=12/d lhplain.ini >mpost-no-offset.ini
 -------------------
 
 \xordcode is used to convert hyphenation tables from koi8-r to cp866 automatically
+
+-------------------
+
+To create font for MetaPost labels use this:
+
+mftrace --formats=pfb --encoding=tex256.enc --magnification=2000 lhss10

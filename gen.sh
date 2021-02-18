@@ -1,7 +1,7 @@
 #!/bin/bash
 function gen() {
   for i in "${@:2:$#}"; do
-    mftrace --formats=pfb --encoding=/home/user/0000-git/system_installation/enc/$1 --magnification=2000 $i 2>/dev/null || echo "*********** $i FAILED *************"
+    mftrace --formats=pfb --encoding=enc/$1 --magnification=2000 $i || echo "*********** $i FAILED *************"
   done
 }
 gen lhA.enc \

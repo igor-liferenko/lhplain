@@ -1,4 +1,4 @@
-/MyLHBencoding [
+/MyOMBencoding [
 /dotmath % 0
 /arrowdown % 1
 /alpha % 2
@@ -195,8 +195,8 @@
 /.notdef % 193
 /.notdef % 194
 /.notdef % 195
-/emdash.cyr % 196
-/currency % 197
+/.notdef % 196
+/.notdef % 197
 /.notdef % 198
 /.notdef % 199
 /.notdef % 200
@@ -241,18 +241,18 @@
 /iacyrillic % 239
 /Iocyrillic % 240
 /iocyrillic % 241
-/Gheupturncyrillic % 242
-/gheupturncyrillic % 243
-/Ecyrillic % 244
-/ecyrillic % 245
-/Icyrillic % 246
-/icyrillic % 247
-/Yicyrillic % 248
-/yicyrillic % 249
-/Ushortcyrillic % 250
-/ushortcyrillic % 251
+/.notdef % 242
+/.notdef % 243
+/.notdef % 244
+/.notdef % 245
+/.notdef % 246
+/.notdef % 247
+/.notdef % 248
+/.notdef % 249
+/.notdef % 250
+/.notdef % 251
 /numero % 252
 /guillemotleft % 253
 /guillemotright % 254
-/quotedblbase % 255
+/.notdef % 255
 ] def

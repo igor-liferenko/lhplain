@@ -1,79 +1,79 @@
 #!/bin/bash
 function gen() {
   for i in "${@:2:$#}"; do
-    mftrace --formats=pfb --encoding=enc/$1 --magnification=2000 $i || echo "*********** $i FAILED *************"
+    mftrace --formats=pfb --encoding=enc/$1 --magnification=8000 $i || echo "*********** $i FAILED *************"
   done
 }
 gen lhA.enc \
-  lhb10 \
-  lhbx10 \
-  lhbx12 \
-  lhbx5 \
-  lhbx6 \
-  lhbx7 \
-  lhbx8 \
-  lhbx9 \
-  lhbxsl10 \
-  lhdunh10 \
-  lhr10 \
-  lhr12 \
-  lhr17 \
-  lhr6 \
-  lhr7 \
-  lhr8 \
-  lhr9 \
-  lhsl10 \
-  lhsl12 \
-  lhsl6 \
-  lhsl8 \
-  lhsl9 \
-  lhss10 \
-  lhss12 \
-  lhss17 \
-  lhss8 \
-  lhss9 \
-  lhssbx10 \
-  lhssbxo10 \
-  lhssdc10 \
-  lhssi10 \
-  lhssi12 \
-  lhssi17 \
-  lhssi8 \
-  lhssi9 \
-  lhssq8 \
-  lhssqi8 \
-  lhvtt10
+  omb10 \
+  ombx10 \
+  ombx12 \
+  ombx5 \
+  ombx6 \
+  ombx7 \
+  ombx8 \
+  ombx9 \
+  ombxsl10 \
+  omdunh10 \
+  omr10 \
+  omr12 \
+  omr17 \
+  omr6 \
+  omr7 \
+  omr8 \
+  omr9 \
+  omsl10 \
+  omsl12 \
+  omsl6 \
+  omsl8 \
+  omsl9 \
+  omss10 \
+  omss12 \
+  omss17 \
+  omss8 \
+  omss9 \
+  omssbx10 \
+  omssbxo10 \
+  omssdc10 \
+  omssi10 \
+  omssi12 \
+  omssi17 \
+  omssi8 \
+  omssi9 \
+  omssq8 \
+  omssqi8 \
+  omvtt10
 gen lhB.enc \
-  lhtex8 \
-  lhtex9 \
-  lhtex10
+  omtex8 \
+  omtex9 \
+  omtex10
 gen lhC.enc \
-  lhsltt10 \
-  lhsltt9 \
-  lhtcsc10 \
-  lhtt10 \
-  lhtt12 \
-  lhtt8 \
-  lhtt9
+  omsltt10 \
+  omsltt9 \
+  omtcsc10 \
+  omtt10 \
+  omtt12 \
+  omtt8 \
+  omtt9
 gen lhD.enc \
-  lhbxti10 \
-  lhbxti12 \
-  lhbxti7 \
-  lhff10 \
-  lhfi10 \
-  lhfib8 \
-  lhti10 \
-  lhti12 \
-  lhti7 \
-  lhti8 \
-  lhti9 \
-  lhu10
+  ombxti10 \
+  ombxti12 \
+  ombxti7 \
+  omff10 \
+  omfi10 \
+  omfib8 \
+  omti10 \
+  omti12 \
+  omti7 \
+  omti8 \
+  omti9 \
+  omu10
 gen lhE.enc \
-  lhcsc10 \
-  lhcsc8 \
-  lhcsc9 \
-  lhr5
+  omcsc10 \
+  omcsc8 \
+  omcsc9 \
+  omr5
 gen lhF.enc \
-  lhitt10 \
-  lhitt12 \
-  lhitt9
+  omitt10 \
+  omitt12 \
+  omitt9

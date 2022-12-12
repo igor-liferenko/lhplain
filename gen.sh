@@ -1,7 +1,11 @@
 #!/bin/bash
+# grep XXX enc/* to see where encoding differs from original
+rm -r pfb
+mkdir pfb
 function gen() {
   for i in "${@:2:$#}"; do
     mftrace --formats=pfb --encoding=enc/$1 --magnification=1000 $i || echo "*********** $i FAILED *************"
+    mv $i.pfb pfb/
   done
 }
 gen lhA.enc \

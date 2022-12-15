@@ -1,4 +1,4 @@
-/MyOMBencoding [
+/texset [
 /dotmath % 0
 /arrowdown % 1
 /alpha % 2
@@ -44,7 +44,7 @@
 /asterisk % 42
 /plus % 43
 /comma % 44
-/hyphen % 45 XXX minus - for copy/paste in CWEB
+/minus % 45
 /period % 46
 /slash % 47
 /zero % 48

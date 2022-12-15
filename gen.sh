@@ -1,5 +1,4 @@
 #!/bin/bash
-# grep XXX enc/* to see where encoding differs from original
 rm -r pfb
 mkdir pfb
 function gen() {
@@ -8,7 +7,16 @@ function gen() {
     mv $i.pfb pfb/
   done
 }
-gen lhA.enc \
+gen roman0.enc \
+  omsltt10 \
+  omtt10 \
+  omtt12 \
+  omtt8 \
+  omtt9
+gen roman1csc.enc \
+  omr5 \
+  omcsc10
+gen roman2.enc \
   omb10 \
   ombx10 \
   ombx12 \
@@ -43,17 +51,9 @@ gen lhA.enc \
   omssi9 \
   omssq8 \
   omssqi8
-gen lhB.enc \
-  omtex8 \
-  omtex9 \
-  omtex10
-gen lhC.enc \
-  omsltt10 \
-  omtt10 \
-  omtt12 \
-  omtt8 \
-  omtt9
-gen lhD.enc \
+gen textit0.enc \
+  omitt10
+gen textit2.enc \
   ombxti10 \
   omti10 \
   omti12 \
@@ -61,8 +61,7 @@ gen lhD.enc \
   omti8 \
   omti9 \
   omu10
-gen lhE.enc \
-  omcsc10 \
-  omr5
-gen lhF.enc \
-  omitt10
+gen texset.enc \
+  omtex8 \
+  omtex9 \
+  omtex10

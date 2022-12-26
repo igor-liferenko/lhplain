@@ -4,9 +4,7 @@
 # If you need to copy/paste from pdf document, run the following command on the copied text and copy it again:
 #   sed y/‘’−/\`\'-/
 
-# Here are generated only fonts that are listed in dvips/cyrfonts.map (except cmccsc8 and cmccsc9)
-# TODO: use t1disasm/t1asm (try to compile them from source) to merge these fonts with amsfonts instead of mftrace; you will also need to generate new glyph in fonts listed under 'textit2' and 'textit0' below by adding double-dot accent to letter e (see for example t1accent program)
-# Also omtex8,9,10 fonts are generated, because they can be obtained by merging cmtex*.pfb with corresponding cmctt*.pfb
+# TODO: add missing fonts here and to omfonts.map
 
 rm -r pfb
 mkdir pfb

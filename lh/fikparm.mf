@@ -149,41 +149,7 @@ fi
 % -- set flags for ligature and kerning stuff
 boolean TITLEfont,SmallCapsfont,ROMANfont;
 
-% there must stay jobname because data is read from started font header
-% to check whether is the "standard LH" font;
-if substring(fonteq-2,fonteq) of jobname = "lh":
-       % lh* fonts have not any additional parameters
-       enc_name:="LCY";
-   elseif substring(fonteq-2,fonteq) of jobname = "ll":
-       param_base:="lh" & (substring(fonteq,length(jobname)) of jobname);
-       vfcoding:=true;
-       enc_name:="LCY";
-   elseif substring(fonteq-2,fonteq) of jobname = "wn":
-       more_letters:=true; wncoding:=true;
-       enc_name:="WNCYR";
-   elseif substring(fonteq-2,fonteq) of jobname = "la":
-       roman_ec:=true; more_letters:=true;
-       genmode:="ex"; enc_name:="T2A";
-   elseif substring(fonteq-2,fonteq) of jobname = "lb":
-       roman_ec:=true; more_letters:=true;
-       genmode:="ex"; enc_name:="T2B";
-   elseif substring(fonteq-2,fonteq) of jobname = "lc":
-       roman_ec:=true; more_letters:=true;
-       genmode:="ex"; enc_name:="T2C";
-   elseif substring(fonteq-2,fonteq) of jobname = "ld":
-       roman_ec:=true; more_letters:=true; old_cyr:=true;
-       genmode:="ex"; enc_name:="T2D";
-   elseif substring(fonteq-2,fonteq) of jobname = "rx":
-       more_letters:=true;
-       genmode:="ex"; enc_name:="X2";
-%   elseif substring(fonteq-2,fonteq) of jobname = "rs":
-%       more_letters:=true; old_cyr:=true;
-%       genmode:="ex"; enc_name:="XS";
-   else: % for another non-standard fonts
-       enc_name:="Unknown"; % should be changed in fontbegin file
-       scantokens("input "
-       & substring(fonteq-2,fonteq) of jobname & "begin.mf");
-fi
+enc_name:="LCY";
 
 % -- must go after redefined booleans wncoding and vfcoding in ??begin.mf
 boolean altcoding;
@@ -272,7 +238,7 @@ vardef use_driver @# (expr fonteq) =
  font_identifier:=substring(0,length(param_base)-ii) of param_base;
 %
 % - input encoding file
- scantokens ("input "& (substring(fonteq-2,fonteq) of param_base) & "codes");
+ scantokens ("input lhcodes");
 % - input Cyrillic definitions file
  scantokens "input lcyrdefs";
 %

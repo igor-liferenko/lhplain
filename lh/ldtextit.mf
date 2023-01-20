@@ -168,7 +168,7 @@ else:
       % and for |"-"|, |"`"|, and |"'"| in the {\tt comlig} file
       input llvligtb; % input ligs for quotes
    fi
-   scantokens("input "&(substring(fonteq-2,fonteq) of param_base)&"liker"); % Cyrillic ligs & kerns
+   scantokens("input lhliker"); % Cyrillic ligs & kerns
 fi
 
 bye.

@@ -186,7 +186,7 @@ else: font_normal_space 6u#+2letter_fit#;
       % and for |"-"|, |"`"|, and |"'"| in the {\tt comlig} file
       input llvligtb;   % input ligs & kerns for quotes
    fi
-   scantokens("input "&(substring(fonteq-2,fonteq) of param_base)&"liker"); % Cyrillic ligs & kerns
+   scantokens("input lhliker"); % Cyrillic ligs & kerns
 fi
 
 bye.

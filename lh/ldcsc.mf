@@ -67,7 +67,7 @@ upper.u#:=u#; %save for Cyrillic kerning table
 if monospace: font_normal_space 9u#; % no stretching or shrinking
    font_quad 18u#;
    font_extra_space 9u#;
-   if altcoding: input llmligtb; fi % input ligs for quotes
+%  if altcoding: input llmligtb; fi % input ligs for quotes
    if wncoding:  input lwnligs;  fi % input ligs for Cyrillic in WNCYR
 else: font_normal_space 6u#+2letter_fit#;
    font_normal_stretch 3u#; font_normal_shrink 2u#;
@@ -131,7 +131,7 @@ else: font_normal_space 6u#+2letter_fit#;
       ligtable "I": "I" kern -k#; %fi % Richard III
       %
       %% ligature programs for |"-"|, |"`"|, and |"'"| are in the {\tt comlig} file
-      input llvligtb;    % input ligs for quotes
+%     input llvligtb;    % input ligs for quotes
    fi
    % uppercase Cyrillic ligs & kerns moved down
 fi

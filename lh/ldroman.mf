@@ -87,7 +87,7 @@ font_slant slant; font_x_height x_height#;
 if monospace: font_normal_space 9u#; % no stretching or shrinking
    font_quad 18u#;
    font_extra_space 9u#;
-   if altcoding: input llmligtb; fi % input ligs for quotes
+%  if altcoding: input llmligtb; fi % input ligs for quotes
    if wncoding : input lwnligs;  fi % input ligs for Cyrillic letters in WNCYR
 else: font_normal_space 6u#+2letter_fit#;
    font_normal_stretch 3u#; font_normal_shrink 2u#;
@@ -184,7 +184,7 @@ else: font_normal_space 6u#+2letter_fit#;
       %
       % there are ligature/kern programs for |"f"| in the {\tt romlig} file
       % and for |"-"|, |"`"|, and |"'"| in the {\tt comlig} file
-      input llvligtb;   % input ligs & kerns for quotes
+%     input llvligtb;   % input ligs & kerns for quotes
    fi
 %  scantokens("input lhliker"); % Cyrillic ligs & kerns
 fi

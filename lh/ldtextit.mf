@@ -95,7 +95,7 @@ fi
 
 
 if monospace:
-   if altcoding: input llmligtb; fi % input ligs for quotes
+%  if altcoding: input llmligtb; fi % input ligs for quotes
    if wncoding : input lwnligs;  fi % input ligs for Cyrillic in WNCYR
 else:
    k#:=-.5u#; kk#:=-1.5u#; kkk#:=-2u#; % three degrees of kerning
@@ -166,7 +166,7 @@ else:
       %
       % there are ligature/kern programs for |"f"| in the {\tt italig} file
       % and for |"-"|, |"`"|, and |"'"| in the {\tt comlig} file
-      input llvligtb; % input ligs for quotes
+%     input llvligtb; % input ligs for quotes
    fi
 %  scantokens("input lhliker"); % Cyrillic ligs & kerns
 fi

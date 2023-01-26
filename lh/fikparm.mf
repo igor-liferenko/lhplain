@@ -224,7 +224,6 @@ vardef use_driver @# (expr fonteq) =
                   & (substring(fonteq,length(param_base)) of param_base);
    fi
  fi
- show gensize,ss;
 %
 % - set font_identifier
  numeric true_pt#; true_pt#=pt#;

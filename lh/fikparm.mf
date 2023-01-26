@@ -17,8 +17,6 @@
 %
 % File with modified macros for font startup from polish fik_mik.mf
 %   (Bogus\l{}aw Jackowski and Marek Ry\'cko)
-% and
-% start of Lig & kerns block from lkligtbl.mf (Alexander Berdnikov)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -33,7 +31,6 @@
 % Input fontbegin file (if necessary)
 % Defining boolean altcoding
 % Input cmbase and lcyrbeg (file with macros for ec param file)
-% input lkligtbl.mf (ligs & kerns block of A.Berdnikov)
 % Redefining `generate' macro
 % Use_driver macro:
 %  input parameter file
@@ -164,9 +161,6 @@ input lcyrbeg;
 
 % -- if TFMonly: "kill" cmbase's drawing macros
 if known TFMonly: input nodraw; fi %  Only build TFM
-
-% -- start macros for ligatures and kerning
-input lkligtbl;
 
 string driver_name,ss; numeric ii;
 

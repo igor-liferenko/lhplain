@@ -48,7 +48,7 @@ fi
 input lgcyri;     % Cyrillic lower case (minuscules)
 
 if wncoding: %Part used in WNCYR
-   input lgilig;    % italic dotless i,j
+   input glarch;
 fi
 
 font_slant slant; font_x_height x_height#;
@@ -80,23 +80,23 @@ if not vfcoding: % ligs for both altcoding and wncoding (dashes & quotes)
    if ligs>0: input comlig; fi % ligatures common with roman text
 fi
 
+ligtable "!": "`" =: spanish_shriek;
+ligtable "?": "`" =: spanish_query;
+
 input lgcyru;    % input common shapes
 input lgcyrsym;    % <<, >>, No
-input lgcyracc;    % Cyrillic accents
 if old_cyr:
-   input lgocyrac; % Cyrillic Old Slav accents & signs
+   input glarch;
 fi
 
 if wncoding: %Part used in WNCYR
-   input itald;    % numerals
-   input lgpunct;  % excerpts from punct.mf
-   input lgitalp;  % italic question mark
+   input glarch;
 fi
 
 
 if monospace:
 %  if altcoding: input llmligtb; fi % input ligs for quotes
-   if wncoding : input lwnligs;  fi % input ligs for Cyrillic in WNCYR
+   if wncoding : input glarch;  fi % input ligs for Cyrillic in WNCYR
 else:
    k#:=-.5u#; kk#:=-1.5u#; kkk#:=-2u#; % three degrees of kerning
    %
@@ -167,6 +167,7 @@ else:
       % there are ligature/kern programs for |"f"| in the {\tt italig} file
       % and for |"-"|, |"`"|, and |"'"| in the {\tt comlig} file
 %     input llvligtb; % input ligs for quotes
+      ligtable CYR_.frqq: "." kern kk#, "." kern kk#;
    fi
 %  scantokens("input lhliker"); % Cyrillic ligs & kerns
 fi

@@ -48,7 +48,7 @@ pseudo_setup;    % |pseudo_setup| from ec
 
 if altcoding:
    if slitex:
-      input sromanu;   % upper case (majuscules) with SliTeX I
+      input glarch;
    else:
       input romanu;   % upper case (majuscules)
    fi
@@ -68,19 +68,18 @@ if not vfcoding: % ligs for both altcoding and wncoding (dashes & quotes)
    if ligs>0: input comlig; fi  % ligatures common with italic text
 fi
 
+ligtable "!": "`" =: spanish_shriek;
+ligtable "?": "`" =: spanish_query;
+
 input lgcyru;    % Cyrillic upper case (majuscules)
 input lgcyrl;    % Cyrillic lower case (minuscules)
 input lgcyrsym;    % << >> ,, No
-input lgcyracc;    % Cyrillic accents
 if old_cyr:
-   input lgocyrac; % Cyrillic Old Slav accents & signs
+   input glarch;
 fi
 
 if wncoding: %Part used in WNCYR
-   input romand;   % numerals
-   input lgpunct;  % excerpts from punct.mf
-   input lgromp;   % roman question mark
-   input lgrlig;   % roman dotless i,j
+   input glarch;
 fi
 
 font_slant slant; font_x_height x_height#;
@@ -88,7 +87,7 @@ if monospace: font_normal_space 9u#; % no stretching or shrinking
    font_quad 18u#;
    font_extra_space 9u#;
 %  if altcoding: input llmligtb; fi % input ligs for quotes
-   if wncoding : input lwnligs;  fi % input ligs for Cyrillic letters in WNCYR
+   if wncoding : input glarch;  fi % input ligs for Cyrillic letters in WNCYR
 else: font_normal_space 6u#+2letter_fit#;
    font_normal_stretch 3u#; font_normal_shrink 2u#;
    font_quad 18u#+4letter_fit#;
@@ -185,6 +184,7 @@ else: font_normal_space 6u#+2letter_fit#;
       % there are ligature/kern programs for |"f"| in the {\tt romlig} file
       % and for |"-"|, |"`"|, and |"'"| in the {\tt comlig} file
 %     input llvligtb;   % input ligs & kerns for quotes
+      ligtable CYR_.frqq: "." kern kk#, "." kern kk#;
    fi
 %  scantokens("input lhliker"); % Cyrillic ligs & kerns
 fi

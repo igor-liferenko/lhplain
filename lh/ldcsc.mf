@@ -47,17 +47,17 @@ if not vfcoding:  % ligs for both altcoding and wncoding (dashes & quotes)
    if ligs>0: input comlig; fi  % ligatures common with italic
 fi
 
+ligtable "!": "`" =: spanish_shriek;
+ligtable "?": "`" =: spanish_query;
+
 input lgcyru;     % input uppercase shapes
 input lgcyrsym;     % <<, >>, No
-input lgcyracc;     % Cyrillic accents
 if old_cyr:
-   input lgocyrac; % Cyrillic Old Slav accents & signs
+   input glarch;
 fi
 
 if wncoding: %Part used in WNCYR
-   input romand;    % numerals
-   input lgpunct;   % excerpts from punct.mf
-   input lgromp;    % roman question mark
+   input glarch;
 fi
 
 font_slant slant; font_x_height x_height#;
@@ -132,6 +132,7 @@ else: font_normal_space 6u#+2letter_fit#;
       %
       %% ligature programs for |"-"|, |"`"|, and |"'"| are in the {\tt comlig} file
 %     input llvligtb;    % input ligs for quotes
+      ligtable CYR_.frqq: "." kern kk#, "." kern kk#;
    fi
    % uppercase Cyrillic ligs & kerns moved down
 fi
@@ -145,6 +146,7 @@ forsuffixes $= u, width_adj, cap_serif_fit, letter_fit,
 fudge:=lower.fudge;
 
 if is_small_cap:
+   input glarch;
    cap_sbeak#   := 7/8 if serifs: max(beak#,desc_depth#) else: desc_depth# fi;
    define_pixels(cap_sbeak);
 fi
@@ -166,7 +168,7 @@ is_small_cap:=true;
 input lgcyru;  % Cyrillic majuscules (in lowercase positions)
 
 if wncoding: %Part used in WNCYR
-   input lgcspl;    % FF ligs
+   input glarch;
 fi
 
 if not monospace:

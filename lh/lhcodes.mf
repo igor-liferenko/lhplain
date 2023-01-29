@@ -1,35 +1,3 @@
-% 0. in setter.tex set to false slitex concrete and cmbright
-% 1. in enc-t2.tex put * to the first column of letters that we want to get rid of
-% 2. sed -i 's/if serifs/If serifs/' likerdat.tex
-%    in likerdat.tex manually change else->eLse fi->fI for serifs
-% 3. run "tex 01cm-lh"
-% 4. to verify, diff this lhcodes.mf with generated lhcodes.mf - must be the same
-% 5.
-% sed -i 's/if not \(\w\+\):/\n#ifndef \1\n/' lhliker.mf
-% sed -i 's/elseif \(\w\+\):/\n#elif \1\n/' lhliker.mf
-% sed -i 's/if \(\w\+\):/\n#ifdef \1\n/' lhliker.mf
-% sed -i 's/else:/\n#else\n/' lhliker.mf
-% sed -i 's/\bfi\b/\n#endif\n/' lhliker.mf
-% sed -i 's/\bIf\b/if/' lhliker.mf
-% sed -i 's/eLse:/else:/' lhliker.mf
-% sed -i 's/\bfI\b/fi/' lhliker.mf
-% sed -i '/endinput/s%\\%%g/' lhliker.mf
-
-% 6. split lhliker.mf using cpp to 3 files based on the following combinations:
-% gcc -E - < lhliker.mf | grep -v ^# >ldtextit.ligtable
-% gcc -DSmallCapsfont -E - < lhliker.mf | grep -v ^# >ldcsc.ligtable
-% gcc -DROMANfont -E - < lhliker.mf | grep -v ^# >ldroman_ldtexset.ligtable
-
-% do not forget last beginligtable/endligtable block in llvligtb.mf
-
-% -Daltcoding = ?
-% -Dkapitel = ?
-
-% ligtable for csc10 small = ? (see comment in beginning of likerdat.tex)
-% create it myself using algorithm described in mycsc.mf!
-
-% 7. process *.ligtable with perl, change CYR_.x to CYR_x and put to drivers in om/ - must compile (revert symlinks)
-
 CYR_.A := hex"80";
 CYR_.a := hex"a0";
 CYR_.B := hex"81";
@@ -99,3 +67,34 @@ CYR_.yo := hex"f1";
 CYR_.No := hex"fc";
 CYR_.flqq := hex"fd";
 CYR_.frqq := hex"fe";
+
+endinput
+
+0. in setter.tex set to false slitex concrete and cmbright
+1. in enc-t2.tex put * to the first column of letters that we want to get rid of
+2. sed -i 's/if serifs/If serifs/' likerdat.tex
+   in likerdat.tex manually change else->eLse fi->fI for serifs
+3. run "tex 01cm-lh"
+4. to verify, diff this lhcodes.mf with generated lhcodes.mf - must be the same
+5.
+sed -i 's/if not \(\w\+\):/\n#ifndef \1\n/' lhliker.mf
+sed -i 's/elseif \(\w\+\):/\n#elif \1\n/' lhliker.mf
+sed -i 's/if \(\w\+\):/\n#ifdef \1\n/' lhliker.mf
+sed -i 's/else:/\n#else\n/' lhliker.mf
+sed -i 's/\bfi\b/\n#endif\n/' lhliker.mf
+sed -i 's/\bIf\b/if/' lhliker.mf
+sed -i 's/eLse:/else:/' lhliker.mf
+sed -i 's/\bfI\b/fi/' lhliker.mf
+sed -i '/endinput/s%\\%%g/' lhliker.mf
+
+6. split lhliker.mf using cpp to 3 files based on the following combinations:
+gcc -Daltcoding -E - < lhliker.mf | grep -v ^# >ldtextit.ligtable
+gcc -Daltcoding -DSmallCapsfont -E - < lhliker.mf | grep -v ^# >ldcsc.ligtable
+gcc -Daltcoding -DROMANfont -E - < lhliker.mf | grep -v ^# >ldroman_ldtexset.ligtable
+
+-Dkapitel = ?
+
+ligtable for csc10 small = ? (see comment in beginning of likerdat.tex)
+create it myself using algorithm described in mycsc.mf!
+
+7. process *.ligtable with perl, change CYR_.x to CYR_x and put to drivers in om/ - must compile (revert symlinks)

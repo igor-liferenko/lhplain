@@ -45,9 +45,8 @@ fi
 input lgcyru;    % Cyrillic upper case (majuscules)
 input lgcyrl;    % Cyrillic lower case (minuscules)
 input lgcyrsym;    % << >> ,, No
-input lgcyracc;    % Cyrillic accents
 if old_cyr:
-   input lgocyrac; % Cyrillic Old Slav accents & signs
+   input glarch;
 fi
 
 font_x_height x_height#;

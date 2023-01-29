@@ -52,13 +52,6 @@ ligtable "?": "`" =: spanish_query;
 
 input lgcyru;     % input uppercase shapes
 input lgcyrsym;     % <<, >>, No
-if old_cyr:
-   input glarch;
-fi
-
-if wncoding: %Part used in WNCYR
-   input glarch;
-fi
 
 font_slant slant; font_x_height x_height#;
 
@@ -145,12 +138,6 @@ forsuffixes $= u, width_adj, cap_serif_fit, letter_fit,
    o, apex_o:  $.#:=lower.$.#; endfor
 fudge:=lower.fudge;
 
-if is_small_cap:
-   input glarch;
-   cap_sbeak#   := 7/8 if serifs: max(beak#,desc_depth#) else: desc_depth# fi;
-   define_pixels(cap_sbeak);
-fi
-
 % now try again with |lower| settings
 font_setup; pseudo_setup; % |pseudo_setup| from ec
 
@@ -166,10 +153,6 @@ fi
 
 is_small_cap:=true;
 input lgcyru;  % Cyrillic majuscules (in lowercase positions)
-
-if wncoding: %Part used in WNCYR
-   input glarch;
-fi
 
 if not monospace:
    k#:=-.5u#; kk#:=-1.5u#; kkk#:=-2u#; % three degrees of kerning

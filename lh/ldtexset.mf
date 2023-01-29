@@ -45,9 +45,6 @@ fi
 input lgcyru;    % Cyrillic upper case (majuscules)
 input lgcyrl;    % Cyrillic lower case (minuscules)
 input lgcyrsym;    % << >> ,, No
-if old_cyr:
-   input glarch;
-fi
 
 font_x_height x_height#;
 if monospace: font_normal_space 9u#; % no stretching or shrinking

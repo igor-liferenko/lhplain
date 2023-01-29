@@ -47,10 +47,6 @@ fi
 
 input lgcyri;     % Cyrillic lower case (minuscules)
 
-if wncoding: %Part used in WNCYR
-   input glarch;
-fi
-
 font_slant slant; font_x_height x_height#;
 if monospace: font_normal_space 9u#; % no stretching or shrinking
    font_quad 18u#;
@@ -85,18 +81,9 @@ ligtable "?": "`" =: spanish_query;
 
 input lgcyru;    % input common shapes
 input lgcyrsym;    % <<, >>, No
-if old_cyr:
-   input glarch;
-fi
-
-if wncoding: %Part used in WNCYR
-   input glarch;
-fi
-
 
 if monospace:
 %  if altcoding: input llmligtb; fi % input ligs for quotes
-   if wncoding : input glarch;  fi % input ligs for Cyrillic in WNCYR
 else:
    k#:=-.5u#; kk#:=-1.5u#; kkk#:=-2u#; % three degrees of kerning
    %

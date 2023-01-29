@@ -47,11 +47,7 @@ mode_setup; font_setup;
 pseudo_setup;    % |pseudo_setup| from ec
 
 if altcoding:
-   if slitex:
-      input glarch;
-   else:
-      input romanu;   % upper case (majuscules)
-   fi
+   input romanu;   % upper case (majuscules)
    input romanl;   % lower case (minuscules)
    input greeku;   % upper case Greek letters
    input romand;   % numerals
@@ -74,20 +70,12 @@ ligtable "?": "`" =: spanish_query;
 input lgcyru;    % Cyrillic upper case (majuscules)
 input lgcyrl;    % Cyrillic lower case (minuscules)
 input lgcyrsym;    % << >> ,, No
-if old_cyr:
-   input glarch;
-fi
-
-if wncoding: %Part used in WNCYR
-   input glarch;
-fi
 
 font_slant slant; font_x_height x_height#;
 if monospace: font_normal_space 9u#; % no stretching or shrinking
    font_quad 18u#;
    font_extra_space 9u#;
 %  if altcoding: input llmligtb; fi % input ligs for quotes
-   if wncoding : input glarch;  fi % input ligs for Cyrillic letters in WNCYR
 else: font_normal_space 6u#+2letter_fit#;
    font_normal_stretch 3u#; font_normal_shrink 2u#;
    font_quad 18u#+4letter_fit#;

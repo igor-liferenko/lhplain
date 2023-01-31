@@ -45,6 +45,8 @@ if altcoding:
    input italsp;  % lowercase specials (dotless \i, ligature \ae, etc.)
 fi
 
+altaccent:=true;  % for cyrillic breve
+
 input lgcyri;     % Cyrillic lower case (minuscules)
 
 font_slant slant; font_x_height x_height#;
@@ -72,9 +74,7 @@ if altcoding:
    fi
 fi
 
-if not vfcoding: % ligs for both altcoding and wncoding (dashes & quotes)
-   if ligs>0: input comlig; fi % ligatures common with roman text
-fi
+if ligs>0: input comlig; fi % ligatures common with roman text
 
 ligtable "!": "`" =: spanish_shriek;
 ligtable "?": "`" =: spanish_query;
@@ -154,7 +154,8 @@ else:
       % there are ligature/kern programs for |"f"| in the {\tt italig} file
       % and for |"-"|, |"`"|, and |"'"| in the {\tt comlig} file
 %     input llvligtb; % input ligs for quotes
-      ligtable CYR_.frqq: "." kern kk#, "." kern kk#;
+      k#:=-.5u#; ku#:=-1u#; kk#:=-1.5u#; kkk#:=-2u#; % four degrees of kerning
+      ligtable CYR_.frqq: "." kern kk#, "," kern kk#;
    fi
 %  scantokens("input lhliker"); % Cyrillic ligs & kerns
 fi

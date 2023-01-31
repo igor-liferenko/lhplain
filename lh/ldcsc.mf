@@ -43,9 +43,7 @@ if altcoding:
  input romsub;     % substitutes for ligatures
 fi
 
-if not vfcoding:  % ligs for both altcoding and wncoding (dashes & quotes)
-   if ligs>0: input comlig; fi  % ligatures common with italic
-fi
+if ligs>0: input comlig; fi  % ligatures common with italic
 
 ligtable "!": "`" =: spanish_shriek;
 ligtable "?": "`" =: spanish_query;
@@ -61,7 +59,6 @@ if monospace: font_normal_space 9u#; % no stretching or shrinking
    font_quad 18u#;
    font_extra_space 9u#;
 %  if altcoding: input llmligtb; fi % input ligs for quotes
-   if wncoding:  input lwnligs;  fi % input ligs for Cyrillic in WNCYR
 else: font_normal_space 6u#+2letter_fit#;
    font_normal_stretch 3u#; font_normal_shrink 2u#;
    font_quad 18u#+4letter_fit#;
@@ -125,7 +122,8 @@ else: font_normal_space 6u#+2letter_fit#;
       %
       %% ligature programs for |"-"|, |"`"|, and |"'"| are in the {\tt comlig} file
 %     input llvligtb;    % input ligs for quotes
-      ligtable CYR_.frqq: "." kern kk#, "." kern kk#;
+      k#:=-.5u#; ku#:=-1u#; kk#:=-1.5u#; kkk#:=-2u#; % four degrees of kerning
+      ligtable CYR_.frqq: "." kern kk#, "," kern kk#;
    fi
    % uppercase Cyrillic ligs & kerns moved down
 fi
@@ -152,6 +150,13 @@ if altcoding:
 fi
 
 is_small_cap:=true;
+
+%%% fine higher
+% the `higher' values are used while putting accents
+forsuffixes $=u,o,letter_fit,x_height,bar_height,body_height,stem:
+   higher.$.#:=$.#; higher.$:=$;
+endfor
+
 input lgcyru;  % Cyrillic majuscules (in lowercase positions)
 
 if not monospace:

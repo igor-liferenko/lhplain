@@ -116,10 +116,6 @@ string enc_name;
 % next booleans are used in ??begin files:
 
 % -- set booleans for font stuff
-boolean wncoding,vfcoding,roman_ec;
-wncoding:=false;
-vfcoding:=false;
-roman_ec:=false;
 
 % -- set flags for Cyrillic letter assortment
 boolean more_letters,old_cyr,other_cyr,unic;
@@ -150,7 +146,7 @@ enc_name:="LCY";
 
 % -- must go after redefined booleans wncoding and vfcoding in ??begin.mf
 boolean altcoding;
-  altcoding:= if wncoding or vfcoding: false else: true fi;
+  altcoding := true;
 
 % -- start base file: 
 %    exbase won't loaded for run in small memory systems

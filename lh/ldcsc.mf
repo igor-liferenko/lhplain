@@ -157,7 +157,9 @@ forsuffixes $=u,o,letter_fit,x_height,bar_height,body_height,stem:
    higher.$.#:=$.#; higher.$:=$;
 endfor
 
+code_offset:=CYR_.a - CYR_.A;
 input lgcyru;  % Cyrillic majuscules (in lowercase positions)
+code_offset:=0;
 
 if not monospace:
    k#:=-.5u#; kk#:=-1.5u#; kkk#:=-2u#; % three degrees of kerning

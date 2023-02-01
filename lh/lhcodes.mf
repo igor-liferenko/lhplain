@@ -1,81 +1,83 @@
-CYR_.A := hex"80";
-CYR_.a := hex"a0";
-CYR_.B := hex"81";
-CYR_.b := hex"a1";
-CYR_.V := hex"82";
-CYR_.v := hex"a2";
-CYR_.G := hex"83";
-CYR_.g := hex"a3";
-CYR_.D := hex"84";
-CYR_.d := hex"a4";
-CYR_.E := hex"85";
-CYR_.e := hex"a5";
-CYR_.ZH := hex"86";
-CYR_.zh := hex"a6";
-CYR_.Z := hex"87";
-CYR_.z := hex"a7";
-CYR_.I := hex"88";
-CYR_.i := hex"a8";
-CYR_.I_shrt := hex"89";
-CYR_.i_shrt := hex"a9";
-CYR_.K := hex"8a";
-CYR_.k := hex"aa";
-CYR_.L := hex"8b";
-CYR_.l := hex"ab";
-CYR_.M := hex"8c";
-CYR_.m := hex"ac";
-CYR_.N := hex"8d";
-CYR_.n := hex"ad";
-CYR_.O := hex"8e";
-CYR_.o := hex"ae";
-CYR_.P := hex"8f";
-CYR_.p := hex"af";
-CYR_.R := hex"90";
-CYR_.r := hex"e0";
-CYR_.S := hex"91";
-CYR_.s := hex"e1";
-CYR_.T := hex"92";
-CYR_.t := hex"e2";
-CYR_.U := hex"93";
-CYR_.u := hex"e3";
-CYR_.F := hex"94";
-CYR_.f := hex"e4";
-CYR_.H := hex"95";
-CYR_.h := hex"e5";
-CYR_.C := hex"96";
-CYR_.c := hex"e6";
-CYR_.CH := hex"97";
-CYR_.ch := hex"e7";
-CYR_.SH := hex"98";
-CYR_.sh := hex"e8";
-CYR_.SHCH := hex"99";
-CYR_.shch := hex"e9";
-CYR_.HRDSN := hex"9a";
-CYR_.hrdsn := hex"ea";
-CYR_.ERY := hex"9b";
-CYR_.ery := hex"eb";
-CYR_.SFTSN := hex"9c";
-CYR_.sftsn := hex"ec";
-CYR_.EREV := hex"9d";
-CYR_.erev := hex"ed";
-CYR_.YU := hex"9e";
-CYR_.yu := hex"ee";
-CYR_.YA := hex"9f";
-CYR_.ya := hex"ef";
-CYR_.YO := hex"f0";
-CYR_.yo := hex"f1";
-CYR_.No := hex"fc";
-CYR_.flqq := hex"fd";
-CYR_.frqq := hex"fe";
+CYR_.A := 128;
+CYR_.B := 129;
+CYR_.V := 130;
+CYR_.G := 131;
+CYR_.D := 132;
+CYR_.E := 133;
+CYR_.YO := 134;
+CYR_.ZH := 135;
+CYR_.Z := 136;
+CYR_.I := 137;
+CYR_.I_shrt := 138;
+CYR_.K := 139;
+CYR_.L := 140;
+CYR_.M := 141;
+CYR_.N := 142;
+CYR_.O := 143;
+CYR_.P := 144;
+CYR_.R := 145;
+CYR_.S := 146;
+CYR_.T := 147;
+CYR_.U := 148;
+CYR_.F := 149;
+CYR_.H := 150;
+CYR_.C := 151;
+CYR_.CH := 152;
+CYR_.SH := 153;
+CYR_.SHCH := 154;
+CYR_.HRDSN := 155;
+CYR_.ERY := 156;
+CYR_.SFTSN := 157;
+CYR_.EREV := 158;
+CYR_.YU := 159;
+CYR_.YA := 160;
+
+CYR_.flqq := 190;
+CYR_.frqq := 191;
+
+CYR_.a := 192;
+CYR_.b := 193;
+CYR_.v := 194;
+CYR_.g := 195;
+CYR_.d := 196;
+CYR_.e := 197;
+CYR_.yo := 198;
+CYR_.zh := 199;
+CYR_.z := 200;
+CYR_.i := 201;
+CYR_.i_shrt := 202;
+CYR_.k := 203;
+CYR_.l := 204;
+CYR_.m := 205;
+CYR_.n := 206;
+CYR_.o := 207;
+CYR_.p := 208;
+CYR_.r := 209;
+CYR_.s := 210;
+CYR_.t := 211;
+CYR_.u := 212;
+CYR_.f := 213;
+CYR_.h := 214;
+CYR_.c := 215;
+CYR_.ch := 216;
+CYR_.sh := 217;
+CYR_.shch := 218;
+CYR_.hrdsn := 219;
+CYR_.ery := 220;
+CYR_.sftsn := 221;
+CYR_.erev := 222;
+CYR_.yu := 223;
+CYR_.ya := 224;
+
+CYR_.No := 254;
 
 endinput
 
-0. in setter.tex set to false slitex concrete and cmbright
-1. in enc-t2.tex put * to the first column of letters that we want to get rid of
-2. sed -i 's/if serifs/If serifs/' likerdat.tex
+1. in setter.tex set to false slitex concrete and cmbright
+2. in enc-t2.tex put * to the first column of letters that we want to get rid of
+3. sed -i 's/if serifs/If serifs/' likerdat.tex
    in likerdat.tex manually change else->eLse fi->fI for serifs
-3. run "tex 01cm-lh"
-4. to verify, diff this lhcodes.mf with generated lhcodes.mf - must be the same
+4. run "tex 01cm-lh"
 5.
 sed -i 's/if not \(\w\+\):/\n#ifndef \1\n/' lhliker.mf
 sed -i 's/elseif \(\w\+\):/\n#elif \1\n/' lhliker.mf
@@ -91,8 +93,6 @@ sed -i '/endinput/s%\\%%g/' lhliker.mf
 gcc -Daltcoding -E - < lhliker.mf | grep -v ^# >ldtextit.ligtable
 gcc -Daltcoding -DSmallCapsfont -E - < lhliker.mf | grep -v ^# >ldcsc.ligtable
 gcc -Daltcoding -DROMANfont -E - < lhliker.mf | grep -v ^# >ldroman_ldtexset.ligtable
-
--Dkapitel = ?
 
 ligtable for csc10 small = ? (see comment in beginning of likerdat.tex)
 create it myself using algorithm described in mycsc.mf!

@@ -6,22 +6,16 @@ mode_setup; font_setup;
 pseudo_setup;    % |pseudo_setup| from ec
 
 
-if ligs>1: font_coding_scheme:="TeX text/Cyr - "&enc_name;
-  if altcoding:
+if ligs>1: font_coding_scheme:="TeX text";
     spanish_shriek=oct"074"; spanish_query=oct"076";
     input italig;  % letter ligatures
-  fi
-else: font_coding_scheme:=if ligs=0: "TeX typewriter text/Cyr - "&enc_name
-  else: "TeX text without f-ligs/Cyr - "&enc_name fi;
-  if altcoding:
+else: font_coding_scheme:=if ligs=0: "TeX typewriter text"
+  else: "TeX text without f-ligs" fi;
     spanish_shriek=oct"016"; spanish_query=oct"017";
-  fi
 fi
 
-if altcoding:
    input itall;   % lower case (minuscules)
    input italsp;  % lowercase specials (dotless \i, ligature \ae, etc.)
-fi
 
 input lgcyri;     % Cyrillic lower case (minuscules)
 
@@ -37,7 +31,6 @@ else: font_normal_space 6u#+2letter_fit#;
 fi
 
 
-if altcoding:
    input romanu;   % upper case (majuscules)
    input greeku;   % upper case Greek letters
    input itald;    % numerals
@@ -48,7 +41,6 @@ if altcoding:
    if ligs<=1:
       input romsub; % substitutes for ligatures
    fi
-fi
 
 if ligs>0: input comlig; fi % ligatures common with roman text
 
@@ -68,7 +60,6 @@ else:
    %   but they are built in more visible form
    %
    TITLEfont:=false; SmallCapsfont:=false; ROMANfont:=false;
-   if altcoding:
       ligtable "d": "w": "l":
       "l" kern +u#;
       ligtable "F": "V":
@@ -132,9 +123,7 @@ else:
 %     input llvligtb; % input ligs for quotes
       k#:=-.5u#; ku#:=-1u#; kk#:=-1.5u#; kkk#:=-2u#; % four degrees of kerning
       ligtable CYR_.frqq: "." kern kk#, "," kern kk#;
-   fi
 %  scantokens("input lhliker"); % Cyrillic ligs & kerns
 fi
 
 bye.
-%end of file

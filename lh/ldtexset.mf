@@ -1,46 +1,20 @@
-%
-% ldtexset.mf
-%
-%% Cyrillic font container with T2 encoding beta-support
-%
-% This file is future part of lxfonts package
-% Version 3.5 // Patchlevel=0
-% (c) O.Lapko
-%
-% This package is freeware product under conditions similar to
-% those of D. E. Knuth specified for the Computer Modern family of fonts.
-% In particular, only the authors are entitled to modify this file
-% (and all this package as well) and to save it under the same name.
-%
-% Content:
-%
-% Special version of Computer Modern for \TeX's extended ASCII character set
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-LHver_check(3,5); % like |version_check| in ec
-
-font_coding_scheme:="TeX extended ASCII/Cyr - "&enc_name;
+font_coding_scheme:="TeX extended ASCII";
 
 input lxpseudo;
 
 mode_setup; font_setup; mono_charic#:=0;
 pseudo_setup;    % |pseudo_setup| from ec
 
-if altcoding:
    input tsetsl;  % special symbols to be slanted
-fi
 slant:=0;      % the remaining characters will not be slanted
 currenttransform:=identity yscaled aspect_ratio scaled granularity;
 
-if altcoding:
    input romanu;  % upper case (majuscules)
    input romanl;  % lower case (minuscules)
    input romand;  % numerals
    input romanp;  % ampersand, question marks, currency sign
    input punct;  % punctuation symbols common to roman and italic text
    input tset;  % remaining special symbols of extended ASCII
-fi
 
 input lgcyru;    % Cyrillic upper case (majuscules)
 input lgcyrl;    % Cyrillic lower case (minuscules)
@@ -60,7 +34,6 @@ else: font_normal_space 6u#+2letter_fit#;
    %   There are just the same ligs and kerns as in CM
    %   but they are built in more visible form
    TITLEfont:=false; SmallCapsfont:=false; ROMANfont:=true;
-   if altcoding:
       ligtable "k":
          if serifs: "v": 
                     "a" kern -u#, fi\\
@@ -142,7 +115,6 @@ else: font_normal_space 6u#+2letter_fit#;
                     "W" kern kkk#;
       ligtable "g": "j" kern -k#; % logjam
       ligtable "I": "I" kern -k#; % Richard III
-   fi
 %  scantokens("input lhliker"); % Cyrillic ligs & kerns
 fi;
 bye.

@@ -1,38 +1,12 @@
-%
-% ldcsc.mf
-%
-%% Cyrillic font container with T2 encoding beta-support
-%
-% This file is future part of lxfonts package
-% Version 3.5 // Patchlevel=0
-% (c) O.Lapko
-%
-% This package is freeware product under conditions similar to
-% those of D. E. Knuth specified for the Computer Modern family of fonts.
-% In particular, only the authors are entitled to modify this file
-% (and all this package as well) and to save it under the same name.
-%
-% Content:
-%
-% Driver file for Caps and Small Caps font
-% - modified CSC.MF in Computer Modern fonts
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-LHver_check(3,5); % like |version_check| in ec
-
-font_coding_scheme:=if ligs=0: "TeX typewriter text/Cyr - "&enc_name
- else: "TeX text without f-ligs/Cyr - "&enc_name fi;
-if altcoding:
+font_coding_scheme:=if ligs=0: "TeX typewriter text"
+ else: "TeX text without f-ligs" fi;
    spanish_shriek=oct"016"; spanish_query=oct"017";
-fi
 
 input lxpseudo;
 
 mode_setup; font_setup;
 pseudo_setup;    % |pseudo_setup| from ec
 
-if altcoding:
  input romanu;      % upper case (majuscules)
  input greeku;      % upper case greek letters
  input romand;      % numerals
@@ -41,7 +15,6 @@ if altcoding:
  input punct;       % punctuation symbols common to all roman and italic
  input accent;     % accents common to roman and italic text
  input romsub;     % substitutes for ligatures
-fi
 
 if ligs>0: input comlig; fi  % ligatures common with italic
 
@@ -70,7 +43,6 @@ else: font_normal_space 6u#+2letter_fit#;
    %   but they are built in more visible form
    %
    TITLEfont:=false; SmallCapsfont:=true; ROMANfont:=false;
-   if altcoding:
       ligtable "P": "T": "Y":
       "a" kern kk#,
       "A" kern kk#;
@@ -124,7 +96,6 @@ else: font_normal_space 6u#+2letter_fit#;
 %     input llvligtb;    % input ligs for quotes
       k#:=-.5u#; ku#:=-1u#; kk#:=-1.5u#; kkk#:=-2u#; % four degrees of kerning
       ligtable CYR_.frqq: "." kern kk#, "," kern kk#;
-   fi
    % uppercase Cyrillic ligs & kerns moved down
 fi
 
@@ -139,7 +110,6 @@ fudge:=lower.fudge;
 % now try again with |lower| settings
 font_setup; pseudo_setup; % |pseudo_setup| from ec
 
-if altcoding:
    extra_endchar:=extra_endchar&"charcode:=charcode+code_offset";
    code_offset:=ASCII"a" - ASCII"A";
    input romanu;  % majuscules (in lowercase positions)
@@ -147,7 +117,6 @@ if altcoding:
    input romspu;  % \AE, \OE, \O\ (in positions of \ae, \oe, \o)
    code_offset:=0;
    input cscspu;  % substitutes for the remaining characters of romspl
-fi
 
 is_small_cap:=true;
 
@@ -168,7 +137,6 @@ if not monospace:
    %   There are just the same ligs and kerns as in CM
    %   but they are built in more visible form
    %
-   if altcoding:
       ligtable "p": "t": "y":
       "a" kern kk#;
       ligtable "f": "v": "w":
@@ -196,7 +164,6 @@ if not monospace:
       "v" kern kkk#,
       "w" kern kkk#;
       ligtable "i": "i" kern -k#;  % skiing
-   fi
    %
    u#:=upper.u#;     % restored start u parameter
    k#:=-.5u#; kk#:=-1.5u#; kkk#:=-2u#; % repeat three degrees of kerning
@@ -204,4 +171,3 @@ if not monospace:
 fi
 
 bye.
-%end of file

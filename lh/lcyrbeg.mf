@@ -1,78 +1,5 @@
-%
-% lcyrbeg.mf
-%
-%% Cyrillic font container with T2 encoding beta-support
-%
-% This file is future part of lxfonts package
-% Version 3.5 // Patchlevel=0
-% (c) O.Lapko
-%
-% This package is freeware product under conditions similar to
-% those of D. E. Knuth specified for the Computer Modern family of fonts.
-% In particular, only the authors are entitled to modify this file
-% (and all this package as well) and to save it under the same name.
-%
-% Content:
-%
-% File with macros which emulate exbase.mf from ec fonts (J"org Knappen)
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Contents:
-%
-%  *) font booleans (mostly for ec); slitex used in SliTeX cm fonts
-%  *) macros for processing chars twice: for some accents
-%  *) routines to generate the parameter sets by extrapolation
-%  ** macros for accenting moved in file lcyrdefs.mf
-%
-
-LHver_check(3,5); % like |version_check| in ec
-
-if unknown slitex:
-   boolean slitex; slitex := false; fi % |true| simulates behaviour of |sroman|
-if unknown one_serif:
-   boolean one_serif; one_serif:=true; fi % |false| suppresses base serif on `1'
-if unknown classic_serif:
-   boolean classic_serif;  classic_serif := false; fi
-if unknown suppress_i_dot:
-   boolean suppress_i_dot; suppress_i_dot :=false; fi
-if unknown hach_sharp:
-   boolean hach_sharp; hach_sharp:=false; fi
-if unknown classic_sharp_s: boolean classic_sharp_s;
-   if ebbase=1:
-      classic_sharp_s:=true; % Chooses shape of sharp s (CMBRIGHT)
-   else:
-      classic_sharp_s:=false; % Chooses shape of sharp s
-   fi
-fi % Chooses shape of sharp s
-if unknown true_mono:
-   boolean true_mono; true_mono:=false; % |true| forces ligatures to monowidth
-fi
-if unknown knuthian_ae:
-   boolean knuthian_ae; knuthian_ae:=false; fi % |true| reproduces cm italic \ae
-if unknown fancy_thorn:
-   boolean fancy_thorn; fancy_thorn:=false; fi % |true| produces \th with fancier bulb
 if unknown is_small_cap:
    boolean is_small_cap; is_small_cap:=false; fi
-tracingstats:=1; % Print statistics at the end of run
-
-
-%
-%
-%
-% some extra font parameters
-%
-def font_cap_height expr x = fontdimen 8: x enddef;
-def font_asc_height expr x = fontdimen 9: x enddef;
-def font_acc_cap_height expr x = fontdimen 10: x enddef;
-def font_desc_depth expr x = fontdimen 11: x enddef;
-def font_max_height expr x = fontdimen 12: x enddef;
-def font_max_depth  expr x = fontdimen 13: x enddef;
-def font_digit_width expr x = fontdimen 14: x enddef;
-def font_cap_stem expr x = fontdimen 15: x enddef;
-def font_baselineskip  expr x = fontdimen 16: x enddef;
-
-
 
 %
 %      XXXXXXX       The following routines generate the parameter
@@ -183,15 +110,3 @@ vardef basedef(text t)=
  if basevalue: def gendef=simple_gendef enddef; else:
                def gendef=extended_gendef enddef; fi
 enddef;
-
-def clear_extra_memory= % Release ressources hold by the extrapolation routine
- numeric index; numeric ergbnis; numeric location; numeric term;
- numeric numpoints; numeric spx; numeric spy;
- numeric basedata[]; numeric interval[]; numeric alpha[];
- numeric spl[]; numeric spmu[]; numeric spz[];
- numeric ydata[]; numeric spline[][];
- numeric hilf []; string s[];
-enddef;
-
-endinput;
-%end of file

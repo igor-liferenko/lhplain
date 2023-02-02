@@ -1,3 +1,5 @@
+input fikparm;
+
 CYR_.A := 128;
 CYR_.B := 129;
 CYR_.V := 130;
@@ -71,6 +73,8 @@ CYR_.ya := 224;
 
 CYR_.No := 254;
 
+input lcyrdefs;
+
 endinput
 
 1. in setter.tex set to false slitex concrete and cmbright
@@ -94,7 +98,8 @@ gcc -Daltcoding -E - < lhliker.mf | grep -v ^# >ldtextit.ligtable
 gcc -Daltcoding -DSmallCapsfont -E - < lhliker.mf | grep -v ^# >ldcsc.ligtable
 gcc -Daltcoding -DROMANfont -E - < lhliker.mf | grep -v ^# >ldroman_ldtexset.ligtable
 
-ligtable for csc10 small = ? (see comment in beginning of likerdat.tex)
+ligtable for csc10 small = ? (see comment in beginning of likerdat.tex and
+'uppercase Cyrillic ligs & kerns moved down' in ldcsc.mf)
 create it myself using algorithm described in mycsc.mf!
 
 7. process *.ligtable with perl, change CYR_.x to CYR_x and put to drivers in om/ - must compile (revert symlinks)

@@ -1,27 +1,5 @@
-%
-% lgrusu.mf
-%
-%% Cyrillic font container with T2 encoding beta-support
-%
-% This file is future part of lxfonts package
-% Version 3.5 // Patchlevel=1
-% (c) O.Lapko
-%
-% This package is freeware product under conditions similar to
-% those of D. E. Knuth specified for the Computer Modern family of fonts.
-% In particular, only the authors are entitled to modify this file
-% (and all this package as well) and to save it under the same name.
-%
-% Content:
-%
-% Uppercase Russian letters from a to ya and yo
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-LHver_check(3,5); % like |version_check| in ec
-
 lhchar "Uppercase Russian letter A";
-cyrchar(A,13u#,cap_height#,0);
+beginchar(CYR_.A,13u#,cap_height#,0);
 adjust_fit(cap_serif_fit#,cap_serif_fit#);
 % upper_a;
 numeric left_stem,right_stem,outer_jut,alpha; outer_jut=.8cap_jut;
@@ -55,7 +33,7 @@ if serifs:
 penlabels(0,1,2,3,4,5,6); endchar;
 
 lhchar "Uppercase Russian letter B";
-cyrchar(B,12.5u#,cap_height#,0);
+beginchar(CYR_.B,12.5u#,cap_height#,0);
 italcorr cap_height#*slant-beak_jut#-1.5u#; %Gamma
 adjust_fit(cap_serif_fit#,0);
 numeric left_stem; left_stem=cap_stem-hround 2stem_corr;
@@ -95,7 +73,7 @@ fill stroke z[_five]e..super_arc.e([_four],[_three])
 penlabels(0,1,2,3,4,5,6,7,8,9); endchar;
 
 lhchar "Uppercase Russian letter V (looks like B)";
-cyrchar(V,12.5u#,cap_height#,0); %V_width#=12.5u#
+beginchar(CYR_.V,12.5u#,cap_height#,0); %V_width#=12.5u#
 italcorr .75cap_height#*slant-u#; %P-.5u#
 adjust_fit(cap_serif_fit#,0);
 numeric left_stem,right_curve,middle_weight;
@@ -126,7 +104,7 @@ if serifs:
 penlabels(1,2,3,4,5,6,7,8,9,10,11,12); endchar;
 
 lhchar "Uppercase Russian letter G (looks like Gamma)";
-cyrchar(G,if monospace: 9u# else: 11u# fi-width_adj#, %G_width
+beginchar(CYR_.G,if monospace: 9u# else: 11u# fi-width_adj#, %G_width
  cap_height#,0);
 italcorr cap_height#*slant-beak_jut#-.25u#; %Gamma
 adjust_fit(cap_serif_fit#,0);
@@ -143,9 +121,8 @@ if serifs:
 %%%%%
 penlabels(1,2,3,4); endchar;
 
-iff not concrete:%
 lhchar "Uppercase Russian letter D";
-cyrchar(D,13.5u#,cap_height#,cap_sbeak#); % DL_width:N_width
+beginchar(CYR_.D,13.5u#,cap_height#,cap_sbeak#); % DL_width:N_width
 italcorr cap_height#*slant-cap_serif_fit#+cap_jut#-2.5u#+min(.5cap_stem#,u#);
 adjust_fit(cap_serif_fit# if not serifs:
   +\\.5(cap_stem#-u#),.5(cap_stem#-u#)+ else:,fi\\ cap_serif_fit#); %D_adj
@@ -209,7 +186,7 @@ fi
 penlabels(0',1,2,3,4,5,6,7,8,9); endchar;
 
 lhchar "Uppercase Russian letter E";
-cyrchar(E,12u#-width_adj#,cap_height#,0);
+beginchar(CYR_.E,12u#-width_adj#,cap_height#,0);
 italcorr cap_height#*slant-beak_jut#-.5u#;
 adjust_fit(cap_serif_fit#,0);
 % upper_e;
@@ -238,10 +215,8 @@ if serifs:
 %%%%%
 penlabels(0,1,2,3,4,5,6,7,8,9); endchar;
 
-iff not concrete:%
-iff not specific:%
 lhchar "Uppercase Russian letter ZH (`roman')";
-cyrchar(ZH,13.5u#,cap_height#,0); % N_width
+beginchar(CYR_.ZH,13.5u#,cap_height#,0); % N_width
 italcorr cap_height#*slant-.5u#; %K
 adjust_fit(w#-2max(2u#+.5fudged.cap_stem#,3u#)+\\ %ZHr_adj
  if monospace: 0,0 else: cap_serif_fit#,cap_serif_fit# fi); %uwlett_adj
@@ -301,7 +276,7 @@ if serifs:
 penlabels(1,2,3,4,5,6); endchar;
 
 lhchar "Uppercase Russian letter Z (looks like numeral 3)";
-cyrchar(Z,11u#,cap_height#,0);
+beginchar(CYR_.Z,11u#,cap_height#,0);
 italcorr .75cap_height#*slant-.5u#; %B
 adjust_fit(if monospace: .35u#,.25u# else: 0,0 fi);
 % upper_z;
@@ -348,7 +323,7 @@ if serifs:
 penlabels(0,1,2,3,4,5,6,7,8,9,10); endchar;
 
 lhchar "Uppercase Russian letter I (looks like backwards N)";
-cyrchar(I,13.5u#,cap_height#,0); % N_width
+beginchar(CYR_.I,13.5u#,cap_height#,0); % N_width
 italcorr cap_height#*slant-cap_serif_fit#+cap_jut#-2.5u#+min(.5cap_stem#,u#);
 adjust_fit(cap_serif_fit#,cap_serif_fit#);
 % upper_i;
@@ -396,7 +371,7 @@ if serifs: numeric inner_jut;
 penlabels(1,2,3,4,5,6); endchar;
 
 lhchar "Uppercase Russian letter I_shrt - SHORT I";
-cyrchar(I_shrt,13.5u#,cap_height#+acc_height#,0); % N_width
+beginchar(CYR_.I_shrt,13.5u#,cap_height#+acc_height#,0); % N_width
 italcorr cap_height#*slant-cap_serif_fit#+cap_jut#-2.5u#+min(.5cap_stem#,u#);
 adjust_fit(cap_serif_fit#,cap_serif_fit#); full_h:=h; h:=cap_height;
 % upper_i;
@@ -446,10 +421,8 @@ h:=cap_height+acc_height;
 cbreve(.5w,0, 7,8,9,10,11,12,13)(cyrcaph);
 penlabels(1,2,3,4,5,6, 7,8,9,10,11,12,13); endchar;
 
-iff not concrete:%
-iff not specific:%
 lhchar "Uppercase Russian letter K (`roman')";
-cyrchar(K,13.5u#,cap_height#,0); % N_width
+beginchar(CYR_.K,13.5u#,cap_height#,0); % N_width
 italcorr cap_height#*slant-.5u#;
 adjust_fit(cap_serif_fit#,cap_serif_fit#);
 % upperr_k;
@@ -493,9 +466,8 @@ if serifs:
 %%%%%
 penlabels(1,2,3,4,5,6); endchar;
 
-iff not concrete:%
 lhchar "Uppercase Russian letter L";
-cyrchar(L,13.5u#,cap_height#,0); % DL_width:N_width
+beginchar(CYR_.L,13.5u#,cap_height#,0); % DL_width:N_width
 italcorr cap_height#*slant-cap_serif_fit#+cap_jut#-2.5u#+min(.5cap_stem#,u#);
 adjust_fit(cap_serif_fit# if not serifs:+.5(cap_stem#-u#) fi, %DL_adj
  cap_serif_fit#); %
@@ -546,7 +518,7 @@ if serifs: x0=x3; y0=0;
 penlabels(0,1,2,3,3,4,5,6); endchar;
 
 lhchar "Uppercase Russian letter M";
-cyrchar(M,16u#+width_adj#,cap_height#,0);
+beginchar(CYR_.M,16u#+width_adj#,cap_height#,0);
 italcorr cap_height#*slant-cap_serif_fit#+cap_jut#-2.5u#+min(.5cap_stem#,u#);
 adjust_fit(cap_serif_fit#,cap_serif_fit#);
 % upper_m;
@@ -593,7 +565,7 @@ if serifs:
 penlabels(0,1,1',2,3,3',4,5,6,7,8); endchar;
 
 lhchar "Uppercase Russian letter N (looks like H)";
-cyrchar(N,13.5u#,cap_height#,0); %N_width#
+beginchar(CYR_.N,13.5u#,cap_height#,0); %N_width#
 italcorr cap_height#*slant-cap_serif_fit#+cap_jut#-2.5u#+min(.5cap_stem#,u#);
 adjust_fit(cap_serif_fit#,cap_serif_fit#);
 % upper_n;
@@ -619,7 +591,7 @@ if serifs:
 penlabels(1,2,3,4,5,6); endchar;
 
 lhchar "Uppercase Russian letter O";
-cyrchar(O,14u#-width_adj#,cap_height#,0);
+beginchar(CYR_.O,14u#-width_adj#,cap_height#,0);
 italcorr .7cap_height#*slant-.5u#; %O
 adjust_fit(0,0);
 % upper_o;
@@ -638,7 +610,7 @@ penstroke pulled_super_arc.e(1,2)(.5superpull)
 penlabels(1,2,3,4); endchar;
 
 lhchar "Uppercase Russian letter P (looks like PI)";
-cyrchar(P,13.5u#,cap_height#,0); % N_width
+beginchar(CYR_.P,13.5u#,cap_height#,0); % N_width
 italcorr cap_height#*slant-cap_serif_fit#+cap_jut#-2.5u#+min(.5cap_stem#,u#);
 adjust_fit(cap_serif_fit#,cap_serif_fit#);
 % upper_p;
@@ -667,7 +639,7 @@ else:
 penlabels(1,2,3,4,5,6); endchar;
 
 lhchar "Uppercase Russian letter R (looks like P)";
-cyrchar(R,12u#,cap_height#,0);
+beginchar(CYR_.R,12u#,cap_height#,0);
 italcorr .75cap_height#*slant-.5u#;
 adjust_fit(cap_serif_fit#,0);
 % upper_r;
@@ -692,7 +664,7 @@ penlabels(0,1,2,3,4,5,6,7); endchar;
 
 iff serifs:%
 lhchar "Uppercase Russian letter S (looks like C)";
-cyrchar(S,13u#,cap_height#,0);
+beginchar(CYR_.S,13u#,cap_height#,0);
 italcorr cap_height#*slant-.5u#;
 adjust_fit(0,0);
 % upper_s;
@@ -716,7 +688,7 @@ penlabels(1,1',2,3,4,5,6); endchar;
 
 iff not serifs:%
 lhchar "Uppercase Russian letter S (looks like C)";
-cyrchar(S,11.5u#,cap_height#,0);
+beginchar(CYR_.S,11.5u#,cap_height#,0);
 italcorr cap_height#*slant-.5u#;
 adjust_fit(0,0);
 % uppers_s;
@@ -732,7 +704,7 @@ filldraw stroke rterm.e(2,1,right,.9,4) & super_arc.e(2,3)
 penlabels(1,2,3,4,5); endchar;
 
 lhchar "Uppercase Russian letter T";
-cyrchar(T,13u#-width_adj#,cap_height#,0);
+beginchar(CYR_.T,13u#-width_adj#,cap_height#,0);
 italcorr cap_height#*slant-beak_jut#-.25u#;
 adjust_fit(0,0);
 % upper_t;
@@ -753,7 +725,7 @@ if serifs:
 penlabels(1,2,3,4,5); endchar;
 
 lhchar "Uppercase Russian letter U (looks like y)";
-cyrchar(U,13u#,cap_height#,0);
+beginchar(CYR_.U,13u#,cap_height#,0);
 italcorr cap_height#*slant+.25u#;
 adjust_fit(cap_serif_fit#,cap_serif_fit#);
 % upper_u;
@@ -812,7 +784,7 @@ else:
 penlabels(0,0',1,2,3,4,5,6,6',7,8,9); endchar;
 
 lhchar "Uppercase Russian letter F (looks like PHI)";
-cyrchar(F,15u#,cap_height#,0);
+beginchar(CYR_.F,15u#,cap_height#,0);
 italcorr .7cap_height#*slant-.5u#; %O
 adjust_fit(if monospace: -.5u#,-.5u# else: 0,0 fi);
 numeric shaved_stem,light_curve; shaved_stem=cap_stem-hround 2stem_corr;
@@ -838,7 +810,7 @@ if serifs:
 penlabels(1,2,3,4,5,6); endchar;
 
 lhchar "Uppercase Russian letter H (looks like X)";
-cyrchar(H,13u#,cap_height#,0);
+beginchar(CYR_.H,13u#,cap_height#,0);
 italcorr cap_height#*slant-.25u#;
 adjust_fit(cap_serif_fit#,cap_serif_fit#);
 % upper_h;
@@ -883,7 +855,7 @@ if serifs:
 penlabels(0,1,2,3,4,12,13,24,34); endchar;
 
 lhchar "Uppercase Russian letter C";
-cyrchar(C,13.5u#,cap_height#,cap_sbeak#); % N_width
+beginchar(CYR_.C,13.5u#,cap_height#,cap_sbeak#); % N_width
 italcorr cap_height#*slant-cap_serif_fit#+cap_jut#-2.5u#+min(.5cap_stem#,u#);
 adjust_fit(cap_serif_fit#,
  cap_serif_fit# if not serifs:+.5(cap_stem#-u#) fi); %DL_adj
@@ -919,7 +891,7 @@ if serifs:
 penlabels(1,2,3,4,5,6); endchar;
 
 lhchar "Uppercase Russian letter CH";
-cyrchar(CH,13.5u#,cap_height#,0); % N_width
+beginchar(CYR_.CH,13.5u#,cap_height#,0); % N_width
 italcorr cap_height#*slant-cap_serif_fit#+cap_jut#-2.5u#+min(.5cap_stem#,u#);
 adjust_fit(cap_serif_fit#,cap_serif_fit#);
 % upper_ch;
@@ -952,7 +924,7 @@ else:
 penlabels(1,2,3,4,5,6); endchar;
 
 lhchar "Uppercase Russian letter SH";
-cyrchar(SH,19.75u#+width_adj#,cap_height#,0);
+beginchar(CYR_.SH,19.75u#+width_adj#,cap_height#,0);
 italcorr cap_height#*slant-cap_serif_fit#+cap_jut#-2.5u#+min(.5cap_stem#,u#);
 adjust_fit(if monospace: 0,0 else:cap_serif_fit#,cap_serif_fit# fi); %uwlett_adj
 % upper_sh;
@@ -990,7 +962,7 @@ else:
 penlabels(1,2,3,4,5,6); endchar;
 
 lhchar "Uppercase Russian letter SHCH";
-cyrchar(SHCH,19.75u#+width_adj#,cap_height#,cap_sbeak#);
+beginchar(CYR_.SHCH,19.75u#+width_adj#,cap_height#,cap_sbeak#);
 italcorr cap_height#*slant-cap_serif_fit#+cap_jut#-2.5u#+min(.5cap_stem#,u#);
 adjust_fit(if monospace: 0 else: cap_serif_fit# fi, %uwlett_adj
  if monospace: 0 else: cap_serif_fit# if not serifs:+.5(cap_stem#-u#) fi fi); %DL_adj&uwlett_adj
@@ -1034,7 +1006,7 @@ if serifs:
 penlabels(1,2,3,4,5,6); endchar;
 
 lhchar "Uppercase Russian letter HRDSN - HARD SIGN";
-cyrchar(HRDSN,12.5u#,cap_height#,0); %V_width#=12.5u#
+beginchar(CYR_.HRDSN,12.5u#,cap_height#,0); %V_width#=12.5u#
 italcorr .52*.7cap_height#*slant-.5u#; % D*.52h
 adjust_fit(min(4.5u#-.5stem#,3.5u#)-.5width_adj#, % Beak_adj
  0);
@@ -1076,7 +1048,7 @@ fill stroke z[_five]e..super_arc.e([_four],[_three])
 penlabels(1,2,3,4,5,6,7,8,9); endchar;
 
 lhchar "Uppercase Russian letter ERY";
-cyrchar(ERY,12.5u#,cap_height#,0); %V_width#=12.5u#
+beginchar(CYR_.ERY,12.5u#,cap_height#,0); %V_width#=12.5u#
 italcorr cap_height#*slant-cap_serif_fit#+cap_jut#-2.5u#+min(.5cap_stem#,u#);
 adjust_fit(if monospace: 0,0 else:cap_serif_fit#,cap_serif_fit# fi %uwlett_adj
  +4.5u#); %ERYadj
@@ -1121,7 +1093,7 @@ if serifs:
 penlabels(1,2,3,4,5,6,7,8,9); endchar;
 
 lhchar "Uppercase Russian letter SFTSN - SOFT SIGN";
-cyrchar(SFTSN,if monospace: 9u# else: 12.5u# fi %V_width#=12.5u#
+beginchar(CYR_.SFTSN,if monospace: 9u# else: 12.5u# fi %V_width#=12.5u#
  ,cap_height#,0);
 italcorr .52*.7cap_height#*slant-.5u#; % D*.52h
 adjust_fit(cap_serif_fit#,0);
@@ -1159,7 +1131,7 @@ penlabels(1,2,3,4,5,6,7); endchar;
 
 iff serifs:%
 lhchar "Uppercase Russian letter EREV - REVERSE E";
-cyrchar(EREV,13u#,cap_height#,0);
+beginchar(CYR_.EREV,13u#,cap_height#,0);
 italcorr .7cap_height#*slant-.5u#; %O
 adjust_fit(0,0);
 % upper_erev;
@@ -1195,7 +1167,7 @@ penlabels(1,1',2,3,4,5,6,7,8,9); endchar;
 
 iff not serifs:%
 lhchar "Uppercase Russian letter EREV - REVERSE E";
-cyrchar(EREV,11.5u#,cap_height#,0);
+beginchar(CYR_.EREV,11.5u#,cap_height#,0);
 italcorr .7cap_height#*slant-.5u#; %O
 adjust_fit(0,0);
 % uppers_erev;
@@ -1220,7 +1192,7 @@ filldraw stroke z6e--z7e; % bar --
 penlabels(1,2,3,4,5,6,7,8); endchar;
 
 lhchar "Uppercase Russian letter YU (looks like IO)";
-cyrchar(YU,14u#-width_adj#,cap_height#,0);
+beginchar(CYR_.YU,14u#-width_adj#,cap_height#,0);
 italcorr .7cap_height#*slant-.5u#;
 adjust_fit(if monospace: 6.5u# else:
         max(5u#+.5cap_stem#,6u#)+cap_serif_fit# fi, %Ipart_adj
@@ -1256,10 +1228,8 @@ if serifs: dish_serif([_one],[_two],s,1/3,cap_jut,t,1/3,cap_jut);
 %%%%%
 penlabels(0,1,2,3,4,5,6,7,8); endchar;
 
-iff not concrete:%
-iff not specific:%
 lhchar "Uppercase Russian letter YA (looks like backward R) (`roman')";
-cyrchar(YA,if serifs:13.5u# else:12.5u#-.5width_adj# fi %N_width; upss R
+beginchar(CYR_.YA,if serifs:13.5u# else:12.5u#-.5width_adj# fi %N_width; upss R
  ,cap_height#,0);
 italcorr cap_height#*slant-cap_serif_fit#+cap_jut#-2.5u#+min(.5cap_stem#,u#);
 adjust_fit(if serifs:cap_serif_fit# else:0 fi,cap_serif_fit#);
@@ -1301,7 +1271,7 @@ if serifs:
 penlabels(0,1,2,3,4,5,6,7,8,9,10); endchar;
 
 lhchar "Uppercase Russian letter YO (looks like E umlaut)";
-cyrchar(YO,12u#-width_adj#,cap_height#+acc_height#,0);
+beginchar(CYR_.YO,12u#-width_adj#,cap_height#+acc_height#,0);
 italcorr cap_height#*slant-beak_jut#-.5u#;
 adjust_fit(cap_serif_fit#,0); h:=cap_height;
 % upper_e;
@@ -1332,8 +1302,3 @@ if serifs:
 h:=cap_height+acc_height;
 uppercase_umlaut(if serifs: 0 else: (.5[lft x1l,rt x4r]-.5w) fi,0, 10,11,12,13);
 penlabels(0,1,2,3,4,5,6,7,8,9, 10,11,12,13); endchar;
-
-if concrete: input lgrucu; fi % Russian concrete letters
-
-endinput;
-%end of file

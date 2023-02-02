@@ -1,56 +1,5 @@
-%
-% lgcyrsym.mf
-%
-%% Cyrillic font container with T2 encoding beta-support
-%
-% This file is future part of lxfonts package
-% Version 3.5 // Patchlevel=0
-% (c) O.Lapko
-%
-% This package is freeware product under conditions similar to
-% those of D. E. Knuth specified for the Computer Modern family of fonts.
-% In particular, only the authors are entitled to modify this file
-% (and all this package as well) and to save it under the same name.
-%
-% Content:
-%
-% Glyphs for ec and Cyrillic symbols used with floating codes
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% List of signs  X2  T2*
-%
-% palochka "0d "0d symbol Palochka
-% openq          Single German opening quote (looks like ,)
-% angle_left "0e "0e Single left angle bracket
-% lguillemet         Single left guillemet
-% angle_right "0f "0f Single right angle bracket
-% rguillemet         Single right guillemet
-%
-% dash  "16 "16 Em dash/if monospace Hyphen
-% wordmark          "17 Compound word mark
-% pmzero        "18 "18 Zero for p mille sign (ec: "17)
-%
-% dbl_quotes    "22 "22 Straight double quotes
-%
-% No  "9d "9d Cyrillic symbol `Number'
-% currency "9e "9e Cyrillic Currency sign
-% section "9f "9f Section sign
-%
-% baseqq        "bd "bd German Opening quotes   (looks like ,,)  (ec: "12)
-% flqq          "be "be Cyrillic Opening Quotes (looks like <<)  (ec: "13)
-% frqq          "bf "bf Cyrillic Closing Quotes (looks like >>)  (ec: "14)
-% grqq           -   -  German Closing quotes   (looks like ``)  
-%
-% T1/T2-outsiders:
-%
-% pound         ("bf) Sterling sign
-%
-
-LHver_check(3,5); % like |version_check| in ec
-
 lhchar "Cyrillic symbol No."; %common
-cyrchar(No,14.5u#+width_adj#,cap_height#,0);
+beginchar(CYR_.No,14.5u#+width_adj#,cap_height#,0);
 italcorr cap_height#*slant-cap_serif_fit#+cap_jut#-2.5u#+min(.5cap_stem#,u#);
 adjust_fit(if monospace: 0,0 else: cap_serif_fit#
   if serifs: +.5(flare#+(cap_stem#-stem#))-.25u#,cap_serif_fit# else:,0 fi fi);

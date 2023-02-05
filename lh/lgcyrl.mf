@@ -2,7 +2,7 @@
 % they have comments as: v_width (the witdh of russian letter v)
 % and n_width (russian letter n) at the end of `cyrchar...' line)
 
-lhchar "Lowercase Russian letter a";
+cmchar "Lowercase Russian letter a";
 beginchar(CYR_.a,9u#,x_height#,0);
 bh#:=min(bar_height#,1.14x_height#-bar_height#); define_pixels(bh);
 italcorr 1/3[bh#,x_height#]*slant+.5stem#-serif_fit#-2u#;
@@ -55,7 +55,7 @@ else:
 %%%%%
 penlabels(1,2,3,4,5,6,7,8,9,10,11,12,13); endchar;
 
-lhchar "Lowercase Russian letter b";
+cmchar "Lowercase Russian letter b";
 beginchar(CYR_.b,9u#,asc_height#,0); % v_witdh
 italcorr asc_height#*slant-serif_fit#+.5stem#-2u#; %d
 adjust_fit(if monospace: .5u#,.5u# else: 0,0 fi);
@@ -92,7 +92,7 @@ else:
  filldraw stroke z7e..z6e{z5-z6}..z5e....{down}z2'e; fi
 penlabels(1,2,2',3,4,5,6,7); endchar;
 
-lhchar "Lowercase Russian letter v (looks like B)";
+cmchar "Lowercase Russian letter v (looks like B)";
 beginchar(CYR_.v,9u#,x_height#,0); % v_witdh
 italcorr .5x_height#*slant+min(.5curve#-.85u#,-.1u#); %p
 adjust_fit(serif_fit#,if monospace:.5u# else:0 fi);
@@ -128,7 +128,7 @@ if serifs:
  nodish_serif(2,1,c,1/3,jut,d,1/3,.5jut); fi % lower serif
 penlabels(1,2,3,4,5,6,7,8,9,10,11,12); endchar;
 
-lhchar "Lowercase Russian letter g (looks like Gamma)";
+cmchar "Lowercase Russian letter g (looks like Gamma)";
 beginchar(CYR_.g,8u#-.5width_adj#,x_height#,0);
 italcorr x_height#*slant-beak_jut#+.25u#; %Gamma->x_height+.5u#
 adjust_fit(serif_fit# if monospace:+\\.5u#,.5u#+ else:,fi\\ 0);
@@ -147,7 +147,7 @@ if serifs:
 %%%%%
 penlabels(1,2,3,4); endchar;
 
-lhchar "Lowercase Russian letter d";
+cmchar "Lowercase Russian letter d";
 beginchar(CYR_.d,10u# %if not serifs:+.5width_adj# fi % dl_width;n_width
  ,x_height#,sbeak#);
 italcorr x_height#*slant-serif_fit#+jut#-2u#+.5stem#; %d->x_height+jut
@@ -213,7 +213,7 @@ fi
 %%%%%
 penlabels(0',1',1,2,3,4,5,6,7,8,9,10); endchar;
 
-lhchar "Lowercase Russian letter e";
+cmchar "Lowercase Russian letter e";
 beginchar(CYR_.e,7.25u#+max(.75u#,.5curve#),x_height#,0);
 italcorr .5[bar_height#,x_height#]*slant+.5min(curve#-1.5u#,0);
 adjust_fit(if monospace: .25u#,.5u# else: 0,0 fi);
@@ -251,7 +251,7 @@ fill stroke z0e--z1'e;  % crossbar
 %%%%%
 penlabels(0,1,2,3,4,5); endchar;
 
-lhchar "Lowercase Russian letter zh (`roman')";
+cmchar "Lowercase Russian letter zh (`roman')";
 beginchar(CYR_.zh,if serifs: 10u# else: 9.5u# fi % zhk_width: n_width;keng_width
  ,x_height#,0);
 italcorr x_height#*slant-.2u#;
@@ -321,7 +321,7 @@ if serifs:
 %%%%%
 penlabels(1,2,3,4,5,6); endchar;
 
-lhchar "Lowercase Russian letter z";
+cmchar "Lowercase Russian letter z";
 beginchar(CYR_.z,8u#,x_height#,0);
 italcorr .5x_height#*slant+min(.5curve#-.65u#,+.1u#); %p+.2u#
 adjust_fit(if monospace:.5u#,.5u# else: 0,0 fi);
@@ -378,7 +378,7 @@ if serifs:
 %%%%%
 penlabels(0,1,2,3,4,5,6,7,8,9,10); endchar;
 
-lhchar "Lowercase Russian letter i (looks like backwards N)";
+cmchar "Lowercase Russian letter i (looks like backwards N)";
 beginchar(CYR_.i,10u# if not serifs:+.5width_adj# fi,x_height#,0); % n_width
 italcorr x_height#*slant-serif_fit#+jut#-2u#+.5stem#; %d->x_height+jut
 adjust_fit(serif_fit#,serif_fit#);
@@ -430,7 +430,7 @@ if serifs:
 %%%%%
 penlabels(1,2,3,4,5,6); endchar;
 
-lhchar "Lowercase Russian letter i_shrt - short i";
+cmchar "Lowercase Russian letter i_shrt - short i";
 beginchar(CYR_.i_shrt,10u# if not serifs:+.5width_adj# fi, % n_width
   x_height#+acc_height#,0);
 italcorr x_height#*slant-serif_fit#+jut#-2u#+.5stem#; %d->x_height+jut
@@ -485,7 +485,7 @@ if serifs:
 h:=full_h; cbreve(.5w,0, 7,8,9,10,11,12,13);
 penlabels(1,2,3,4,5,6, 7,8,9,10,11,12,13); endchar;
 
-lhchar "Lowercase Russian letter k (`roman')";
+cmchar "Lowercase Russian letter k (`roman')";
 beginchar(CYR_.k,if serifs: 10u# else: 9.5u# fi % zhk_width: n_width;keng_width
  ,x_height#,0);
 italcorr x_height#*slant-.2u#;
@@ -538,7 +538,7 @@ if serifs:
 %%%%%
 penlabels(1,2,3,4,5,6); endchar;
 
-lhchar "Lowercase Russian letter l";
+cmchar "Lowercase Russian letter l";
 beginchar(CYR_.l,10u# % if not serifs:+.5width_adj# fi % dl_width;n_width
  ,x_height#,0);
 italcorr x_height#*slant-serif_fit#+jut#-2u#+.5stem#; %d->x_height+jut
@@ -587,7 +587,7 @@ if serifs:
 %%%%%
 penlabels(0,1,1',2,3,3',4,5,6);endchar;
 
-lhchar "Lowercase Russian letter m";
+cmchar "Lowercase Russian letter m";
 beginchar(CYR_.m,12u# if not serifs:+width_adj# fi,x_height#,0);
 italcorr x_height#*slant-serif_fit#+jut#-2u#+.5stem#; %d->x_height+jut
 adjust_fit(if monospace: 0,0 else: serif_fit#,serif_fit# fi); %wlett_adj
@@ -638,7 +638,7 @@ if serifs:
 %%%%%
 penlabels(0,1,1',2,3,3',4,5,6,7,8); endchar;
 
-lhchar "Lowercase Russian letter n (looks like H)";
+cmchar "Lowercase Russian letter n (looks like H)";
 beginchar(CYR_.n,10u#, % if not serifs:+.5width_adj# fi, % n_width
  x_height#,0);
 italcorr x_height#*slant-serif_fit#+jut#-2u#+.5stem#; %d->x_height+jut
@@ -665,7 +665,7 @@ if serifs:
 %%%%%
 penlabels(1,2,3,4,5,6); endchar;
 
-lhchar "Lowercase Russian letter o";
+cmchar "Lowercase Russian letter o";
 beginchar(CYR_.o,9u#,x_height#,0);
 italcorr .7x_height#*slant;
 adjust_fit(if monospace: .5u#,.5u# else: 0,0 fi); %o
@@ -679,7 +679,7 @@ penstroke pulled_arc.e(1,2) & pulled_arc.e(2,3)
 %%%%%
 penlabels(1,2,3,4); endchar;
 
-lhchar "Lowercase Russian letter p (looks like PI)";
+cmchar "Lowercase Russian letter p (looks like PI)";
 beginchar(CYR_.p,10u#, % if not serifs:+.5width_adj# fi, % n_width
  x_height#,0);
 italcorr x_height#*slant-serif_fit#+jut#-2u#+.5stem#; %d->x_height+jut
@@ -711,7 +711,7 @@ else:
 %%%%%
 penlabels(1,2,3,4); endchar;
 
-lhchar "Lowercase Russian letter r (looks like p)";
+cmchar "Lowercase Russian letter r (looks like p)";
 beginchar(CYR_.r,10u#+serif_fit#,x_height#,desc_depth#);
 italcorr .5x_height#*slant+min(.5curve#-.85u#,-.1u#); %p
 adjust_fit(serif_fit#,0);
@@ -744,7 +744,7 @@ if serifs:
 %%%%%
 penlabels(0,1,2,3,4,5,6,7,8); endchar;
 
-lhchar "Lowercase Russian letter s (looks like c)";
+cmchar "Lowercase Russian letter s (looks like c)";
 beginchar(CYR_.s,8u#,x_height#,0);
 italcorr x_height#*slant-.2u#;
 adjust_fit(if monospace: .5u#,.5u# else: 0,0 fi);
@@ -776,7 +776,7 @@ else:
 %%%%%
 penlabels(0,1,2,3,4,5); endchar;
 
-lhchar "Lowercase Russian letter t";
+cmchar "Lowercase Russian letter t";
 beginchar(CYR_.t,9u#-width_adj#,x_height#,0);
 italcorr x_height#*slant-beak_jut#+.35u#; %Gamma->x_height+.65u#
 adjust_fit(0,0); if odd(stem-w): change_width; fi % symmetric & all three equal
@@ -798,7 +798,7 @@ if serifs:
 %%%%%
 penlabels(1,2,3,4,5); endchar;
 
-lhchar "Lowercase Russian letter u (looks like y)";
+cmchar "Lowercase Russian letter u (looks like y)";
 beginchar(CYR_.u,if serifs: 9.5u# else: 9u# fi,x_height#,desc_depth#); % eng
 italcorr x_height#*slant+.25u#;
 adjust_fit(serif_fit# if monospace:+\\.5u#,.5u#+ else:,fi\\ serif_fit#);
@@ -850,7 +850,7 @@ else:
 %%%%%
 penlabels(0,1,2,3,4,5,6,7,8,9); endchar;
 
-lhchar "Lowercase Russian letter f (looks like phi)";
+cmchar "Lowercase Russian letter f (looks like phi)";
 beginchar(CYR_.f,if serifs: 9.5u# else: 9.75u# fi+serif_fit#,
   asc_height#,desc_depth#);
 italcorr .5x_height#*slant+min(.5curve#-.85u#,-.1u#);
@@ -888,7 +888,7 @@ if serifs:
  dish_serif(2,1,b,1/3,outer_jut,c,1/3,outer_jut); fi % lower serif
 penlabels(0,0',1,2,3,4,5,6,7,7',8); endchar;
 
-lhchar "Lowercase Russian letter h - kha (looks like X)";
+cmchar "Lowercase Russian letter h - kha (looks like X)";
 beginchar(CYR_.h,if serifs: 9.5u# else: 9u# fi,x_height#,0);
 italcorr x_height#*slant-.05u#;
 adjust_fit(serif_fit# if monospace:+\\.5u#,.5u#+ else:,fi\\ serif_fit#);
@@ -933,7 +933,7 @@ if serifs:
 %%%%%
 penlabels(0,1,2,3,4,12,13,24,34); endchar;
 
-lhchar "Lowercase Russian letter c - tse";
+cmchar "Lowercase Russian letter c - tse";
 beginchar(CYR_.c,10u# if not serifs:+.5width_adj# fi, % n_width
  x_height#,sbeak#);
 italcorr x_height#*slant-serif_fit#+jut#-2u#+.5stem#; %d->x_height+jut
@@ -970,7 +970,7 @@ if serifs:
  filldraw z.d0--z.d1--z.g1--z.g0--cycle; fi % lower inter_serif bar
 penlabels(1,2,3,4); endchar;
 
-lhchar "Lowercase Russian letter ch";
+cmchar "Lowercase Russian letter ch";
 beginchar(CYR_.ch,10u# if not serifs:+.5width_adj# fi,x_height#,0); % n_width
 italcorr x_height#*slant-serif_fit#+jut#-2u#+.5stem#; %d->x_height+jut
 adjust_fit(serif_fit#,serif_fit#);
@@ -1008,7 +1008,7 @@ else:
 %%%%%
 penlabels(1,2,3,4,5,6); endchar;
 
-lhchar "Lowercase Russian letter sh";
+cmchar "Lowercase Russian letter sh";
 beginchar(CYR_.sh,14.5u# if serifs:+.5width_adj# fi,x_height#,0);
 italcorr x_height#*slant-serif_fit#+jut#-2u#+.5stem#; %d->x_height+jut
 adjust_fit(if monospace: 0,0 else: serif_fit#,serif_fit# fi); %wlett_adj
@@ -1043,7 +1043,7 @@ else:
  filldraw stroke z2'e--z4'e; fi
 penlabels(1,2,3,4,5,6); endchar;
 
-lhchar "Lowercase Russian letter shch";
+cmchar "Lowercase Russian letter shch";
 beginchar(CYR_.shch,14.5u# if serifs:+.5width_adj# fi,x_height#,sbeak#);
 italcorr x_height#*slant-serif_fit#+jut#-2u#+.5stem#; %d->x_height+jut
 adjust_fit(if monospace: 0 else: serif_fit# fi, %wlett_adj
@@ -1086,7 +1086,7 @@ if serifs:
  filldraw z.d0--z.d1--z.o1--z.o0--cycle; fi % lower inter_serif bar
 penlabels(1,2,3,4,5,6); endchar;
 
-lhchar "Lowercase Russian letter hrdsn - hard sign";
+cmchar "Lowercase Russian letter hrdsn - hard sign";
 beginchar(CYR_.hrdsn,9u#,x_height#,0); % v_witdh
 italcorr .5x_height#*slant+min(.5curve#-.85u#,-.1u#); %p
 adjust_fit(2u#-.5width_adj#,if monospace:.5u# else:0 fi);
@@ -1124,7 +1124,7 @@ fill stroke
 %%%%%
 penlabels(1,2,3,4,5,6,7,8,9); endchar;
 
-lhchar "Lowercase Russian letter ery";
+cmchar "Lowercase Russian letter ery";
 beginchar(CYR_.ery,9u#,x_height#,0); % v_witdh
 italcorr x_height#*slant-serif_fit#+jut#-2u#+.5stem#; %d->x_height+jut
 adjust_fit(if monospace: 0,0 else: serif_fit#,serif_fit# fi %wlett_adj
@@ -1169,7 +1169,7 @@ if serifs:
 %%%%%
 penlabels(1,2,3,4,5,6,7,8,9); endchar;
 
-lhchar "Lowercase Russian letter sftsn - soft sign";
+cmchar "Lowercase Russian letter sftsn - soft sign";
 beginchar(CYR_.sftsn,9u#,x_height#,0);
 italcorr .5x_height#*slant+min(.5curve#-.85u#,-.1u#); %p
 adjust_fit(serif_fit# if monospace:+\\.5u#,.5u#+else:,fi\\0);
@@ -1202,7 +1202,7 @@ fill stroke
 %%%%%
 penlabels(1,2,3,4,5,6,7); endchar;
 
-lhchar "Lowercase Russian letter erev - reverse e";
+cmchar "Lowercase Russian letter erev - reverse e";
 beginchar(CYR_.erev,8u#,x_height#,0);
 italcorr .7x_height#*slant-.1u#; %o
 adjust_fit(if monospace: .5u#,.5u# else: 0,0 fi);
@@ -1252,7 +1252,7 @@ fi
 %%%%%
 penlabels(1,1',2,3,4,5,6,7,8,9); endchar;
 
-lhchar "Lowercase Russian letter yu (looks like IO)";
+cmchar "Lowercase Russian letter yu (looks like IO)";
 beginchar(CYR_.yu,9u#,x_height#,0);
 italcorr .7x_height#*slant; %o
 adjust_fit(if monospace: 4u# else: 4.5u# fi +serif_fit#, %li_part_adj
@@ -1285,7 +1285,7 @@ fi
 %%%%%
 penlabels(1,2,3,4,5,6,7,8); endchar;
 
-lhchar "Lowercase Russian letter ya (looks like backward R) (`roman')";
+cmchar "Lowercase Russian letter ya (looks like backward R) (`roman')";
 beginchar(CYR_.ya,if serifs: 9.75u# else: 10u# fi-.5width_adj#,x_height#,0); %ya (~n_width:10u)
 italcorr x_height#*slant-serif_fit#+jut#-2u#+.5stem#; %d->x_height+jut
 adjust_fit(if serifs:serif_fit# else:0 fi,serif_fit#);
@@ -1328,7 +1328,7 @@ if serifs:
 %%%%%
 penlabels(0,1,2,3,4,5,6,7,8,9); endchar;
 
-lhchar "Lowercase Russian letter yo (looks like e umlaut)";
+cmchar "Lowercase Russian letter yo (looks like e umlaut)";
 beginchar(CYR_.yo,7.25u#+max(.75u#,.5curve#),lc_trema_height#,0);
 italcorr .5[bar_height#,x_height#]*slant+.5min(curve#-1.5u#,0);
 adjust_fit(if monospace:.25u#,.5u# else:0,0 fi); full_h:=h; h:=x_height;

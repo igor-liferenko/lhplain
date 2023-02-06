@@ -1,0 +1,2 @@
+sed -i 's/"a/"d/' lhcodes.mf # Ax->Dx
+sed -i 's/f0/a1/' lhcodes.mf

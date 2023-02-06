@@ -8,9 +8,9 @@ font_coding_scheme:=if ligs=0: "TeX typewriter text"
 spanish_shriek=oct"016"; spanish_query=oct"017";
 
 mode_setup; font_setup;
-yo_setup;
+pseudo_setup;
 input lgcyrsym;
-input lgcyru;
+input lgrusu;
 input romanu;  % upper case (majuscules)
 input greeku;  % upper case greek letters
 input romand;  % numerals
@@ -24,7 +24,6 @@ if ligs>0: input comlig; fi  % ligatures common with italic
 ligtable "!": "`" =: spanish_shriek;
 ligtable "?": "`" =: spanish_query;
 font_slant slant; font_x_height x_height#;
-upper.u#:=u#; %save for Cyrillic kerning table
 if monospace: font_normal_space 9u#; % no stretching or shrinking
  font_quad 18u#;
  font_extra_space 9u#;
@@ -33,7 +32,6 @@ else: font_normal_space 6u#+2letter_fit#;
  font_quad 18u#+4letter_fit#;
  font_extra_space 2u#;
  k#:=-.5u#; kk#:=-1.5u#; kkk#:=-2u#; % three degrees of kerning
- TITLEfont:=false; SmallCapsfont:=true; ROMANfont:=false;
  ligtable "P": "T": "Y": "a" kern kk#, "A" kern kk#;
  ligtable "F": "V": "W": if serifs: "a" kern kkk#, "A" kern kkk#,
   else: "a" kern kk#, "A" kern kk#, fi
@@ -61,7 +59,7 @@ forsuffixes $= u, width_adj, cap_serif_fit, letter_fit,
  o, apex_o:  $.#:=lower.$.#; endfor
 fudge:=lower.fudge;
 font_setup; % now try again with |lower| settings
-yo_setup;
+pseudo_setup;
 is_small_cap:=true;
 %%% fine higher ('higher' values are used while putting accents)
 forsuffixes $=u,o,letter_fit,x_height,bar_height,body_height,stem:
@@ -69,7 +67,7 @@ forsuffixes $=u,o,letter_fit,x_height,bar_height,body_height,stem:
 endfor
 extra_endchar:=extra_endchar&"charcode:=charcode+code_offset;";
 code_offset:=CYR_.a - CYR_.A;
-input lgcyru;
+input lgrusu;
 code_offset:=ASCII"a" - ASCII"A";
 input romanu;  % majuscules (in lowercase positions)
 code_offset:=-3;
@@ -89,7 +87,6 @@ if not monospace:
    "g" kern k#, "u" kern k#, "q" kern k#,
   "l": "'" kern kk#, "t" kern kk#, "y" kern kk#, "v" kern kkk#, "w" kern kkk#;
  ligtable "i": "i" kern -k#; % skiing
- u#:=upper.u#;     % restored start u parameter
  k#:=-.5u#; kk#:=-1.5u#; kkk#:=-2u#; % repeat three degrees of kerning
  % lhliker
 fi

@@ -10,12 +10,12 @@ else: font_coding_scheme:=if ligs=0: "TeX typewriter text"
  spanish_shriek=oct"016"; spanish_query=oct"017"; fi
 
 mode_setup; font_setup;
-yo_setup;
+pseudo_setup;
 
 input lgcyrsym;
-input lgcyru;
+input lgrusu;
 input romanu;  % upper case (majuscules)
-input lgcyrl;
+input lgrusl;
 input romanl;  % lower case (minuscules)
 input greeku;  % upper case Greek letters
 input romand;  % numerals
@@ -39,7 +39,6 @@ else: font_normal_space 6u#+2letter_fit#;
  font_quad 18u#+4letter_fit#;
  font_extra_space 2u#;
  k#:=-.5u#; kk#:=-1.5u#; kkk#:=-2u#; % three degrees of kerning
- TITLEfont:=false; SmallCapsfont:=false; ROMANfont:=true;
  ligtable "k": if serifs: "v": "a" kern -u#, fi\\"w": "e" kern k#,
   "a" kern k#, "o" kern k#, "c" kern k#;
  ligtable "P": "A" kern kk#,

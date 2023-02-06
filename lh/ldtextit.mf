@@ -4,11 +4,11 @@
 % The Computer Modern Text Italic family (by D. E. Knuth, 1979--1985)
 
 mode_setup; font_setup;
-yo_setup;
+pseudo_setup;
 
 altaccent:=true;  % for cyrillic breve
 
-input lgcyri;
+input lgrusi;
 input itall;  % lower case (minuscules)
 input italsp;  % lowercase specials (dotless \i, ligature \ae, etc.)
 if ligs>1: font_coding_scheme:="TeX text";
@@ -29,7 +29,7 @@ else: font_normal_space 6u#+2letter_fit#;
  font_extra_space 2u#; fi
 
 input lgcyrsym;
-input lgcyru;
+input lgrusu;
 input romanu;  % upper case (majuscules)
 input greeku;  % upper case greek letters
 input itald;  % numerals
@@ -45,7 +45,6 @@ ligtable "?": "`" =: spanish_query;
 
 if not monospace:
  k#:=-.5u#; kk#:=-1.5u#; kkk#:=-2u#; % three degrees of kerning
- TITLEfont:=false; SmallCapsfont:=false; ROMANfont:=false;
  ligtable "d": "w": "l": "l" kern +u#;
  ligtable "F": "V": "o" kern kk#, "e" kern kk#,
    "u" kern kk#, "r" kern kk#, "a" kern kk#, "A" kern kkk#,

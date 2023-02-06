@@ -5,8 +5,10 @@
 
 font_coding_scheme:="TeX extended ASCII";
 
-mode_setup; font_setup; mono_charic#:=0;
-pseudo_setup;
+mode_setup;
+define_whole_blacker_pixels(udot_diam);
+define_whole_vertical_pixels(lc_trema_height);
+font_setup; mono_charic#:=0;
 
 input tsetsl;  % special symbols to be slanted
 slant:=0;  % the remaining characters will not be slanted

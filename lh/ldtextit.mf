@@ -28,6 +28,7 @@ mode_setup; font_setup;
 pseudo_setup;    % |pseudo_setup| from ec
 
 
+string enc_name; enc_name:="local";
 if ligs>1: font_coding_scheme:="TeX text/Cyr - "&enc_name;
     spanish_shriek=oct"074"; spanish_query=oct"076";
     input italig;  % letter ligatures

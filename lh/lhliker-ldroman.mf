@@ -1,0 +1,5 @@
+input lkligtbl;
+boolean altcoding,kapitel,concrete;
+altcoding:=true; kapitel:=false; concrete:=false;
+boolean TITLEfont,SmallCapsfont,ROMANfont;
+TITLEfont:=false; SmallCapsfont:=false; ROMANfont:=true;

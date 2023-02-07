@@ -44,8 +44,6 @@ input lgrusl;    % Cyrillic lower case (minuscules)
 input lgcyrsym;    % << >> ,, No
 
 font_x_height x_height#;
-ligtable "!": "`" =: spanish_shriek;
-ligtable "?": "`" =: spanish_query;
 if monospace: font_normal_space 9u#; % no stretching or shrinking
    font_quad 18u#;
    font_extra_space 9u#;

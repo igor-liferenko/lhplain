@@ -1,2 +1,19 @@
+NOTE: when using ztest, in z.mf use 'input om...; input lxpseudo; pseudo_setup;'
+      (lxpseudo.mf contains definitions used by character programs) - but first
+      see what 'font_setup' does - in drivers it is used before 'pseudo_setup'
+      and in ztest.mf it will be used after
+NOTE: in pseudo_setup for our set of characters have effect only these:
+      define_whole_blacker_pixels(udot_diam);
+      define_whole_vertical_pixels(lc_trema_height);
+in setter.tex set to false slitex concrete and cmbright
+in enc-t2.tex put * to the first column of letters that we want to get rid of
+tex 01cm-lh
 sed -i 's/"a/"d/' lhcodes.mf # Ax->Dx
 sed -i 's/f0/a1/' lhcodes.mf
+sed -i 's/\t/ /g' lgcyrsym.mf ldroman.mf ldcsc.mf ldtexset.mf ldtextit.mf
+add 'endinput' before last character in lgcyrsym.mf
+
+--------------------------------------------------------------------------------------------------
+
+It does not matter if 'mode_setup' is called before parameters or after, because in rtest.mf it is
+called before and in driver it is called after. So its effect should be only in beginchar-endchar.

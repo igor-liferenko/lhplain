@@ -20,22 +20,22 @@
 
 % List of signs  X2  T2*
 %
-% palochka	"0d "0d	symbol Palochka
-% openq		       	Single German opening quote (looks like ,)
-% angle_left	"0e "0e Single left angle bracket
-% lguillemet	       	Single left guillemet
-% angle_right	"0f "0f	Single right angle bracket
-% rguillemet	       	Single right guillemet
+% palochka "0d "0d symbol Palochka
+% openq          Single German opening quote (looks like ,)
+% angle_left "0e "0e Single left angle bracket
+% lguillemet         Single left guillemet
+% angle_right "0f "0f Single right angle bracket
+% rguillemet         Single right guillemet
 %
-% dash		"16 "16	Em dash/if monospace Hyphen
+% dash  "16 "16 Em dash/if monospace Hyphen
 % wordmark          "17 Compound word mark
 % pmzero        "18 "18 Zero for p mille sign (ec: "17)
 %
 % dbl_quotes    "22 "22 Straight double quotes
 %
-% No		"9d "9d Cyrillic symbol `Number'
-% currency	"9e "9e Cyrillic Currency sign
-% section	"9f "9f Section sign
+% No  "9d "9d Cyrillic symbol `Number'
+% currency "9e "9e Cyrillic Currency sign
+% section "9f "9f Section sign
 %
 % baseqq        "bd "bd German Opening quotes   (looks like ,,)  (ec: "12)
 % flqq          "be "be Cyrillic Opening Quotes (looks like <<)  (ec: "13)
@@ -44,7 +44,7 @@
 %
 % T1/T2-outsiders:
 %
-% pound         ("bf)	Sterling sign
+% pound         ("bf) Sterling sign
 %
 
 LHver_check(3,5); % like |version_check| in ec
@@ -144,7 +144,7 @@ if unknown cyrdash: boolean cyrdash; cyrdash:=true; fi
 iff not monospace:
 lhchar "Cyrillic Em dash";%oct"026"
 cyrchar(dash,if cyrdash: 14.5u#%.8*18u#
-		else:    18u# fi
+  else:    18u# fi
  ,x_height#,0);
 italcorr .61803x_height#*slant+.5u#;
 adjust_fit(letter_fit#,letter_fit#);
@@ -359,11 +359,11 @@ pickup fine.nib;
 numeric the_shift,shift_corr;
 the_shift=hround(max(3u,1.7stem)); shift_corr=the_shift-3u;
 pos1(max(fine.breadth,
-	 if serifs: qvair else: 7/8[vair,fudged.hair]-3stem_corr fi),0);
+  if serifs: qvair else: 7/8[vair,fudged.hair]-3stem_corr fi),0);
 pos2(max(fine.breadth,if serifs: 
          if hefty: qvair else: stem fi else:7/8[vair,fudged.hair] fi),0);
 pos3(max(fine.breadth,
-	 if serifs: qvair else: 7/8[vair,fudged.hair]-3stem_corr fi),0);
+  if serifs: qvair else: 7/8[vair,fudged.hair]-3stem_corr fi),0);
 rt x1r=rt x3r=
     hround(if hefty: .6 else: 2/3 fi w-shift_corr)-eps;
 lft x2l=hround(if not monospace: 2 fi\\ u-shift_corr)-eps;
@@ -377,11 +377,11 @@ if hefty:
    filldraw stroke z1'e--z2'e--z3'e; % inner <
 else:
    pos1'(max(fine.breadth,
-	 if serifs: qvair else: 7/8[vair,fudged.hair]-3stem_corr fi),0);
+  if serifs: qvair else: 7/8[vair,fudged.hair]-3stem_corr fi),0);
    pos2'(max(fine.breadth,if serifs: 
          2/3[vair,fudged.stem] else: 7/8[vair,fudged.hair] fi),0);
    pos3'(max(fine.breadth,
-	 if serifs: qvair else: 7/8[vair,fudged.hair]-3stem_corr fi),0);
+  if serifs: qvair else: 7/8[vair,fudged.hair]-3stem_corr fi),0);
    z2'=z2+the_shift*right;
    y1'-y2'=y2'-y3'=.8(y1-y2);
    z1'=z2'+whatever*(z1r-z2r); z3'=z2'+whatever*(z2r-z3r);
@@ -407,11 +407,11 @@ pickup fine.nib;
 numeric the_shift,shift_corr;
 the_shift=hround(max(3u,1.7stem)); shift_corr=the_shift-3u;
 pos1(max(fine.breadth,
-	 if serifs: qvair else: 7/8[vair,fudged.hair]-3stem_corr fi),0);
+  if serifs: qvair else: 7/8[vair,fudged.hair]-3stem_corr fi),0);
 pos2(max(fine.breadth,if serifs: 
          if hefty: qvair else: stem fi else:7/8[vair,fudged.hair] fi),0);
 pos3(max(fine.breadth,
-	 if serifs: qvair else: 7/8[vair,fudged.hair]-3stem_corr fi),0);
+  if serifs: qvair else: 7/8[vair,fudged.hair]-3stem_corr fi),0);
 lft x1l=lft x3l=w-
     hround(if hefty: .6 else: 2/3 fi w-shift_corr)+eps;
 rt x2r=w-hround(if not monospace: 2 fi\\ u-shift_corr)+eps;
@@ -425,11 +425,11 @@ if hefty:
    filldraw stroke z1'e--z2'e--z3'e; % inner <
 else:
    pos1'(max(fine.breadth,
-	 if serifs: qvair else: 7/8[vair,fudged.hair]-3stem_corr fi),0);
+  if serifs: qvair else: 7/8[vair,fudged.hair]-3stem_corr fi),0);
    pos2'(max(fine.breadth,if serifs: 
          2/3[vair,fudged.stem] else: 7/8[vair,fudged.hair] fi),0);
    pos3'(max(fine.breadth,
-	 if serifs: qvair else: 7/8[vair,fudged.hair]-3stem_corr fi),0);
+  if serifs: qvair else: 7/8[vair,fudged.hair]-3stem_corr fi),0);
    z2'=z2+the_shift*left;
    y1'-y2'=y2'-y3'=.8(y1-y2);
    z1'=z2'+whatever*(z1l-z2l); z3'=z2'+whatever*(z2l-z3l);
@@ -465,6 +465,7 @@ pos10(bar,90); pos11(bar,90); x10=3u; x11=w-4.5u;
 top y10r=top y11r=vround(.5h+.5bar); filldraw stroke z10e--z11e;  % bar
 penlabels(1,2,3,4,5,6,7,8,9,10,11); endchar;
 
+endinput
 iff (altcoding and (ligs <> 0)): % for CM
 lhchar "Cyrillic `German close quotes' (like English opening quotes)";
 cyrchar(grqq,7u#+max(2u#,dot_size#),asc_height#,0);

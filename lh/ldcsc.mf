@@ -1,93 +1,196 @@
-% THIS IS THE OFFICIAL COMPUTER MODERN SOURCE FILE csc.mf BY D E KNUTH.
-% IT MUST NOT BE MODIFIED IN ANY WAY UNLESS THE FILE NAME IS CHANGED!
+%
+% ldcsc.mf
+%
+%% Cyrillic font container with T2 encoding beta-support
+%
+% This file is future part of lxfonts package
+% Version 3.5 // Patchlevel=0
+% (c) O.Lapko
+%
+% This package is freeware product under conditions similar to
+% those of D. E. Knuth specified for the Computer Modern family of fonts.
+% In particular, only the authors are entitled to modify this file
+% (and all this package as well) and to save it under the same name.
+%
+% Content:
+%
+% Driver file for Caps and Small Caps font
+% - modified CSC.MF in Computer Modern fonts
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Caps and Small Caps in Computer Modern Roman
+LHver_check(3,5); % like |version_check| in ec
 
-font_coding_scheme:=if ligs=0: "TeX typewriter text"
- else: "TeX text without f-ligatures" fi;
-spanish_shriek=oct"016"; spanish_query=oct"017";
+string enc_name; enc_name:="local";
+font_coding_scheme:=if ligs=0: "TeX typewriter text/Cyr - "&enc_name
+ else: "TeX text without f-ligs/Cyr - "&enc_name fi;
+   spanish_shriek=oct"016"; spanish_query=oct"017";
 
-mode_setup;
-define_whole_blacker_pixels(udot_diam);
-define_whole_vertical_pixels(lc_trema_height);
-font_setup;
-input lgcyrsym;
-input lgrusu;
-input romanu;  % upper case (majuscules)
-input greeku;  % upper case greek letters
-input romand;  % numerals
-input romanp;  % ampersand, question marks, currency sign
-input romspu;  % uppercase specials (\AE, \OE, \O)
-input punct;  % punctuation symbols common to all roman and italic
-input accent;  % accents common to roman and italic text
-input romsub;  % substitutes for ligatures
-if ligs>0: input comlig; fi  % ligatures common with italic
+input lxpseudo;
+
+mode_setup; font_setup;
+pseudo_setup;    % |pseudo_setup| from ec
+
+ input romanu;      % upper case (majuscules)
+ input greeku;      % upper case greek letters
+ input romand;      % numerals
+ input romanp;      % ampersand, question marks, currency sign
+ input romspu;      % uppercase specials (\AE, \OE, \O)
+ input punct;       % punctuation symbols common to all roman and italic
+ input accent;     % accents common to roman and italic text
+ input romsub;     % substitutes for ligatures
+
+   if ligs>0: input comlig; fi  % ligatures common with italic
+
+input lgrusu;     % input uppercase shapes
+input lgcyrsym;     % <<, >>, No
+
+font_slant slant; font_x_height x_height#;
+
+upper.u#:=u#; %save for Cyrillic kerning table
 
 ligtable "!": "`" =: spanish_shriek;
 ligtable "?": "`" =: spanish_query;
-font_slant slant; font_x_height x_height#;
 if monospace: font_normal_space 9u#; % no stretching or shrinking
- font_quad 18u#;
- font_extra_space 9u#;
+   font_quad 18u#;
+   font_extra_space 9u#;
 else: font_normal_space 6u#+2letter_fit#;
- font_normal_stretch 3u#; font_normal_shrink 2u#;
- font_quad 18u#+4letter_fit#;
- font_extra_space 2u#;
- k#:=-.5u#; kk#:=-1.5u#; kkk#:=-2u#; % three degrees of kerning
- ligtable "P": "T": "Y": "a" kern kk#, "A" kern kk#;
- ligtable "F": "V": "W": if serifs: "a" kern kkk#, "A" kern kkk#,
-  else: "a" kern kk#, "A" kern kk#, fi
-  "K": "X": "o" kern k#, "O" kern k#, "c" kern k#, "C" kern k#,
-   "g" kern k#, "G" kern k#, "q" kern k#, "Q" kern k#;
- ligtable "O": "D": "x" kern k#, "X" kern k#, "w" kern k#, "W" kern k#,
-   "a" kern k#, "A" kern k#, "v" kern k#, "V" kern k#, "y" kern k#, "Y" kern k#;
- ligtable "A": if serifs: "R": fi "c" kern k#, "C" kern k#,
-   "o" kern k#, "O" kern k#, "g" kern k#, "G" kern k#,
-   "u" kern k#, "U" kern k#, "q" kern k#, "Q" kern k#,
-  "L": "T" kern kk#, "t" kern kk#, "Y" kern kk#, "y" kern kk#,
-   "V" kern kkk#, "v" kern kkk#, "W" kern kkk#, "w" kern kkk#;
- ligtable "I": "I" kern -k#; % Richard III
- ligtable CYR_.frqq: "." kern kk#, "," kern kk#;
- % uppercase Cyrillic ligs & kerns moved down
+   font_normal_stretch 3u#; font_normal_shrink 2u#;
+   font_quad 18u#+4letter_fit#;
+   font_extra_space 2u#;
+   k#:=-.5u#; kk#:=-1.5u#; kkk#:=-2u#; % three degrees of kerning
+   %
+   % Uppercase Latin ligs & kerns
+   %   There are just the same ligs and kerns as in CM
+   %   but they are built in more visible form
+   %
+   input lhliker-ldcsc;
+      ligtable "P": "T": "Y":
+      "a" kern kk#,
+      "A" kern kk#;
+      ligtable "F": "V": "W":
+      if serifs:  "a" kern kkk#,
+    "A" kern kkk#,
+    else:  "a" kern kk#,
+    "A" kern kk#, fi
+        "K": "X":
+      "o" kern k#,
+      "O" kern k#,
+      "c" kern k#,
+      "C" kern k#,
+      "g" kern k#,
+      "G" kern k#,
+      "q" kern k#,
+      "Q" kern k#;
+      ligtable "O": "D":
+      "x" kern k#,
+      "X" kern k#,
+      "w" kern k#,
+      "W" kern k#,
+      "a" kern k#,
+      "A" kern k#,
+      "v" kern k#,
+      "V" kern k#,
+      "y" kern k#,
+      "Y" kern k#;
+      ligtable "A": if serifs: "R": fi
+      "c" kern k#,
+      "C" kern k#,
+      "o" kern k#,
+      "O" kern k#,
+      "g" kern k#,
+      "G" kern k#,
+      "u" kern k#,
+      "U" kern k#,
+      "q" kern k#,
+      "Q" kern k#,
+        "L": "T" kern kk#,
+      "t" kern kk#,
+      "Y" kern kk#,
+      "y" kern kk#,
+      "V" kern kkk#,
+      "v" kern kkk#,
+      "W" kern kkk#,
+      "w" kern kkk#;
+      ligtable "I": "I" kern -k#; %fi % Richard III
+      %
+      %% ligature programs for |"-"|, |"`"|, and |"'"| are in the {\tt comlig} file
+   % uppercase Cyrillic ligs & kerns moved down
 fi
-% ligature programs for |"-"|, |"`"|, and |"'"| are in the {\tt comlig} file
 
 %%% fine lower
 forsuffixes $= u, width_adj, cap_serif_fit, letter_fit,
- body_height, cap_height, x_height, bar_height, comma_depth,
- flare, cap_hair, stem, cap_stem, cap_curve, cap_ess,
- cap_jut, beak_jut, beak, slab, cap_bar, cap_band, cap_notch_cut,
- o, apex_o:  $.#:=lower.$.#; endfor
+   body_height, cap_height, x_height, bar_height, comma_depth,
+   flare, cap_hair, stem, cap_stem, cap_curve, cap_ess,
+   cap_jut, beak_jut, beak, slab, cap_bar, cap_band, cap_notch_cut,
+   o, apex_o:  $.#:=lower.$.#; endfor
 fudge:=lower.fudge;
-font_setup; % now try again with |lower| settings
-pseudo_setup; % FIXME: does it have any effect after font_setup? if yes, put defise_*_pixels above after font_setup and use define_*_pixels here; if no, delete it from here
-is_small_cap:=true;
-%%% fine higher ('higher' values are used while putting accents)
-forsuffixes $=u,o,letter_fit,x_height,bar_height,body_height,stem:
-   higher.$.#:=$.#; higher.$:=$;
-endfor
-extra_endchar:=extra_endchar&"charcode:=charcode+code_offset;";
-code_offset:=CYR_.a - CYR_.A;
-input lgrusu;
-code_offset:=ASCII"a" - ASCII"A";
-input romanu;  % majuscules (in lowercase positions)
-code_offset:=-3;
-input romspu;  % \AE, \OE, \O\ (in positions of \ae, \oe, \o)
-code_offset:=0;
-input cscspu;  % substitutes for the remaining characters of romspl
-if not monospace:
- k#:=-.5u#; kk#:=-1.5u#; kkk#:=-2u#; % three degrees of kerning
- % the following kernings were obtained by copying uppercase-uppercase kernings from above
- % and changing uppercase characters to lowercase; one more kern was added: "L": "'" kern kk#
- ligtable "p": "t": "y": "a" kern kk#;
- ligtable "f": "v": "w": "a" kern if serifs: kkk# else: kk#\\fi,
-  "k": "x": "o" kern k#, "c" kern k#, "g" kern k#, "q" kern k#;
- ligtable "o": "d": "x" kern k#, "w" kern k#, "a" kern k#,
-   "v" kern k#, "y" kern k#;
- ligtable "a": if serifs: "r": fi "c" kern k#, "o" kern k#,
-   "g" kern k#, "u" kern k#, "q" kern k#,
-  "l": "'" kern kk#, "t" kern kk#, "y" kern kk#, "v" kern kkk#, "w" kern kkk#;
- ligtable "i": "i" kern -k#; % skiing
- % lhliker
+
+if is_small_cap:
+   cap_sbeak#   := 7/8 if serifs: max(beak#,desc_depth#) else: desc_depth# fi;
+   define_pixels(cap_sbeak);
 fi
+
+% now try again with |lower| settings
+font_setup; pseudo_setup; % |pseudo_setup| from ec
+
+   extra_endchar:=extra_endchar&"charcode:=charcode+code_offset";
+   code_offset:=ASCII"a" - ASCII"A";
+   input romanu;  % majuscules (in lowercase positions)
+   code_offset:=-3;
+   input romspu;  % \AE, \OE, \O\ (in positions of \ae, \oe, \o)
+   code_offset:=0;
+   input cscspu;  % substitutes for the remaining characters of romspl
+
+is_small_cap:=true;
+   %%% fine higher
+   % the `higher' values are used while putting accents
+   forsuffixes $=u,o,letter_fit,x_height,bar_height,body_height,stem:
+      higher.$.#:=$.#; higher.$:=$;
+   endfor
+code_offset:=CYR_.a - CYR_.A;
+input lgrusu;  % Cyrillic majuscules (in lowercase positions)
+code_offset:=0;
+
+if not monospace:
+   k#:=-.5u#; kk#:=-1.5u#; kkk#:=-2u#; % three degrees of kerning
+   %
+   % Lowercase Latin ligs & kerns
+   %   There are just the same ligs and kerns as in CM
+   %   but they are built in more visible form
+   %
+      ligtable "p": "t": "y":
+      "a" kern kk#;
+      ligtable "f": "v": "w":
+      "a" kern if serifs: kkk# else: kk#\\fi,
+        "k": "x":
+      "o" kern k#,
+      "c" kern k#,
+      "g" kern k#,
+      "q" kern k#;
+      ligtable "o": "d":
+      "x" kern k#,
+      "w" kern k#,
+      "a" kern k#,
+             "v" kern k#,
+      "y" kern k#;
+      ligtable "a": if serifs: "r": fi
+      "c" kern k#,
+      "o" kern k#,
+             "g" kern k#,
+      "u" kern k#,
+      "q" kern k#,
+        "l": "'" kern kk#,
+      "t" kern kk#,
+      "y" kern kk#,
+      "v" kern kkk#,
+      "w" kern kkk#;
+      ligtable "i": "i" kern -k#;  % skiing
+   %
+   u#:=upper.u#;     % restored start u parameter
+   k#:=-.5u#; kk#:=-1.5u#; kkk#:=-2u#; % repeat three degrees of kerning
+   input lhliker;
+fi
+
 bye.
+%end of file

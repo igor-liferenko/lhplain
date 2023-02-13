@@ -1,7 +1,8 @@
-sed -i 's/SliTeXtrue/SliTeXfalse/;s/Concretetrue/Concretefalse/;s/CMBrighttrue/CMBrightfalse/' setter.tex
 sed -i 's/( [^89aef][0-9a-f]/( */;s/( f[^01cde]/( */;s/( a/( d/;s/( f0/( a1/' enc-t2.tex
 tex 01cm-lh
-echo 'boolean altcoding,kapitel,concrete; altcoding:=true; kapitel:=false; concrete:=false;' | cat ../../../../fonts/source/lh/base/lkligtbl.mf - wrk/lh-lcy/lhliker.mf >mf/MFinputs/lh/lhliker.mf
+cp wrk/lh-lcy/lhcodes.mf /path/to/mf/MFinputs/lh/
+echo 'boolean altcoding,kapitel,concrete; altcoding:=true; kapitel:=false; concrete:=false;' | cat ../../../../fonts/source/lh/base/lkligtbl.mf - wrk/lh-lcy/lhliker.mf >/path/to/mf/MFinputs/lh/lhliker.mf
+
 sed -i -n '/Cyrillic symbol No/,/endchar/p;/French Opening Quotes/,/endchar/{s/lhchar/\n&/;p};/French closing quotes/,/endchar/{s/lhchar/\n&/;p}' lgcyrsym.mf
 sed -i 's/\t/        /g' lg* ld*
 sed -i 's/lhchar/cmchar/' lg*

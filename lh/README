@@ -3,13 +3,12 @@ sed -i 's/( [^89aef][0-9a-f]/( */;s/( f[^01cde]/( */;s/( a/( d/;s/( f0/( a1/' en
 tex 01cm-lh
 cp wrk/lh-lcy/lhcodes.mf /path/to/mf/MFinputs/lh/
 sed -e '0,/^$/{//{s/.*/\nboolean altcoding,kapitel,concrete;\naltcoding:=true; kapitel:=false; concrete:=false;/;r ../../../../fonts/source/lh/base/lkligtbl.mf' -e '}}' wrk/lh-lcy/lhliker.mf|grep -v ^endinput >/path/to/mf/MFinputs/lh/lhliker.mf
-sed '0,/^%%\+$/d;/LHver_check/d;/endinput/,$d' lgrusu.mf | sed '/./,$!d' | tac | sed '/./,$!d' | tac >/path/to/mf/MFinputs/lh/lgrusu.mf
-sed '0,/^%%\+$/d;0,/^%$/{//d};/LHver_check/d;/endinput/,$d' lgrusl.mf | sed '/./,$!d' | tac | sed '/./,$!d' | tac | cat -s | sed s/cyrchar/beginchar/ >/path/to/mf/MFinputs/lh/lgrusl.mf
-sed '0,/^%%\+$/d;0,/^%$/{//d};/LHver_check/d;/endinput/,$d' lgrusi.mf | sed '/./,$!d' | tac | sed '/./,$!d' | tac | cat -s | sed s/cyrchar/beginchar/ >/path/to/mf/MFinputs/lh/lgrusi.mf
-sed -n '/Cyrillic symbol No/,/endchar/p;/French Opening Quotes/,/endchar/{s/lhchar/\n&/;p};/French closing quotes/,/endchar/{s/lhchar/\n&/;p}' lgcyrsym.mf | sed '1s/ %common//' >/path/to/mf/MFinputs/lh/lgcyrsym.mf
+sed -n '/lhchar/,$p' lgrusu.mf | tac | sed -n '/endchar/,$p' | tac >/path/to/mf/MFinputs/lh/lgrusu.mf
+sed -n '/lhchar/,$p' lgrusl.mf | tac | sed -n '/endchar/,$p' | tac >/path/to/mf/MFinputs/lh/lgrusl.mf
+sed -n '/lhchar/,$p' lgrusi.mf | tac | sed -n '/endchar/,$p' | tac >/path/to/mf/MFinputs/lh/lgrusi.mf
+sed -n '/Cyrillic symbol No/,/endchar/{/lhchar/s/ %.*//;p};/French Opening Quotes/,/endchar/{/lhchar/s/^/\n/;p};/French closing quotes/,/endchar/{/lhchar/s/^/\n/;p}' lgcyrsym.mf >/path/to/mf/MFinputs/lh/lgcyrsym.mf
 sed -i 's/\t/        /g' lg* ld*
-sed -i 's/lhchar/cmchar/' lg*
-sed -i 's/cyrchar(/beginchar(CYR_./' lg*
+sed -i 's/lhchar/cmchar/;s/cyrchar(/beginchar(CYR_./' lg*
 sed -i '/if is_small_cap: getcharcode/d' lgrus*
 sed -i '/if.* \(concrete\|specific\|kapitel\):/d' lgrus* # TODO: do diff before and after this to verify
 sed -i '/beginchar/s/%[^%]*$//' lgrus*

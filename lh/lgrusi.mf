@@ -1,7 +1,6 @@
 % (there are some letters with common witdh
 % they have comments as: v_width (the witdh of russian letter v)
 % and n_width (russian letter n) at the end of `beginchar...' line)
-%
 
 cmchar "Italic Russian letter a";
 beginchar(CYR_.a,9u#,x_height#,0);

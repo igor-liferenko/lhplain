@@ -1,4 +1,4 @@
-cmchar "Cyrillic symbol No."; %common
+cmchar "Cyrillic symbol No.";
 beginchar(CYR_.No,14.5u#+width_adj#,cap_height#,0);
 italcorr cap_height#*slant-cap_serif_fit#+cap_jut#-2.5u#+min(.5cap_stem#,u#);
 adjust_fit(if monospace: 0,0 else: cap_serif_fit#

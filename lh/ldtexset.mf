@@ -56,7 +56,8 @@ else: font_normal_space 6u#+2letter_fit#;
    % Latin ligs & kerns:
    %   There are just the same ligs and kerns as in CM
    %   but they are built in more visible form
-   input lhliker-ldtexset;
+   boolean TITLEfont,SmallCapsfont,ROMANfont;
+   TITLEfont:=false; SmallCapsfont:=false; ROMANfont:=true;
       ligtable "k":
          if serifs: "v": 
                     "a" kern -u#, fi\\

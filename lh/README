@@ -1,21 +1,10 @@
-in setter.tex set to false slitex concrete and cmbright
-in enc-t2.tex put * to the first column of letters that we want to get rid of
+sed -i 's/SliTeXtrue/SliTeXfalse/;s/Concretetrue/Concretefalse/;s/CMBrighttrue/CMBrightfalse/' setter.tex
+sed -i 's/( [^89aef][0-9a-f]/( */;s/( f[^01cde]/( */;s/( a/( d/;s/( f0/( a1/' enc-t2.tex
 tex 01cm-lh
-sed -i 's/"a/"d/' lhcodes.mf # Ax->Dx
-sed -i 's/f0/a1/' lhcodes.mf
-sed -i 's/\t/ /g' lgcyrsym.mf ldroman.mf ldcsc.mf ldtexset.mf ldtextit.mf
-
---------------------------------------------------------------------------------------------------
-
-z.mf:
-      input om...; 
-      input lxpseudo; % contains definitions used by character programs
-test.mf:
-      pseudo_setup;
-      ...
-
---------------------------------------------------------------------------------------------------
-
-If I understand it correctly:
-It does not matter if 'mode_setup' is called before parameters or after, because in rtest.mf it is
-called before and in driver it is called after. So its effect is only in character programs.
+echo 'boolean altcoding,kapitel,concrete; altcoding:=true; kapitel:=false; concrete:=false;' | cat ../../../../fonts/source/lh/base/lkligtbl.mf - wrk/lh-lcy/lhliker.mf >mf/MFinputs/lh/lhliker.mf
+sed -i -n '/Cyrillic symbol No/,/endchar/p;/French Opening Quotes/,/endchar/{s/lhchar/\n&/;p};/French closing quotes/,/endchar/{s/lhchar/\n&/;p}' lgcyrsym.mf
+sed -i 's/\t/        /g' lg* ld*
+sed -i 's/lhchar/cmchar/' lg*
+sed -i 's/cyrchar(/beginchar(CYR_./' lg*
+sed -i '/if is_small_cap: getcharcode/d' lgrus*
+sed -i '/if.* concrete:/d;/if.* specific:/d;/if.* kapitel:/d' lgrus*

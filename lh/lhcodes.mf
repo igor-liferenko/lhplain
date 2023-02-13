@@ -1,3 +1,8 @@
+% This is lhcodes.mf in text format as of 2023/13/2
+% created by LHfonts (TeX4MF) version 3.5
+%
+%
+
 CYR_.A := hex"80";
 CYR_.a := hex"d0";
 CYR_.B := hex"81";

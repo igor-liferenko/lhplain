@@ -81,63 +81,64 @@ else:
    %   There are just the same ligs and kerns as in CM
    %   but they are built in more visible form
    %
-   input lhliker-ldtextit;
+   boolean TITLEfont,SmallCapsfont,ROMANfont;
+   TITLEfont:=false; SmallCapsfont:=false; ROMANfont:=false;
       ligtable "d": "w": "l":
-      "l" kern +u#;
+                    "l" kern +u#;
       ligtable "F": "V":
-      "o" kern kk#,
-      "e" kern kk#,
-      "u" kern kk#,
-      "r" kern kk#,
-      "a" kern kk#,
-      "A" kern kkk#,
-   "K": "X": "O" kern k#,
-      "C" kern k#,
-      "G" kern k#,
-      "Q" kern k#;
+                    "o" kern kk#,
+                    "e" kern kk#,
+                    "u" kern kk#,
+                    "r" kern kk#,
+                    "a" kern kk#,
+                    "A" kern kkk#,
+          "K": "X": "O" kern k#,
+                    "C" kern k#,
+                    "G" kern k#,
+                    "Q" kern k#;
       ligtable "T": "y" kern kk#,
-        "Y": "e" kern kk#,
-      "o" kern kk#,
-      "r" kern kk#,
-      "a" kern kk#,
-      "u" kern kk#,
-   "P": "W": "A" kern kk#;
+               "Y": "e" kern kk#,
+                    "o" kern kk#,
+                    "r" kern kk#,
+                    "a" kern kk#,
+                    "u" kern kk#,
+          "P": "W": "A" kern kk#;
       ligtable "O": "D":
-      "X" kern k#,
-      "W" kern k#,
-      "A" kern k#,
-      "V" kern k#,
-      "Y" kern k#;
+                    "X" kern k#,
+                    "W" kern k#,
+                    "A" kern k#,
+                    "V" kern k#,
+                    "Y" kern k#;
       ligtable "A": "R":
-      "n" kern k#,
-      "l" kern k#,
-      "r" kern k#,
-      "u" kern k#,
-      "m" kern k#,
-      "t" kern k#,
-      "i" kern k#,
-      "C" kern k#,
-      "O" kern k#,
-      "G" kern k#,
-      "h" kern k#,
-      "b" kern k#,
-      "U" kern k#,
-      "k" kern k#,
-      "v" kern k#,
-      "w" kern k#,
-      "Q" kern k#,
-        "L": "T" kern kk#,
-      "Y" kern kk#,
-      "V" kern kkk#,
-      "W" kern kkk#,
+                    "n" kern k#,
+                    "l" kern k#,
+                    "r" kern k#,
+                    "u" kern k#,
+                    "m" kern k#,
+                    "t" kern k#,
+                    "i" kern k#,
+                    "C" kern k#,
+                    "O" kern k#,
+                    "G" kern k#,
+                    "h" kern k#,
+                    "b" kern k#,
+                    "U" kern k#,
+                    "k" kern k#,
+                    "v" kern k#,
+                    "w" kern k#,
+                    "Q" kern k#,
+               "L": "T" kern kk#,
+                    "Y" kern kk#,
+                    "V" kern kkk#,
+                    "W" kern kkk#,
        "b": "c": "e": "o": "p": "r":
-      "e" kern -u#,
-      "a" kern -u#,
-      "o" kern -u#,
-      "d" kern -u#,
-      "c" kern -u#,
-      "g" kern -u#,
-      "q" kern -u#;
+                    "e" kern -u#,
+                    "a" kern -u#,
+                    "o" kern -u#,
+                    "d" kern -u#,
+                    "c" kern -u#,
+                    "g" kern -u#,
+                    "q" kern -u#;
       ligtable "n": "'" kern kkk#;
       %
       % there are ligature/kern programs for |"f"| in the {\tt italig} file

@@ -1,3 +1,10 @@
+% This is lhliker.mf in text format as of 2023/14/2
+% created by LHfonts (TeX4MF) version 3.5
+%
+%
+
+boolean altcoding,kapitel,concrete;
+altcoding:=true; kapitel:=false; concrete:=false;
 
 % lkligtbl.mf
 %
@@ -134,14 +141,7 @@ vardef liggroup @# (text chars)=
    if debug_ligdata: showtoken @#; fi
 enddef;
 
-endinput;
 % end-of-file
-boolean altcoding,kapitel,concrete; altcoding:=true; kapitel:=false; concrete:=false;
-% This is lhliker.mf in text format as of 2023/7/2
-% created by LHfonts (TeX4MF) version 3.5
-%
-%
-
 
 beginligtable
    labelchar (

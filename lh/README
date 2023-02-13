@@ -10,5 +10,6 @@ sed -i 's/\t/        /g' lg* ld*
 sed -i 's/lhchar/cmchar/' lg*
 sed -i 's/cyrchar(/beginchar(CYR_./' lg*
 sed -i '/if is_small_cap: getcharcode/d' lgrus*
-sed -i '/if.* concrete:/d;/if.* specific:/d;/if.* kapitel:/d' lgrus*
-sed -i '/beginchar/s/%[^%]*$//;s/ $//' lgrus*
+sed -i '/if.* \(concrete\|specific\|kapitel\):/d' lgrus* # TODO: do diff before and after this to verify
+sed -i '/beginchar/s/%[^%]*$//' lgrus*
+sed -i 's/ $//' lg*

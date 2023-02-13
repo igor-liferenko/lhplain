@@ -1,29 +1,7 @@
-%
-% lgrusi.mf
-%
-%% Cyrillic font container with T2 encoding beta-support
-%
-% This file is future part of lxfonts package
-% Version 3.5 // Patchlevel=0
-% (c) O.Lapko
-%
-% This package is freeware product under conditions similar to
-% those of D. E. Knuth specified for the Computer Modern family of fonts.
-% In particular, only the authors are entitled to modify this file
-% (and all this package as well) and to save it under the same name.
-%
-% Content:
-%
-% Italic Russian letters from a to ya and yo
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 % (there are some letters with common witdh
 % they have comments as: v_width (the witdh of russian letter v)
-% and n_width (russian letter n) at the end of `cyrchar...' line)
+% and n_width (russian letter n) at the end of `beginchar...' line)
 %
-
-LHver_check(3,5); % like |version_check| in ec
 
 cmchar "Italic Russian letter a";
 beginchar(CYR_.a,9u#,x_height#,0);
@@ -209,7 +187,6 @@ filldraw stroke z9'e{right}...pulled_arc.e(3',8) & pulled_arc.e(8,4)
   ...{direction 1 of p}z5e;  % upper arc
 %%%
 penlabels(0,1,2,3,4,5,7,8,9); endchar;
-
 
 cmchar "Italic Russian letter i (looks like u)";
 beginchar(CYR_.i,10u#,x_height#,0);
@@ -833,6 +810,3 @@ filldraw stroke z0e{right}...z1e{up}...pulled_arc.e(2,3)
 %the accent
 h:=x_height+acc_height; lowercase_umlaut(0,0,71,72,73,74); %2
 penlabels(0,1,2,3,4,5,6); endchar;
-
-endinput;
-%end of file

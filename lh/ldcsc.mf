@@ -116,6 +116,7 @@ else: font_normal_space 6u#+2letter_fit#;
       ligtable "I": "I" kern -k#; %fi % Richard III
       %
       %% ligature programs for |"-"|, |"`"|, and |"'"| are in the {\tt comlig} file
+   ligtable CYR_.frqq: "." kern kk#, "," kern kk#;
    % uppercase Cyrillic ligs & kerns moved down
 fi
 

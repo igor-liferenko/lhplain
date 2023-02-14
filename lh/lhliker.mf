@@ -22,7 +22,6 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 if known loaded_lgligtbl: endinput; fi
 loaded_lgligtbl:=1; % if known this file has been loaded
 

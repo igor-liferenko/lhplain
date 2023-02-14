@@ -10,12 +10,11 @@ cp ldroman.mf ldtextit.mf ldcsc.mf ldtexset.mf lgrus* lgcyrsym.mf lcyrdefs.mf lc
 cd /path/to/mf/MFinputs/lh
 sed -i '1i ebbase:=0;\n' lcyrbeg.mf
 sed -i '1i boolean roman_ec; roman_ec:=false;\n' lcyrdefs.mf
-sed -i '/LHver_check/{N;d}' lcyr* lxpseudo.mf
+sed -i '/LHver_check/{N;d}' lcyrbeg.mf lcyrdefs.mf lxpseudo.mf
+sed -i '0,/LHver_check/d;/./,$!d' ld*
 sed -i -s '0,/lhchar/{//!d};:x;N;$!bx;s/\(.*endchar;\).*/\1/' lgrus* # TODO: try w/o -s
 sed -i -n '/Cyrillic symbol No/,/endchar/{/lhchar/s/ %.*//;p};/French Opening Quotes/,/endchar/{/lhchar/s/^/\n/;p};/French closing quotes/,/endchar/{/lhchar/s/^/\n/;p}' lgcyrsym.mf
-sed -i 's/\t/        /g' lg* ld*
-sed -i '0,/LHver_check/{N;d}' ld*
-sed -i '/./,$!d' ldtextit.mf
+sed -i 's/\t/        /g' *
 sed -i 's/lhchar/cmchar/;s/cyrchar(/beginchar(CYR_./' lg*
 sed -i '/if is_small_cap: getcharcode/d' lgrus*
 sed -i '/if.* \(concrete\|specific\|kapitel\):/d' lgrus* # TODO: do diff before and after this to verify and then merge it to previous command

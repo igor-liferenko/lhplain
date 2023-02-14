@@ -3,9 +3,6 @@
 %
 %
 
-boolean altcoding,kapitel,concrete;
-altcoding:=true; kapitel:=false; concrete:=false;
-
 % lkligtbl.mf
 %
 %% Cyrillic font container with T2 encoding beta-support
@@ -25,7 +22,6 @@ altcoding:=true; kapitel:=false; concrete:=false;
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-LHver_check(3,5); % like |version_check| in ec
 
 if known loaded_lgligtbl: endinput; fi
 loaded_lgligtbl:=1; % if known this file has been loaded
@@ -142,6 +138,9 @@ vardef liggroup @# (text chars)=
 enddef;
 
 % end-of-file
+
+boolean altcoding,kapitel,concrete;
+altcoding:=true; kapitel:=false; concrete:=false;
 
 beginligtable
    labelchar (

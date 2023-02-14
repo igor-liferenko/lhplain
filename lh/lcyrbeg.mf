@@ -26,7 +26,6 @@
 %  ** macros for accenting moved in file lcyrdefs.mf
 %
 
-LHver_check(3,5); % like |version_check| in ec
 
 if unknown slitex:
    boolean slitex; slitex := false; fi % |true| simulates behaviour of |sroman|

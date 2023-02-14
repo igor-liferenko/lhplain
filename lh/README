@@ -20,3 +20,4 @@ sed -i '/if is_small_cap: getcharcode/d' lgrus*
 sed -i '/if.* \(concrete\|specific\|kapitel\):/d' lgrus*
 sed -i '/beginchar/s/ %[^%]*$//' lgrus*
 { rm lgrusi.mf; cat -s >lgrusi.mf; } <lgrusi.mf
+Now edit drivers manually

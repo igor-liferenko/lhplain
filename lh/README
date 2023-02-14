@@ -17,6 +17,6 @@ sed -i -n '/Cyrillic symbol No/,/endchar/{/lhchar/s/ %.*//;p};/French Opening Qu
 sed -i 's/\t/        /g' *
 sed -i 's/lhchar/cmchar/;s/cyrchar(/beginchar(CYR_./' lg*
 sed -i '/if is_small_cap: getcharcode/d' lgrus*
-sed -i '/if.* \(concrete\|specific\|kapitel\):/d' lgrus* # TODO: do diff before and after this to verify and then merge it to previous command
+sed -i '/if.* \(concrete\|specific\|kapitel\):/d' lgrus*
 sed -i '/beginchar/s/%[^%]*$//' lgrus*; sed -i 's/ $//' lg* # TODO: try this and see if result will be the same - then lg* may be moved above: sed -i 's/ $//' lg*; sed -i '/beginchar/s/ %[^%]*$//' lgrus*
 { rm lgrusi.mf; cat -s >lgrusi.mf; } <lgrusi.mf

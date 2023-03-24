@@ -1,8 +1,4 @@
 #!/bin/bash
-# Encodings are taken from amsfonts
-
-# If you need to copy/paste from pdf document, run the following command on the copied text and copy it again:
-#   sed y/‘’−/\`\'-/
 
 rm -r pfb
 mkdir pfb

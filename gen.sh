@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm -r pfb
+rm -fr pfb
 mkdir pfb
 function gen() {
   for i in "${@:2:$#}"; do

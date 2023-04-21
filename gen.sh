@@ -4,7 +4,7 @@ rm -r pfb
 mkdir pfb
 function gen() {
   for i in "${@:2:$#}"; do
-    mftrace --formats=pfb --encoding=enc/$1 --magnification=8000 $i || echo "*********** $i FAILED *************"
+    mftrace --formats=pfb --encoding=enc/$1 --magnification=2000 $i || echo "*********** $i FAILED *************"
     mv $i.pfb pfb/
   done
 }

@@ -1,3 +1,4 @@
+# compare visually dh from fntallec.tex and add for om*17 - they are 1728 in CM too (e.g., see DESIGNSIZE in tftopl cmr17.tfm)
 ombxsl10 SFBL1000 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfbl1000.pfb
 ombxti10 SFBI1000 "Textit2Encoding ReEncodeFont" <cm-super-textit2.enc <sfbi1000.pfb
 ombx10 SFBX1000 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfbx1000.pfb

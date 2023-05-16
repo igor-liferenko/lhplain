@@ -1,4 +1,3 @@
-# compare visually dh from fntallec.tex and add for om*17 - they are 1728 in CM too (e.g., see DESIGNSIZE in tftopl cmr17.tfm)
 ombxsl10 SFBL1000 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfbl1000.pfb
 ombxti10 SFBI1000 "Textit2Encoding ReEncodeFont" <cm-super-textit2.enc <sfbi1000.pfb
 ombx10 SFBX1000 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfbx1000.pfb
@@ -9,11 +8,13 @@ ombx7 SFBX0700 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfbx0700.pfb
 ombx8 SFBX0800 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfbx0800.pfb
 ombx9 SFBX0900 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfbx0900.pfb
 omb10 SFBX1000 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfrb1000.pfb
+% omdunh10 <omdunh10.pfb % TODO: compare visually if it is 'dh' in fntallec.tex from http://mirrors.ctan.org/fonts/cyrillic/lh/lhfnt35g-source.zip
 omff10 SFFF1000 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfff1000.pfb
 omfib8 SFFB0800 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sffb0800.pfb
 omfi10 SFFI1000 "Textit2Encoding ReEncodeFont" <cm-super-textit2.enc <sffi1000.pfb
 omr10 SFRM1000 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfrm1000.pfb
 omr12 SFRM1200 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfrm1200.pfb
+omr17 SFRM1728 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfrm1728.pfb
 omr6 SFRM0600 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfrm0600.pfb
 omr7 SFRM0700 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfrm0700.pfb
 omr8 SFRM0800 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfrm0800.pfb
@@ -23,12 +24,17 @@ omsl12 SFSL1200 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfsl1200.pfb
 omsl8 SFSL0800 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfsl0800.pfb
 omsl9 SFSL0900 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfsl0900.pfb
 omssbx10 SFSX1000 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfsx1000.pfb
+% omssdc10 <omssdc10.pfb
 omssi10 SFSI1000 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfsi1000.pfb
 omssi12 SFSI1200 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfsi1200.pfb
+omssi17 SFSI1728 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfsi1728.pfb
 omssi8 SFSI0800 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfsi0800.pfb
 omssi9 SFSI0900 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfsi0900.pfb
+% omssqi8 <omssqi8.pfb
+% omssq8 <omssq8.pfb
 omss10 SFSS1000 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfss1000.pfb
 omss12 SFSS1200 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfss1200.pfb
+omss17 SFSS1728 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfss1728.pfb
 omss8 SFSS0800 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfss0800.pfb
 omss9 SFSS0900 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfss0900.pfb
 omti10 SFTI1000 "Textit2Encoding ReEncodeFont" <cm-super-textit2.enc <sfti1000.pfb
@@ -40,7 +46,11 @@ omu10 SFUI1000 "Textit2Encoding ReEncodeFont" <cm-super-textit2.enc <sfui1000.pf
 omvtt10 SFVT1000 "Roman2Encoding ReEncodeFont" <cm-super-roman2.enc <sfvt1000.pfb
 omcsc10 SFCC1000 "Roman1csc1Encoding ReEncodeFont" <cm-super-roman1csc1.enc <sfcc1000.pfb
 omr5 SFRM0500 "Roman1csc1Encoding ReEncodeFont" <cm-super-roman1csc1.enc <sfrm0500.pfb
+% omtex10 <omtex10.pfb
+% omtex8 <omtex8.pfb
+% omtex9 <omtex9.pfb
 omitt10 SFIT1000 "Textit0Encoding ReEncodeFont" <cm-super-textit0.enc <sfit1000.pfb
+% omsltt10 <omsltt10.pfb
 omtcsc10 SFTC1000 "Roman0csc0Encoding ReEncodeFont" <cm-super-roman0csc0.enc <sftc10.pfb
 omtt10 SFTT1000 "Roman0csc0Encoding ReEncodeFont" <cm-super-roman0csc0.enc <sftt1000.pfb
 omtt12 SFTT1200 "Roman0csc0Encoding ReEncodeFont" <cm-super-roman0csc0.enc <sftt1200.pfb

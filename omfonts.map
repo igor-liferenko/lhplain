@@ -1,3 +1,4 @@
+% TODO: google correspondence between EC and CM (or LH and CM) - cm-super uses the same naming convention as EC/LH fonts, and find correspondence for remaining 3 fonts: omssdc10, omssqi8, omssq8
 ombxsl10 SFBL1000 "roman2 ReEncodeFont" <roman2 <sfbl1000.pfb
 ombxti10 SFBI1000 "textit2 ReEncodeFont" <textit2 <sfbi1000.pfb
 ombx10 SFBX1000 "roman2 ReEncodeFont" <roman2 <sfbx1000.pfb
@@ -24,14 +25,14 @@ omsl12 SFSL1200 "roman2 ReEncodeFont" <roman2 <sfsl1200.pfb
 omsl8 SFSL0800 "roman2 ReEncodeFont" <roman2 <sfsl0800.pfb
 omsl9 SFSL0900 "roman2 ReEncodeFont" <roman2 <sfsl0900.pfb
 omssbx10 SFSX1000 "roman2 ReEncodeFont" <roman2 <sfsx1000.pfb
-% omssdc10 <omssdc10.pfb % roman2
+omssdc10 <omssdc10.pfb % roman2
 omssi10 SFSI1000 "roman2 ReEncodeFont" <roman2 <sfsi1000.pfb
 omssi12 SFSI1200 "roman2 ReEncodeFont" <roman2 <sfsi1200.pfb
 omssi17 SFSI1728 "roman2 ReEncodeFont" <roman2 <sfsi1728.pfb
 omssi8 SFSI0800 "roman2 ReEncodeFont" <roman2 <sfsi0800.pfb
 omssi9 SFSI0900 "roman2 ReEncodeFont" <roman2 <sfsi0900.pfb
-% omssqi8 <omssqi8.pfb % roman2
-% omssq8 <omssq8.pfb % roman2
+omssqi8 <omssqi8.pfb % roman2
+omssq8 <omssq8.pfb % roman2
 omss10 SFSS1000 "roman2 ReEncodeFont" <roman2 <sfss1000.pfb
 omss12 SFSS1200 "roman2 ReEncodeFont" <roman2 <sfss1200.pfb
 omss17 SFSS1728 "roman2 ReEncodeFont" <roman2 <sfss1728.pfb

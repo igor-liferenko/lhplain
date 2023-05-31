@@ -1,5 +1,5 @@
 ombxsl10 SFBL1000 "roman2 ReEncodeFont" <roman2 <sfbl1000.pfb
-ombxti10 SFBI1000 "Textit2Encoding ReEncodeFont" <textit2 <sfbi1000.pfb
+ombxti10 SFBI1000 "textit2 ReEncodeFont" <textit2 <sfbi1000.pfb
 ombx10 SFBX1000 "roman2 ReEncodeFont" <roman2 <sfbx1000.pfb
 ombx12 SFBX1200 "roman2 ReEncodeFont" <roman2 <sfbx1200.pfb
 ombx5 SFBX0500 "roman2 ReEncodeFont" <roman2 <sfbx0500.pfb
@@ -8,10 +8,10 @@ ombx7 SFBX0700 "roman2 ReEncodeFont" <roman2 <sfbx0700.pfb
 ombx8 SFBX0800 "roman2 ReEncodeFont" <roman2 <sfbx0800.pfb
 ombx9 SFBX0900 "roman2 ReEncodeFont" <roman2 <sfbx0900.pfb
 omb10 SFBX1000 "roman2 ReEncodeFont" <roman2 <sfrb1000.pfb
-% omdunh10 <omdunh10.pfb % TODO: compare visually if it is 'dh' in fntallec.tex from http://mirrors.ctan.org/fonts/cyrillic/lh/lhfnt35g-source.zip
+omdunh10 SFDH1000 "roman2 ReEncodeFont" <roman2 <sfdh1000.pfb
 omff10 SFFF1000 "roman2 ReEncodeFont" <roman2 <sfff1000.pfb
 omfib8 SFFB0800 "roman2 ReEncodeFont" <roman2 <sffb0800.pfb
-omfi10 SFFI1000 "Textit2Encoding ReEncodeFont" <textit2 <sffi1000.pfb
+omfi10 SFFI1000 "textit2 ReEncodeFont" <textit2 <sffi1000.pfb
 omr10 SFRM1000 "roman2 ReEncodeFont" <roman2 <sfrm1000.pfb
 omr12 SFRM1200 "roman2 ReEncodeFont" <roman2 <sfrm1200.pfb
 omr17 SFRM1728 "roman2 ReEncodeFont" <roman2 <sfrm1728.pfb
@@ -37,18 +37,18 @@ omss12 SFSS1200 "roman2 ReEncodeFont" <roman2 <sfss1200.pfb
 omss17 SFSS1728 "roman2 ReEncodeFont" <roman2 <sfss1728.pfb
 omss8 SFSS0800 "roman2 ReEncodeFont" <roman2 <sfss0800.pfb
 omss9 SFSS0900 "roman2 ReEncodeFont" <roman2 <sfss0900.pfb
-omti10 SFTI1000 "Textit2Encoding ReEncodeFont" <textit2 <sfti1000.pfb
-omti12 SFTI1200 "Textit2Encoding ReEncodeFont" <textit2 <sfti1200.pfb
-omti7 SFTI0700 "Textit2Encoding ReEncodeFont" <textit2 <sfti0700.pfb
-omti8 SFTI0800 "Textit2Encoding ReEncodeFont" <textit2 <sfti0800.pfb
-omti9 SFTI0900 "Textit2Encoding ReEncodeFont" <textit2 <sfti0900.pfb
-omu10 SFUI1000 "Textit2Encoding ReEncodeFont" <textit2 <sfui1000.pfb
+omti10 SFTI1000 "textit2 ReEncodeFont" <textit2 <sfti1000.pfb
+omti12 SFTI1200 "textit2 ReEncodeFont" <textit2 <sfti1200.pfb
+omti7 SFTI0700 "textit2 ReEncodeFont" <textit2 <sfti0700.pfb
+omti8 SFTI0800 "textit2 ReEncodeFont" <textit2 <sfti0800.pfb
+omti9 SFTI0900 "textit2 ReEncodeFont" <textit2 <sfti0900.pfb
+omu10 SFUI1000 "textit2 ReEncodeFont" <textit2 <sfui1000.pfb
 omvtt10 SFVT1000 "roman2 ReEncodeFont" <roman2 <sfvt1000.pfb
 omcsc10 SFCC1000 "roman1csc1 ReEncodeFont" <roman1csc1 <sfcc1000.pfb
 omr5 SFRM0500 "roman1csc1 ReEncodeFont" <roman1csc1 <sfrm0500.pfb
-% omtex10 <omtex10.pfb
-% omtex8 <omtex8.pfb
-% omtex9 <omtex9.pfb
+omtex10 <omtex10.pfb % does not exist in cm-super
+omtex8 <omtex8.pfb % does not exist in cm-super
+omtex9 <omtex9.pfb % does not exist in cm-super
 omitt10 SFIT1000 "textit0 ReEncodeFont" <textit0 <sfit1000.pfb
 omsltt10 SFST1000 "roman0csc0 ReEncodeFont" <roman0csc0 <sfst1000.pfb
 omtcsc10 SFTC1000 "roman0csc0 ReEncodeFont" <roman0csc0 <sftc1000.pfb

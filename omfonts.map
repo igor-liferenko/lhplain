@@ -1,4 +1,5 @@
-% TODO: google correspondence between EC and CM (or LH and CM) - cm-super uses the same naming convention as EC/LH fonts, and find correspondence for remaining 3 fonts: omssdc10, omssqi8, omssq8
+% TODO: in enc/ change /*cyrillic and /numero to use /afii* - see cm-super-x2.enc (cm-super-minimal debian package) + https://tug.org/TUGboat/tb19-4/tb61berd.pdf
+% TODO: google correspondence between EC and CM (or LH and CM) - cm-super uses the same naming convention as EC/LH fonts, and find correspondence for remaining 3 fonts: omssdc10, omssqi8, omssq8 (and then delete them from pfb-mftrace/)
 ombxsl10 SFBL1000 "roman2 ReEncodeFont" <roman2 <sfbl1000.pfb
 ombxti10 SFBI1000 "textit2 ReEncodeFont" <textit2 <sfbi1000.pfb
 ombx10 SFBX1000 "roman2 ReEncodeFont" <roman2 <sfbx1000.pfb

@@ -1,5 +1,23 @@
-% TODO: in enc/ change /*cyrillic and /numero to use /afii* - see cm-super-x2.enc (cm-super-minimal debian package) + https://tug.org/TUGboat/tb19-4/tb61berd.pdf
-% TODO: google correspondence between EC and CM (or LH and CM) - cm-super uses the same naming convention as EC/LH fonts, and find correspondence for remaining 3 fonts: omssdc10, omssqi8, omssq8 (and then delete them from pfb-mftrace/)
+% ctan.org/pkg/cm-super
+
+%TODO: in enc/ change /*cyrillic and /numero to use /afii*
+%(see cm-super-x2.enc + https://tug.org/TUGboat/tb19-4/tb61berd.pdf)
+
+%TODO:
+%filter out from all fonts fonts from this file (with sizes 0800 and 1000)
+%list of all fonts is in files
+%cm-super-t1.map
+%cm-super-ts1.map
+%cm-super-t2a.map
+%cm-super-t2b.map
+%cm-super-t2c.map
+%cm-super-x2.map
+%in the obtained fonts see which resemble cmssdc10, cmssq8 and cmssqi8 and use them here
+
+%TODO:
+%try to merge afii-part of sftt1000.pfb with cmtex10.pfb to obtain omtex10.pfb
+%(via t1disasm/t1asm?) and use them here; same for cmtex8.pfb and cmtex9.pfb
+
 ombxsl10 SFBL1000 "roman2 ReEncodeFont" <roman2 <sfbl1000.pfb
 ombxti10 SFBI1000 "textit2 ReEncodeFont" <textit2 <sfbi1000.pfb
 ombx10 SFBX1000 "roman2 ReEncodeFont" <roman2 <sfbx1000.pfb
@@ -26,14 +44,14 @@ omsl12 SFSL1200 "roman2 ReEncodeFont" <roman2 <sfsl1200.pfb
 omsl8 SFSL0800 "roman2 ReEncodeFont" <roman2 <sfsl0800.pfb
 omsl9 SFSL0900 "roman2 ReEncodeFont" <roman2 <sfsl0900.pfb
 omssbx10 SFSX1000 "roman2 ReEncodeFont" <roman2 <sfsx1000.pfb
-omssdc10 <omssdc10.pfb % roman2
+omssdc10 <notavailable.pfb % roman2
 omssi10 SFSI1000 "roman2 ReEncodeFont" <roman2 <sfsi1000.pfb
 omssi12 SFSI1200 "roman2 ReEncodeFont" <roman2 <sfsi1200.pfb
 omssi17 SFSI1728 "roman2 ReEncodeFont" <roman2 <sfsi1728.pfb
 omssi8 SFSI0800 "roman2 ReEncodeFont" <roman2 <sfsi0800.pfb
 omssi9 SFSI0900 "roman2 ReEncodeFont" <roman2 <sfsi0900.pfb
-omssqi8 <omssqi8.pfb % roman2
-omssq8 <omssq8.pfb % roman2
+omssqi8 <notavailable.pfb % roman2
+omssq8 <notavailable.pfb % roman2
 omss10 SFSS1000 "roman2 ReEncodeFont" <roman2 <sfss1000.pfb
 omss12 SFSS1200 "roman2 ReEncodeFont" <roman2 <sfss1200.pfb
 omss17 SFSS1728 "roman2 ReEncodeFont" <roman2 <sfss1728.pfb
@@ -48,9 +66,9 @@ omu10 SFUI1000 "textit2 ReEncodeFont" <textit2 <sfui1000.pfb
 omvtt10 SFVT1000 "roman2 ReEncodeFont" <roman2 <sfvt1000.pfb
 omcsc10 SFCC1000 "roman1csc1 ReEncodeFont" <roman1csc1 <sfcc1000.pfb
 omr5 SFRM0500 "roman1csc1 ReEncodeFont" <roman1csc1 <sfrm0500.pfb
-omtex10 <omtex10.pfb % does not exist in cm-super
-omtex8 <omtex8.pfb % does not exist in cm-super
-omtex9 <omtex9.pfb % does not exist in cm-super
+omtex10 <notavailable.pfb % does not exist in cm-super
+omtex8 <notavailable.pfb % does not exist in cm-super
+omtex9 <notavailable.pfb % does not exist in cm-super
 omitt10 SFIT1000 "textit0 ReEncodeFont" <textit0 <sfit1000.pfb
 omsltt10 SFST1000 "roman0csc0 ReEncodeFont" <roman0csc0 <sfst1000.pfb
 omtcsc10 SFTC1000 "roman0csc0 ReEncodeFont" <roman0csc0 <sftc1000.pfb

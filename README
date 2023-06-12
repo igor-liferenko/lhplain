@@ -1,5 +1,5 @@
 * To use HiTeX:
-sed -i 's/-/\\\\/g' doc.tex
+sed -i 's/-/\\nobreak\\hskip0pt -\\nobreak\\hskip0pt \\relax /g' doc.tex
 sed -i 's/—/---/g' doc.tex
 sed -i 's/$/\n/' doc.tex
 fold -s doc.tex | sponge doc.tex

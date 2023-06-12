@@ -71,7 +71,7 @@ rm -fr ~/lhplain/vf ~/lhplain/tfm
 mkdir ~/lhplain/vf ~/lhplain/tfm
 for i in "${MAP[@]}"; do ##############################
 cm=${i%:*}
-om=${i#*:}
+om=o${i#*:c}
 printf '%s %s <%s.pfb\n' $cm $(echo $om|tr '[a-z]' '[A-Z]') $om >>~/lhplain/omfonts.map
 printf 'o%s SF%s "OMEncoding ReEncodeFont" <cm-super-om.enc <sf%s.pfb\n' ${cm#c} $(echo ${cm#cm}|tr '[a-z]' '[A-Z]') ${cm#cm} >>~/lhplain/omfonts.map
 tftopl ~/tex/TeXfonts/$om.tfm >$om.vpl

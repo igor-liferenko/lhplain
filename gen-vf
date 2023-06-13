@@ -75,9 +75,10 @@ om=o${i#*:c}
 printf '%s %s <%s.pfb\n' $cm $(echo c${om#o}|tr '[a-z]' '[A-Z]') c${om#o} >>~/lhplain/omfonts.map
 printf 'o%s SF%s "OMEncoding ReEncodeFont" <cm-super-om.enc <sf%s.pfb\n' ${cm#c} $(echo ${cm#cm}|tr '[a-z]' '[A-Z]') ${cm#cm} >>~/lhplain/omfonts.map
 tftopl ~/tex/TeXfonts/$om.tfm >$om.vpl
+dsize=$(sed -n 's/^(DESIGNSIZE/(FONTDSIZE/p' $om.vpl)
 sed -i "1i\
-(MAPFONT D 0 (FONTNAME $cm))\n\
-(MAPFONT D 1 (FONTNAME o${cm#c}))" $om.vpl
+(MAPFONT D 0 (FONTNAME $cm) $dsize)\n\
+(MAPFONT D 1 (FONTNAME o${cm#c}) $dsize)" $om.vpl
 sed -i 's/^(CHARACTER O \([23][0-9][0-9]\)/&\n   (MAP (SELECTFONT D 1) (SETCHAR O \1))/' $om.vpl
 cp ~/tex/TeXfonts/omtt10.tfm $cm.tfm # for vptovf
 cp ~/tex/TeXfonts/omtt10.tfm o${cm#c}.tfm # for vptovf

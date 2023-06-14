@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# map taken from cm-super/README, except sftex (changed to sftt - absent in cm-super) and sfssdc1000 (changed to sfssdc10 - to avoid name clash of vf/cmssdc10.tfm with TeXfonts/cmssdc10.tfm)
+# map taken from cm-super/README, except sftex (changed to sftt - absent in cm-super) and sfssdc1000 (changed to sfssdc10 - to avoid name clash of tfm/cmssdc10.tfm with TeXfonts/cmssdc10.tfm) - see end of file
 MAP=(
   "cmbl1000:cmbxsl10"
   "cmbi1000:cmbxti10"
@@ -76,9 +76,8 @@ printf '%s %s <%s.pfb\n' $cm $(echo c${om#o}|tr '[a-z]' '[A-Z]') c${om#o} >>~/lh
 printf 'o%s SF%s "OMEncoding ReEncodeFont" <cm-super-om.enc <sf%s.pfb\n' ${cm#c} $(echo ${cm#cm}|tr '[a-z]' '[A-Z]') ${cm#cm} >>~/lhplain/omfonts.map
 tftopl ~/tex/TeXfonts/$om.tfm >$om.vpl
 dsize=$(sed -n 's/^(DESIGNSIZE/(FONTDSIZE/p' $om.vpl)
-sed -i "1i\
-(MAPFONT D 0 (FONTNAME $cm) $dsize)\n\
-(MAPFONT D 1 (FONTNAME o${cm#c}) $dsize)" $om.vpl
+sed -i "1i (MAPFONT D 0 (FONTNAME $cm) $dsize)" $om.vpl
+sed -i "1a (MAPFONT D 1 (FONTNAME o${cm#c}) $dsize)" $om.vpl
 sed -i 's/^(CHARACTER O \([23][0-9][0-9]\)/&\n   (MAP (SELECTFONT D 1) (SETCHAR O \1))/' $om.vpl
 cp ~/tex/TeXfonts/omtt10.tfm $cm.tfm # for vptovf
 cp ~/tex/TeXfonts/omtt10.tfm o${cm#c}.tfm # for vptovf
@@ -87,5 +86,6 @@ cp $om.vf ~/lhplain/vf/
 ln -s ~/tex/TeXfonts/$om.tfm ~/lhplain/tfm/$cm.tfm
 ln -s ~/tex/TeXfonts/$om.tfm ~/lhplain/tfm/o${cm#c}.tfm
 done ###################################################################
-sed -i '/^omtex/{s/SFTEX/SFTT/;s/<sftex/<sftt/}' ~/lhplain/omfonts.map
+# see comment in beginning of file:
+sed -i '/^omtex/{s/SFTEX/SFTT/;s/<sftex/<sftt/}'                      ~/lhplain/omfonts.map
 sed -i '/^omssdc1000/{s/SFSSDC1000/SFSSDC10/;s/sfssdc1000/sfssdc10/}' ~/lhplain/omfonts.map

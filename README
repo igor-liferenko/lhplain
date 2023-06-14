@@ -1,4 +1,4 @@
-This repo should be named dvipdf
+This repo contains dvipdf and supporting files.
 
 -----------------------------
 
@@ -11,3 +11,11 @@ https://mirrors.ctan.org/fonts/ps-type1/cm-super.zip
 
 After copying text from pdf document, paste it on the input of
 the following command and copy the output: sed y/‘’−/\`\'-/
+
+-----------------------------
+
+To use font with changed charht values (its tfm file is in capital letters):
+1. add two entries to omfonts.map
+2. cp corresponding .vf to .vf in capital letters in vf/ (.vf does not contain metrics)
+3. binary-edit .vf to make two fonts in it be in capital letters
+4. in tfm/ create two symlinks to the tfm file in capital letters

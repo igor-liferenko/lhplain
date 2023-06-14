@@ -5,10 +5,11 @@ export VFFONTS=~/lhplain/vf
 export TEXFONTS=~/lhplain/tfm:~/tex/TeXfonts
 file=$1.dvi
 eval "$(hexdump -s 15 -n `hexdump -s 14 -n 1 -e '/1 "%d"' $file` -v -e '/1 "%c"' $file | sed 's/.* /p=/;s/x/sp,/;s/[+-][0-9]*/sp x=& y=/')"
-~/dvips/dvips -T $p -O $((x-4736287))sp,$((y-4736287))sp -q -P t1 $file
+~/dvips/dvips -T $p -O $((x-4736287))sp,$((y-4736287))sp -q -P t1 -M $file
 if [ $? = 0 ]; then
   sed '0,/^%%Title/{//d}' $1.ps | ps2pdf - $1.pdf # 'okular' tries to show Title by default, and fails to do it correctly if Title contains UTF-8
   [ $? = 0 ] || echo PS2PDF ERROR
 else
   echo DVIPS ERROR
 fi
+rm -f missfont.log

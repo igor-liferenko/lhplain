@@ -65,10 +65,11 @@ for i in \
   sfsq8_cmssq8
 do
   sf=${i%_*}
-  om=om${i#*_cm}
-  printf '%s %s <%s.pfb\n' $sf $(echo c${om#o}|tr '[a-z]' '[A-Z]') c${om#o} >>~/lhplain/omfonts.map
-  printf 'om%s SF%s "OMEncoding ReEncodeFont" <cm-super-om.enc <sf%s.pfb\n' ${sf#sf} \
-    $(echo ${sf#sf}|tr '[a-z]' '[A-Z]') ${sf#sf} >>~/lhplain/omfonts.map
+  cm=${i#*_}
+  echo $sf $(echo $cm|tr '[a-z]' '[A-Z]') \<$cm.pfb >>~/lhplain/omfonts.map
+  printf '%s %s "OMEncoding ReEncodeFont" <cm-super-om.enc <%s.pfb\n' \
+    om${sf#sf} $(echo $sf|tr '[a-z]' '[A-Z]') $sf >>~/lhplain/omfonts.map
+  om=om${cm#cm}
   tftopl ~/tex/TeXfonts/$om.tfm >$om.vpl
   dsize=$(sed -n 's/^(DESIGNSIZE/(FONTDSIZE/p' $om.vpl)
   sed -i "1i (MAPFONT D 0 (FONTNAME $sf) $dsize)" $om.vpl

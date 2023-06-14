@@ -69,23 +69,24 @@ mkdir vf
 cd vf
 rm -fr ~/lhplain/vf ~/lhplain/tfm
 mkdir ~/lhplain/vf ~/lhplain/tfm
-for i in "${MAP[@]}"; do ##############################
-cm=${i%:*}
-om=o${i#*:c}
-printf '%s %s <%s.pfb\n' $cm $(echo c${om#o}|tr '[a-z]' '[A-Z]') c${om#o} >>~/lhplain/omfonts.map
-printf 'o%s SF%s "OMEncoding ReEncodeFont" <cm-super-om.enc <sf%s.pfb\n' ${cm#c} $(echo ${cm#cm}|tr '[a-z]' '[A-Z]') ${cm#cm} >>~/lhplain/omfonts.map
-tftopl ~/tex/TeXfonts/$om.tfm >$om.vpl
-dsize=$(sed -n 's/^(DESIGNSIZE/(FONTDSIZE/p' $om.vpl)
-sed -i "1i (MAPFONT D 0 (FONTNAME $cm) $dsize)" $om.vpl
-sed -i "1a (MAPFONT D 1 (FONTNAME o${cm#c}) $dsize)" $om.vpl
-sed -i 's/^(CHARACTER O \([23][0-9][0-9]\)/&\n   (MAP (SELECTFONT D 1) (SETCHAR O \1))/' $om.vpl
-cp ~/tex/TeXfonts/omtt10.tfm $cm.tfm # for vptovf
-cp ~/tex/TeXfonts/omtt10.tfm o${cm#c}.tfm # for vptovf
-vptovf $om.vpl
-cp $om.vf ~/lhplain/vf/
-ln -s ~/tex/TeXfonts/$om.tfm ~/lhplain/tfm/$cm.tfm
-ln -s ~/tex/TeXfonts/$om.tfm ~/lhplain/tfm/o${cm#c}.tfm
-done ###################################################################
+for i in "${MAP[@]}"
+do
+  cm=${i%:*}
+  om=o${i#*:c}
+  printf '%s %s <%s.pfb\n' $cm $(echo c${om#o}|tr '[a-z]' '[A-Z]') c${om#o} >>~/lhplain/omfonts.map
+  printf 'o%s SF%s "OMEncoding ReEncodeFont" <cm-super-om.enc <sf%s.pfb\n' ${cm#c} $(echo ${cm#cm}|tr '[a-z]' '[A-Z]') ${cm#cm} >>~/lhplain/omfonts.map
+  tftopl ~/tex/TeXfonts/$om.tfm >$om.vpl
+  dsize=$(sed -n 's/^(DESIGNSIZE/(FONTDSIZE/p' $om.vpl)
+  sed -i "1i (MAPFONT D 0 (FONTNAME $cm) $dsize)" $om.vpl
+  sed -i "1a (MAPFONT D 1 (FONTNAME o${cm#c}) $dsize)" $om.vpl
+  sed -i 's/^(CHARACTER O \([23][0-9][0-9]\)/&\n   (MAP (SELECTFONT D 1) (SETCHAR O \1))/' $om.vpl
+  cp ~/tex/TeXfonts/omtt10.tfm $cm.tfm # for vptovf
+  cp ~/tex/TeXfonts/omtt10.tfm o${cm#c}.tfm # for vptovf
+  vptovf $om.vpl
+  cp $om.vf ~/lhplain/vf/
+  ln -s ~/tex/TeXfonts/$om.tfm ~/lhplain/tfm/$cm.tfm
+  ln -s ~/tex/TeXfonts/$om.tfm ~/lhplain/tfm/o${cm#c}.tfm
+done
 # see comment in beginning of file:
 sed -i '/^omtex/{s/SFTEX/SFTT/;s/<sftex/<sftt/}'                      ~/lhplain/omfonts.map
 sed -i '/^omssdc1000/{s/SFSSDC1000/SFSSDC10/;s/sfssdc1000/sfssdc10/}' ~/lhplain/omfonts.map

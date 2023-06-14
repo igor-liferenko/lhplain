@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# map taken from cm-super/README, except sftex (changed to sftt - absent in cm-super) and sfssdc1000 (changed to sfssdc10 - to avoid name clash of tfm/cmssdc10.tfm with TeXfonts/cmssdc10.tfm) - see end of file
+# this correspondence between SF and CM for fonts in MFinputs/om/ was created using cm-super/README; cmtex are absent in the README - I add them here and change to tt in the end of this script; instead of cmssdc10 I use cmssdc1000 here (because otherwise font name in omfonts.map would duplicate font name in cmfonts.map) and change it in the end of this script
 MAP=(
   cmbl1000:cmbxsl10
   cmbi1000:cmbxti10
@@ -86,5 +86,5 @@ do
   ln -s ~/tex/TeXfonts/$om.tfm ~/lhplain/tfm/o${cm#c}.tfm
 done
 # see comment in beginning of file:
-sed -i '/^omtex/{s/SFTEX/SFTT/;s/<sftex/<sftt/}'                      ~/lhplain/omfonts.map
-sed -i '/^omssdc1000/{s/SFSSDC1000/SFSSDC10/;s/sfssdc1000/sfssdc10/}' ~/lhplain/omfonts.map
+sed -i 's/SFTEX/SFTT/;s/<sftex/<sftt/'                 ~/lhplain/omfonts.map
+sed -i 's/SFSSDC1000/SFSSDC10/;s/sfssdc1000/sfssdc10/' ~/lhplain/omfonts.map

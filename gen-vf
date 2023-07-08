@@ -76,8 +76,8 @@ do
   sed -i "1i (MAPFONT D 0 (FONTNAME $xx) $dsize)" $om.vpl
   sed -i "1a (MAPFONT D 1 (FONTNAME $yy) $dsize)" $om.vpl
   sed -i 's/^(CHARACTER O \([23][0-9][0-9]\)/&\n   (MAP (SELECTFONT D 1) (SETCHAR O \1))/' $om.vpl
-  cp ~/tex/TeXfonts/$om.tfm $xx.tfm # for vptovf
-  cp ~/tex/TeXfonts/$om.tfm $yy.tfm # for vptovf
+  ln -s ~/tex/TeXfonts/$om.tfm $xx.tfm # for vptovf
+  ln -s ~/tex/TeXfonts/$om.tfm $yy.tfm # for vptovf
   vptovf $om.vpl
   cp $om.vf ~/lhplain/vf/
   ln -s ../../tex/TeXfonts/$om.tfm ~/lhplain/tfm/$xx.tfm

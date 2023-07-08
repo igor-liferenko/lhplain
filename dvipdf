@@ -3,6 +3,7 @@ export TEXCONFIG=~/lhplain:~/dvips
 export DVIPSHEADERS=~/lhplain:~/dvips
 export VFFONTS=~/lhplain/vf
 export TEXFONTS=~/lhplain/tfm:~/tex/TeXfonts
+export PKFONTS=/none
 file=$1.dvi
 eval "$(hexdump -s 15 -n `hexdump -s 14 -n 1 -e '/1 "%d"' $file` -v -e '/1 "%c"' $file | sed 's/.* /p=/;s/x/sp,/;s/[+-][0-9]*/sp x=& y=/')"
 ~/dvips/dvips -T $p -O $((x-4736287))sp,$((y-4736287))sp -q -P t1 -M $file

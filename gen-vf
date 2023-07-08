@@ -65,20 +65,22 @@ for i in \
 do
   sf=${i%_*}
   cm=${i#*_}
-  printf '%s %s <%s.pfb\n' $sf $(echo $cm|tr a-z A-Z) $cm >>~/lhplain/omfonts.map
-  printf '%s %s "OMEncoding ReEncodeFont" <cm-super-om.enc <%s.pfb\n' \
-    om${sf#sf} $(echo $sf|tr a-z A-Z) $sf >>~/lhplain/omfonts.map
   om=om${cm#cm}
+  xx=xx${cm#cm}
+  yy=yy${cm#cm}
+  printf '%s %s <%s.pfb\n' $xx $(echo $cm|tr a-z A-Z) $cm >>~/lhplain/omfonts.map
+  printf '%s %s "OMEncoding ReEncodeFont" <cm-super-om.enc <%s.pfb\n' \
+                           $yy $(echo $sf|tr a-z A-Z) $sf >>~/lhplain/omfonts.map
   tftopl ~/tex/TeXfonts/$om.tfm >$om.vpl
   dsize=$(sed -n 's/^(DESIGNSIZE/(FONTDSIZE/p' $om.vpl)
-  sed -i "1i (MAPFONT D 0 (FONTNAME $sf) $dsize)" $om.vpl
-  sed -i "1a (MAPFONT D 1 (FONTNAME om${sf#sf}) $dsize)" $om.vpl
+  sed -i "1i (MAPFONT D 0 (FONTNAME $xx) $dsize)" $om.vpl
+  sed -i "1a (MAPFONT D 1 (FONTNAME $yy) $dsize)" $om.vpl
   sed -i 's/^(CHARACTER O \([23][0-9][0-9]\)/&\n   (MAP (SELECTFONT D 1) (SETCHAR O \1))/' $om.vpl
-  cp ~/tex/TeXfonts/omtt10.tfm $sf.tfm # for vptovf
-  cp ~/tex/TeXfonts/omtt10.tfm om${sf#sf}.tfm # for vptovf
+  cp ~/tex/TeXfonts/$om.tfm $xx.tfm # for vptovf
+  cp ~/tex/TeXfonts/$om.tfm $yy.tfm # for vptovf
   vptovf $om.vpl
   cp $om.vf ~/lhplain/vf/
-  ln -s ../../tex/TeXfonts/$om.tfm ~/lhplain/tfm/$sf.tfm
-  ln -s ../../tex/TeXfonts/$om.tfm ~/lhplain/tfm/om${sf#sf}.tfm
+  ln -s ../../tex/TeXfonts/$om.tfm ~/lhplain/tfm/$xx.tfm
+  ln -s ../../tex/TeXfonts/$om.tfm ~/lhplain/tfm/$yy.tfm
 done
 sed -i 's/SFTEX/SFTT/;s/<sftex/<sftt/' ~/lhplain/omfonts.map

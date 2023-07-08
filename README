@@ -19,3 +19,33 @@ To use font with changed charht values (its tfm file is in capital letters):
 2. cp corresponding .vf to .vf in capital letters in vf/ (.vf does not contain metrics)
 3. binary-edit .vf to make two fonts in it be in capital letters
 4. in tfm/ create two symlinks to the tfm file in capital letters
+
+-----------------------------
+
+To correctly copy/search quoteleft, quoteright and minus,
+build ghostscript from source with the following changes:
+
+In the end of pdf_simple_font_needs_ToUnicode change
+'return false' to 'return true'
+
+In Resource/Decoding/Unicode change:
+
+-16#0027  quotesingle SP050000
++16#0027  quotesingle SP050000 quoteright
+
+-16#002D  hyphen      SP100000 hyphen-minus hyphenminus
++16#002D  hyphen      SP100000 hyphen-minus hyphenminus minus
+
+-16#0060  grave       SD130000
++16#0060  grave       SD130000 quoteleft
+
+-16#2018  quoteleft   SP190000 quotesinglleft
++16#2018              SP190000 quotesinglleft
+
+-16#2019  quoteright  SP200000 quotesinglright
++16#2019              SP200000 quotesinglright
+
+-16#2212  minus
+
+To see the effect of this, add -dCompressFonts=false to ps2pdf,
+open pdf file via 'less' and search CMap

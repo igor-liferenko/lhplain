@@ -33,8 +33,6 @@ xxr12 CMR12 <cmr12.pfb
 yyr12 SFRM1200 "OMEncoding ReEncodeFont" <cm-super-om.enc <sfrm1200.pfb
 xxr17 CMR17 <cmr17.pfb
 yyr17 SFRM1728 "OMEncoding ReEncodeFont" <cm-super-om.enc <sfrm1728.pfb
-xxr5 CMR5 <cmr5.pfb
-yyr5 SFRM0500 "OMEncoding ReEncodeFont" <cm-super-om.enc <sfrm0500.pfb
 xxr6 CMR6 <cmr6.pfb
 yyr6 SFRM0600 "OMEncoding ReEncodeFont" <cm-super-om.enc <sfrm0600.pfb
 xxr7 CMR7 <cmr7.pfb
@@ -53,6 +51,8 @@ xxsl9 CMSL9 <cmsl9.pfb
 yysl9 SFSL0900 "OMEncoding ReEncodeFont" <cm-super-om.enc <sfsl0900.pfb
 xxssbx10 CMSSBX10 <cmssbx10.pfb
 yyssbx10 SFSX1000 "OMEncoding ReEncodeFont" <cm-super-om.enc <sfsx1000.pfb
+xxssdc10 CMSSDC10 <cmssdc10.pfb
+yyssdc10 SFSSDC10 "OMEncoding ReEncodeFont" <cm-super-om.enc <sfssdc10.pfb
 xxssi10 CMSSI10 <cmssi10.pfb
 yyssi10 SFSI1000 "OMEncoding ReEncodeFont" <cm-super-om.enc <sfsi1000.pfb
 xxssi12 CMSSI12 <cmssi12.pfb
@@ -63,6 +63,10 @@ xxssi8 CMSSI8 <cmssi8.pfb
 yyssi8 SFSI0800 "OMEncoding ReEncodeFont" <cm-super-om.enc <sfsi0800.pfb
 xxssi9 CMSSI9 <cmssi9.pfb
 yyssi9 SFSI0900 "OMEncoding ReEncodeFont" <cm-super-om.enc <sfsi0900.pfb
+xxssqi8 CMSSQI8 <cmssqi8.pfb
+yyssqi8 SFQI8 "OMEncoding ReEncodeFont" <cm-super-om.enc <sfqi8.pfb
+xxssq8 CMSSQ8 <cmssq8.pfb
+yyssq8 SFSQ8 "OMEncoding ReEncodeFont" <cm-super-om.enc <sfsq8.pfb
 xxss10 CMSS10 <cmss10.pfb
 yyss10 SFSS1000 "OMEncoding ReEncodeFont" <cm-super-om.enc <sfss1000.pfb
 xxss12 CMSS12 <cmss12.pfb
@@ -89,29 +93,25 @@ xxvtt10 CMVTT10 <cmvtt10.pfb
 yyvtt10 SFVT1000 "OMEncoding ReEncodeFont" <cm-super-om.enc <sfvt1000.pfb
 xxcsc10 CMCSC10 <cmcsc10.pfb
 yycsc10 SFCC1000 "OMEncoding ReEncodeFont" <cm-super-om.enc <sfcc1000.pfb
+xxr5 CMR5 <cmr5.pfb
+yyr5 SFRM0500 "OMEncoding ReEncodeFont" <cm-super-om.enc <sfrm0500.pfb
+xxtex10 CMTEX10 <cmtex10.pfb
+yytex10 SFTT1000 "OMEncoding ReEncodeFont" <cm-super-om.enc <sftt1000.pfb
+xxtex8 CMTEX8 <cmtex8.pfb
+yytex8 SFTT0800 "OMEncoding ReEncodeFont" <cm-super-om.enc <sftt0800.pfb
+xxtex9 CMTEX9 <cmtex9.pfb
+yytex9 SFTT0900 "OMEncoding ReEncodeFont" <cm-super-om.enc <sftt0900.pfb
 xxitt10 CMITT10 <cmitt10.pfb
 yyitt10 SFIT1000 "OMEncoding ReEncodeFont" <cm-super-om.enc <sfit1000.pfb
 xxsltt10 CMSLTT10 <cmsltt10.pfb
 yysltt10 SFST1000 "OMEncoding ReEncodeFont" <cm-super-om.enc <sfst1000.pfb
 xxtcsc10 CMTCSC10 <cmtcsc10.pfb
 yytcsc10 SFTC1000 "OMEncoding ReEncodeFont" <cm-super-om.enc <sftc1000.pfb
-xxtt8 CMTT8 <cmtt8.pfb
-yytt8 SFTT0800 "OMEncoding ReEncodeFont" <cm-super-om.enc <sftt0800.pfb
-xxtt9 CMTT9 <cmtt9.pfb
-yytt9 SFTT0900 "OMEncoding ReEncodeFont" <cm-super-om.enc <sftt0900.pfb
 xxtt10 CMTT10 <cmtt10.pfb
 yytt10 SFTT1000 "OMEncoding ReEncodeFont" <cm-super-om.enc <sftt1000.pfb
 xxtt12 CMTT12 <cmtt12.pfb
 yytt12 SFTT1200 "OMEncoding ReEncodeFont" <cm-super-om.enc <sftt1200.pfb
-xxssdc10 CMSSDC10 <cmssdc10.pfb
-yyssdc10 SFSSDC10 "OMEncoding ReEncodeFont" <cm-super-om.enc <sfssdc10.pfb
-xxssq8 CMSSQ8 <cmssq8.pfb
-yyssq8 SFSQ8 "OMEncoding ReEncodeFont" <cm-super-om.enc <sfsq8.pfb
-xxssqi8 CMSSQI8 <cmssqi8.pfb
-yyssqi8 SFQI8 "OMEncoding ReEncodeFont" <cm-super-om.enc <sfqi8.pfb
-xxtex8 CMTEX8 <cmtex8.pfb
-yytex8 SFTT0800 "OMEncoding ReEncodeFont" <cm-super-om.enc <sftt0800.pfb
-xxtex9 CMTEX9 <cmtex9.pfb
-yytex9 SFTT0900 "OMEncoding ReEncodeFont" <cm-super-om.enc <sftt0900.pfb
-xxtex10 CMTEX10 <cmtex10.pfb
-yytex10 SFTT1000 "OMEncoding ReEncodeFont" <cm-super-om.enc <sftt1000.pfb
+xxtt8 CMTT8 <cmtt8.pfb
+yytt8 SFTT0800 "OMEncoding ReEncodeFont" <cm-super-om.enc <sftt0800.pfb
+xxtt9 CMTT9 <cmtt9.pfb
+yytt9 SFTT0900 "OMEncoding ReEncodeFont" <cm-super-om.enc <sftt0900.pfb

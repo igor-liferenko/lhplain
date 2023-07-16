@@ -1,32 +1,28 @@
 #!/bin/sh
-echo '% this file was automatically generated' >~/lhplain/omfonts.map
-rm -f ~/lhplain/vf/*
-rm -f ~/lhplain/tfm/*
+rm omfonts.map vf/* tfm/*
 
 # Split each om-font into two fonts: lower half (om->xx) and upper half (om->yy),
 # in order to be able to use appropriate Type1 font for each half (lower half in
 # each om-font is exactly equal to corresponding cm-font; upper half in all om-fonts
 # is the same).
 
-cd ~/lhplain/tfm
-for i in `sed -n '/% \w\+[0-9]\+$/s/\(\w\+[0-9]\+\).*% /\1_/p' ../cmfonts.map`; do
+for i in `sed -n '/% \w\+[0-9]\+$/s/\(\w\+[0-9]\+\).*% /\1_/p' cmfonts.map`; do
   cm=${i%_*}
   sf=${i#*_}
   om=om${cm#cm}
   xx=xx${cm#cm}
   yy=yy${cm#cm}
-  printf '%s %s <%s.pfb\n' $xx $(echo $cm|tr a-z A-Z) $cm >>../omfonts.map
+  printf '%s %s <%s.pfb\n' $xx $(echo $cm|tr a-z A-Z) $cm >>omfonts.map
   printf '%s %s "OMEncoding ReEncodeFont" <cm-super-om.enc <%s.pfb\n' \
-                           $yy $(echo $sf|tr a-z A-Z) $sf >>../omfonts.map
+                           $yy $(echo $sf|tr a-z A-Z) $sf >>omfonts.map
   tftopl ~/tex/TeXfonts/$om.tfm >$om.vpl
   dsize=$(sed -n 's/^(DESIGNSIZE/(FONTDSIZE/p' $om.vpl)
   sed -i "1i (MAPFONT D 0 (FONTNAME $xx) $dsize)" $om.vpl
   sed -i "1a (MAPFONT D 1 (FONTNAME $yy) $dsize)" $om.vpl
   sed -i 's/^(CHARACTER O \([23][0-9][0-9]\)/&\n   (MAP (SELECTFONT D 1) (SETCHAR O \1))/' $om.vpl
-  ln -s ../../tex/TeXfonts/$om.tfm $xx.tfm
-  ln -s ../../tex/TeXfonts/$om.tfm $yy.tfm
-  vptovf $om.vpl
-  mv $om.vf ../vf/
-  rm $om.vpl $om.tfm
+  ln -s ../../tex/TeXfonts/$om.tfm tfm/$xx.tfm
+  ln -s ../../tex/TeXfonts/$om.tfm tfm/$yy.tfm
+  TEXFONTS=tfm vptovf $om.vpl vf/$om.vf /tmp/discard.tfm
+  rm $om.vpl
 done
-sed -i 's/SFTEX/SFTT/;s/<sftex/<sftt/' ../omfonts.map
+sed -i 's/SFTEX/SFTT/;s/<sftex/<sftt/' omfonts.map

@@ -1,4 +1,5 @@
-% 75 fonts from volume E of Computers and Typesetting; corresponding CM-super fonts are in comments
+% 75 fonts from volume E of Computers and Typesetting
+% corresponding CM-super fonts are in comments - they are used in `generate'
 cmbxsl10 CMBXSL10 <cmbxsl10.pfb % sfbl1000
 cmbxti10 CMBXTI10 <cmbxti10.pfb % sfbi1000
 cmbx10 CMBX10 <cmbx10.pfb % sfbx1000

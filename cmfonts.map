@@ -47,9 +47,9 @@ cmu10 CMU10 <cmu10.pfb % sfui1000
 cmvtt10 CMVTT10 <cmvtt10.pfb % sfvt1000
 cmcsc10 CMCSC10 <cmcsc10.pfb % sfcc1000
 cmr5 CMR5 <cmr5.pfb % sfrm0500
-cmtex10 CMTEX10 <cmtex10.pfb % sftex1000
-cmtex8 CMTEX8 <cmtex8.pfb % sftex0800
-cmtex9 CMTEX9 <cmtex9.pfb % sftex0900
+cmtex10 CMTEX10 <cmtex10.pfb % sftt1000
+cmtex8 CMTEX8 <cmtex8.pfb % sftt0800
+cmtex9 CMTEX9 <cmtex9.pfb % sftt0900
 cmitt10 CMITT10 <cmitt10.pfb % sfit1000
 cmsltt10 CMSLTT10 <cmsltt10.pfb % sfst1000
 cmtcsc10 CMTCSC10 <cmtcsc10.pfb % sftc1000

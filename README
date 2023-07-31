@@ -10,9 +10,10 @@ https://mirrors.ctan.org/fonts/ps-type1/cm-super.zip
 -----------------------------
 
 To correctly copy/search quoteleft, quoteright and minus,
-build ghostscript from source with the following changes:
+apply the following changes to ghostscript source (version
+does not matter, so use latest):
 
-In the end of pdf_simple_font_needs_ToUnicode change
+In the end of function pdf_simple_font_needs_ToUnicode change
 'return false' to 'return true'
 
 In Resource/Decoding/Unicode change:
@@ -33,6 +34,12 @@ In Resource/Decoding/Unicode change:
 +16#2019              SP200000 quotesinglright
 
 -16#2212  minus
+
+Build ghostscript:
+
+./configure --prefix=/usr/local/ghostscript
+make
+make install
 
 To see the effect of this, add -dCompressFonts=false to ps2pdf,
 open pdf file via 'less' and search CMap

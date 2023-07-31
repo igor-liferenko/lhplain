@@ -1,15 +1,15 @@
 #!/bin/sh
 rm omfonts.map vf/* tfm/*
 
-# Split each om-font into two fonts: lower half (om->xx) and upper half (om->yy),
-# in order to be able to use appropriate Type1 font for each half (see omfonts.map).
+# split each om-font into two fonts: lower half (xx) and upper half (yy),
+# in order to be able to use appropriate Type1 font for each half (see omfonts.map)
 
 for i in `sed -n '/% \w\+[0-9]\+$/s/\(\w\+[0-9]\+\).*% /\1_/p' cmfonts.map`; do
   cm=${i%_*}
   sf=${i#*_}
   om=om${cm#cm}
-  xx=xx${cm#cm}
-  yy=yy${cm#cm}
+  xx=xx${om#om}
+  yy=yy${om#om}
   printf '%s %s <%s.pfb\n' $xx $(echo $cm|tr a-z A-Z) $cm >>omfonts.map
   printf '%s %s "OMEncoding ReEncodeFont" <cm-super-om.enc <%s.pfb\n' \
                            $yy $(echo $sf|tr a-z A-Z) $sf >>omfonts.map
@@ -23,4 +23,3 @@ for i in `sed -n '/% \w\+[0-9]\+$/s/\(\w\+[0-9]\+\).*% /\1_/p' cmfonts.map`; do
   TEXFONTS=tfm vptovf $om.vpl vf/$om.vf /tmp/discard.tfm
   rm $om.vpl
 done
-sed -i '1i % this file was automatically generated' omfonts.map

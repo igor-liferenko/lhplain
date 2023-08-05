@@ -10,36 +10,24 @@ https://mirrors.ctan.org/fonts/ps-type1/cm-super.zip
 -----------------------------
 
 To correctly copy/search quoteleft, quoteright and minus,
-apply the following changes to ghostscript source (version
-does not matter, so use latest):
+change ghostscript source:
 
 In the end of function pdf_simple_font_needs_ToUnicode change
 'return false' to 'return true'
 
-In Resource/Decoding/Unicode change:
-
--16#0027  quotesingle SP050000
-+16#0027  quotesingle SP050000 quoteright
-
--16#002D  hyphen      SP100000 hyphen-minus hyphenminus
-+16#002D  hyphen      SP100000 hyphen-minus hyphenminus minus
-
--16#0060  grave       SD130000
-+16#0060  grave       SD130000 quoteleft
-
--16#2018  quoteleft   SP190000 quotesinglleft
-+16#2018              SP190000 quotesinglleft
-
--16#2019  quoteright  SP200000 quotesinglright
-+16#2019              SP200000 quotesinglright
-
--16#2212  minus
-
-Build ghostscript:
+sed -i 's/ quoteright\b/ xyz/'  Resource/Decoding/Unicode
+sed -i 's/SP050000/quoteright/' Resource/Decoding/Unicode
+sed -i 's/xyz/SP050000/'        Resource/Decoding/Unicode
+sed -i 's/ quoteleft\b/ xyz/'   Resource/Decoding/Unicode
+sed -i 's/SD130000/quoteleft/'  Resource/Decoding/Unicode
+sed -i 's/xyz/SD130000/'        Resource/Decoding/Unicode
+sed -i 's/ minus\b/ xyz/'       Resource/Decoding/Unicode
+sed -i 's/SP100000/minus/'      Resource/Decoding/Unicode
+sed -i 's/xyz/SP100000/'        Resource/Decoding/Unicode
 
 ./configure --prefix=/usr/local/ghostscript
 make
 make install
 
-To see the effect of this, add -dCompressFonts=false to ps2pdf,
-open pdf file via 'less' and search CMap
+(To see the effect of this, add -dCompressFonts=false to ps2pdf,
+open pdf file via 'less' and search CMap.)

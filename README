@@ -25,7 +25,7 @@ sed -i 's/ minus\b/ xyz/'       Resource/Decoding/Unicode
 sed -i 's/SP100000/minus/'      Resource/Decoding/Unicode
 sed -i 's/xyz/SP100000/'        Resource/Decoding/Unicode
 
-./configure --prefix=/usr/local/ghostscript
+./configure --prefix=$HOME/lhplain/ghostscript
 make
 make install
 

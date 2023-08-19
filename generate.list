@@ -1,3 +1,6 @@
+% This is correspondence between CM fonts and CM-SUPER fonts.
+% It was created using cm-super README.
+% It is used in `generate'.
 cmbxsl10_sfbl1000
 cmbxti10_sfbi1000
 cmbx10_sfbx1000

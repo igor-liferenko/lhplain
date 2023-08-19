@@ -4,7 +4,7 @@ rm omfonts.map vf/* tfm/*
 # split each om-font into two fonts: lower half (xx) and upper half (yy),
 # in order to be able to use appropriate Type1 font for each half (see omfonts.map)
 
-for i in `cat generate.map`; do
+for i in `grep -v % generate.list`; do
   cm=${i%_*}
   sf=${i#*_}
   om=om${cm#cm}

@@ -14,9 +14,14 @@ if [ -e missfont.log ]; then
   exit
 fi
 if [ $ret = 0 ]; then
-  PATH=~/lhplain/ghostscript/bin:$PATH
-  sed '0,/^%%Title/{//d}' $1.ps | ps2pdf - $1.pdf # 'okular' tries to show Title by default, and fails to do it correctly if Title contains UTF-8
-  [ $? = 0 ] || echo PS2PDF ERROR
+  PATH=~/lhplain/ghostscript/bin:$PATH # see README
+  ps2pdf $1.ps $1.pdf || echo PS2PDF ERROR
 else
   echo DVIPS ERROR
 fi
+
+# When name of tex-file is in UTF-8, dvips generates 'Title' which is incorrectly
+# processed by ps2pdf (and incorrectly shown in PS viewers),
+# therefore this change is done in output.c:
+# -      if (*iname)
+# -         (void)fprintf(bitfile, "%%%%Title: %s\n", iname) ;

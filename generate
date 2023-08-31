@@ -23,3 +23,6 @@ for i in `grep -v % generate.list`; do
   TEXFONTS=tfm vptovf $om.vpl vf/$om.vf /tmp/discard.tfm
   rm $om.vpl
 done
+
+# repeat the loop, but for uppercase font names
+sed -n '/^for/,/^done/p' $0 | sed 's/=\(om\|xx\|yy\).*/&; \1=`echo $\1|tr a-z A-Z`/;s/#om/#OM/' | sh

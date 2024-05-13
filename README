@@ -12,19 +12,23 @@ https://mirrors.ctan.org/fonts/ps-type1/cm-super.zip
 To correctly copy/search quoteleft, quoteright and minus,
 change ghostscript source:
 
+1)
 In the end of function pdf_simple_font_needs_ToUnicode change
 'return false' to 'return true'
 
-sed -i 's/ quoteright\b/ xyz/'  Resource/Decoding/Unicode
-sed -i 's/SP050000/quoteright/' Resource/Decoding/Unicode
-sed -i 's/xyz/SP050000/'        Resource/Decoding/Unicode
-sed -i 's/ quoteleft\b/ xyz/'   Resource/Decoding/Unicode
-sed -i 's/SD130000/quoteleft/'  Resource/Decoding/Unicode
-sed -i 's/xyz/SD130000/'        Resource/Decoding/Unicode
-sed -i 's/ minus\b/ xyz/'       Resource/Decoding/Unicode
-sed -i 's/SP100000/minus/'      Resource/Decoding/Unicode
-sed -i 's/xyz/SP100000/'        Resource/Decoding/Unicode
+2)
+sed -i '/ quoteright\b/{s// SP050000/;n};s/SP050000/quoteright/' Resource/Decoding/Unicode
+sed -i '/ quoteleft\b/{s// SD130000/;n};s/SD130000/quoteleft/'   Resource/Decoding/Unicode
+sed -i '/ minus\b/{s// SP100000/;n};s/SP100000/minus/'           Resource/Decoding/Unicode
 
+Build:
+
+With dpkg-buildpackage)
+sudo apt-get build-dep ghostscript
+dpkg-buildpackage -r fakeroot -b -uc -us
+Delete PATH from dvipdf
+
+Witout no dpkg-buildpackage)
 ./configure --without-x --prefix=$HOME/lhplain/ghostscript
 make
 make install

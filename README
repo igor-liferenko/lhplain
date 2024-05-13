@@ -9,7 +9,7 @@ https://mirrors.ctan.org/fonts/ps-type1/cm-super.zip
 
 -----------------------------
 
-To correctly copy/search quoteleft, quoteright and minus,
+To correctly copy/search quoteright, quoteleft and minus,
 change ghostscript source:
 
 1)
@@ -24,11 +24,12 @@ sed -i '/ minus\b/{s// SP100000/;n};s/SP100000/minus/'           Resource/Decodi
 Build:
 
 With dpkg-buildpackage)
+apt-get source ghostscript
 sudo apt-get build-dep ghostscript
 dpkg-buildpackage -r fakeroot -b -uc -us
 Delete PATH from dvipdf
 
-Witout no dpkg-buildpackage)
+Witout dpkg-buildpackage)
 ./configure --without-x --prefix=$HOME/lhplain/ghostscript
 make
 make install

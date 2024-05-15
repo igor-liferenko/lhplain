@@ -9,7 +9,7 @@ https://mirrors.ctan.org/fonts/ps-type1/cm-super.zip
 
 -----------------------------
 
-To correctly copy/search quoteright, quoteleft and minus,
+To correctly copy/search quoteleft, minus and quoteright,
 change ghostscript source:
 
 1)
@@ -17,12 +17,12 @@ In the end of function pdf_simple_font_needs_ToUnicode change
 'return false' to 'return true'
 
 2)
-sed -i '/#0027/s/quoteright/SP050000/' Resource/Decoding/Unicode
-sed -i '/#2019/s/SP050000/quoteright/' Resource/Decoding/Unicode
-sed -i '/#0060/s/quoteleft/SD130000/' Resource/Decoding/Unicode
-sed -i '/#2018/s/SD130000/quoteleft/' Resource/Decoding/Unicode
-sed -i '/#002D/s/minus/SP100000/' Resource/Decoding/Unicode
-sed -i '/#2212/s/SP100000/minus/' Resource/Decoding/Unicode
+sed -i '/#0060/s/SD130000/quoteleft/' Resource/Decoding/Unicode
+sed -i '/#2018/s/quoteleft/SD130000/' Resource/Decoding/Unicode
+sed -i '/#002D/s/SP100000/minus/' Resource/Decoding/Unicode
+sed -i '/#2212/s/minus/SP100000/' Resource/Decoding/Unicode
+sed -i '/#0027/s/SP050000/quoteright/' Resource/Decoding/Unicode
+sed -i '/#2019/s/quoteright/SP050000/' Resource/Decoding/Unicode
 
 Build:
 

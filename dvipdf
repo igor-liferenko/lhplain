@@ -14,7 +14,6 @@ if [ -e missfont.log ]; then
   exit
 fi
 if [ $ret = 0 ]; then
-  PATH=~/lhplain/ghostscript/bin:$PATH # see README
   ps2pdf $1.ps $1.pdf || echo PS2PDF ERROR
 else
   echo DVIPS ERROR

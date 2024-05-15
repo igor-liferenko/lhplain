@@ -17,9 +17,12 @@ In the end of function pdf_simple_font_needs_ToUnicode change
 'return false' to 'return true'
 
 2)
-sed -i '/ quoteright\b/{s// SP050000/;n};s/SP050000/quoteright/' Resource/Decoding/Unicode
-sed -i '/ quoteleft\b/{s// SD130000/;n};s/SD130000/quoteleft/'   Resource/Decoding/Unicode
-sed -i '/ minus\b/{s// SP100000/;n};s/SP100000/minus/'           Resource/Decoding/Unicode
+sed -i '/#0027/s/quoteright/SP050000/' Resource/Decoding/Unicode
+sed -i '/#2019/s/SP050000/quoteright/' Resource/Decoding/Unicode
+sed -i '/#0060/s/quoteleft/SD130000/' Resource/Decoding/Unicode
+sed -i '/#2018/s/SD130000/quoteleft/' Resource/Decoding/Unicode
+sed -i '/#002D/s/minus/SP100000/' Resource/Decoding/Unicode
+sed -i '/#2212/s/SP100000/minus/' Resource/Decoding/Unicode
 
 Build:
 
@@ -27,7 +30,6 @@ With dpkg-buildpackage)
 apt-get source ghostscript
 sudo apt-get build-dep ghostscript
 dpkg-buildpackage -r fakeroot -b -uc -us
-Delete PATH from dvipdf
 
 Witout dpkg-buildpackage)
 ./configure --without-x --prefix=$HOME/lhplain/ghostscript

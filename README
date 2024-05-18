@@ -7,16 +7,11 @@ Put *.pfb files from the following archives to this directory:
 https://www.ams.org/arc/tex/amsfonts.zip
 https://mirrors.ctan.org/fonts/ps-type1/cm-super.zip
 
------------------------------
+--------------------------------------------------------------------
 
-To correctly copy/search quoteleft, minus and quoteright,
-change ghostscript source:
+To correctly copy/search quoteleft, minus and quoteright:
 
 1)
-In the end of function pdf_simple_font_needs_ToUnicode change
-'return false' to 'return true'
-
-2)
 sed -i '/#0060/s/SD130000/quoteleft/' Resource/Decoding/Unicode
 sed -i '/#2018/s/quoteleft/SD130000/' Resource/Decoding/Unicode
 sed -i '/#002D/s/SP100000/minus/' Resource/Decoding/Unicode
@@ -24,17 +19,35 @@ sed -i '/#2212/s/minus/SP100000/' Resource/Decoding/Unicode
 sed -i '/#0027/s/SP050000/quoteright/' Resource/Decoding/Unicode
 sed -i '/#2019/s/quoteright/SP050000/' Resource/Decoding/Unicode
 
-Build:
+2)
+1. dpkg-buildpackage -rfakeroot -b -us -uc
+2. grep -srn pdf_simple_font_needs_ToUnicode .
+3. objdump -S <libgs that will be found by grep> >/tmp/1
+4. In the end of function pdf_simple_font_needs_ToUnicode change 'return false' to 'return true'
+5. dpkg-buildpackage -rfakeroot -b -us -uc
+6. objdump -S <libgs that will be found by grep> >/tmp/2
+7. diff /tmp/1 /tmp/2
 
-With dpkg-buildpackage)
-apt-get source ghostscript
-sudo apt-get build-dep ghostscript
-dpkg-buildpackage -r fakeroot -b -uc -us
+-    return false;
+- 82c7f3d:	b8 00 00 00 00       	mov    $0x0,%eax
++    return true;
++ 82c7f3d:	b8 01 00 00 00       	mov    $0x1,%eax
 
-Witout dpkg-buildpackage)
-./configure --without-x --prefix=$HOME/lhplain/ghostscript
-make
-make install
+xxd -p -c1 lib/modules/*/cdc-acm.ko >dump
+patch dump <<'EOF'
+@@ -5334,7 +5334,7 @@
+ 04
+ 82
+ 8c
+-03
++00
+ 00
+ 06
+ 24
+EOF
+FILE=`ls lib/modules/*/cdc-acm.ko`
+rm $FILE # xxd does not overwrite existing output file
+xxd -r -p dump $FILE
 
 (To see the effect of this, add -dCompressFonts=false to ps2pdf,
 open pdf file via 'less' and search CMap.)

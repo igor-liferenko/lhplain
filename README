@@ -12,42 +12,25 @@ https://mirrors.ctan.org/fonts/ps-type1/cm-super.zip
 To correctly copy/search quoteleft, minus and quoteright:
 
 1)
-sed -i '/#0060/s/SD130000/quoteleft/' Resource/Decoding/Unicode
-sed -i '/#2018/s/quoteleft/SD130000/' Resource/Decoding/Unicode
-sed -i '/#002D/s/SP100000/minus/' Resource/Decoding/Unicode
-sed -i '/#2212/s/minus/SP100000/' Resource/Decoding/Unicode
-sed -i '/#0027/s/SP050000/quoteright/' Resource/Decoding/Unicode
-sed -i '/#2019/s/quoteright/SP050000/' Resource/Decoding/Unicode
+sed -i '/#0060/s/SD130000/quoteleft/' /.../Resource/Decoding/Unicode
+sed -i '/#2018/s/quoteleft/SD130000/' /.../Resource/Decoding/Unicode
+sed -i '/#002D/s/SP100000/minus/' /.../Resource/Decoding/Unicode
+sed -i '/#2212/s/minus/SP100000/' /.../Resource/Decoding/Unicode
+sed -i '/#0027/s/SP050000/quoteright/' /.../Resource/Decoding/Unicode
+sed -i '/#2019/s/quoteright/SP050000/' /.../Resource/Decoding/Unicode
 
 2)
-1. dpkg-buildpackage -rfakeroot -b -us -uc
-2. grep -srn pdf_simple_font_needs_ToUnicode .
-3. objdump -S <libgs that will be found by grep> >/tmp/1
-4. In the end of function pdf_simple_font_needs_ToUnicode change 'return false' to 'return true'
-5. dpkg-buildpackage -rfakeroot -b -us -uc
-6. objdump -S <libgs that will be found by grep> >/tmp/2
-7. diff /tmp/1 /tmp/2
+md5sum /usr/lib/libgs.so.9.26 >/tmp/md5+patch
+xxd -p -c1 /usr/lib/libgs.so.9.26 >/tmp/xxd
+sed -n '/55/{n;/86/=}' /tmp/xxd | sed 's/^/^\\s\*/;s/$/\\b/' >/tmp/num
+sed -n '/86/{n;/55/=}' /tmp/xxd | sed 's/^/^\\s\*/;s/$/\\b/' >>/tmp/num
+nl /tmp/xxd | grep -C5 -f /tmp/num | less # run next command in another terminal
+objdump -d /usr/lib/libgs.so.9.26 | grep -C3 '\$0x\(5586\|8655\)' # find required LINENUM in previous command
+sed 'LINENUM{N;s/[0-9]/0/g' /tmp/xxd | diff /tmp/xxd - >>/tmp/md5+patch
 
--    return false;
-- 82c7f3d:	b8 00 00 00 00       	mov    $0x0,%eax
-+    return true;
-+ 82c7f3d:	b8 01 00 00 00       	mov    $0x1,%eax
-
-xxd -p -c1 lib/modules/*/cdc-acm.ko >dump
-patch dump <<'EOF'
-@@ -5334,7 +5334,7 @@
- 04
- 82
- 8c
--03
-+00
- 00
- 06
- 24
-EOF
-FILE=`ls lib/modules/*/cdc-acm.ko`
-rm $FILE # xxd does not overwrite existing output file
-xxd -r -p dump $FILE
+patch /tmp/xxd /tmp/md5+patch
+rm /usr/lib/libgs.so.9.26 # next command does not overwrite existing file
+xxd -r -p /tmp/xxd /usr/lib/libgs.so.9.26
 
 (To see the effect of this, add -dCompressFonts=false to ps2pdf,
 open pdf file via 'less' and search CMap.)

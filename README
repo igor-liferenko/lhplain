@@ -27,7 +27,7 @@ sed -n '/86/{n;/55/=}' /tmp/xxd | sed 's/.*/^&\\s/' >/tmp/num2
 nl /tmp/xxd | sed 's/^\s\+//' | grep --color=always -C5 -f /tmp/num1 -f /tmp/num2 >/tmp/out
 objdump -d /usr/lib/libgs.so.9.26 | grep -C3 '\$0x\(5586\|8655\),'
 less -R /tmp/out # determine LINENUM accordingly to output from previous command (the first from 55 or 86)
-sed 'LINENUM{N;s/[0-9]/0/g}' /tmp/xxd | diff /tmp/xxd - >/tmp/md5
+sed 'LINENUM{N;s/[0-9]/0/g}' /tmp/xxd | diff /tmp/xxd - >/tmp/patch
 cat /tmp/md5 /tmp/patch >/tmp/md5+patch
 patch /tmp/xxd /tmp/md5+patch
 rm /usr/lib/libgs.so.9.26 # next command does not overwrite existing file

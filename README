@@ -1,35 +1,25 @@
 This repo contains dvipdf and supporting files.
 
------------------------------
-
-Put *.pfb files from the following archives to this directory:
+-----------------------------------------------------------------------------------
 
 https://www.ams.org/arc/tex/amsfonts.zip
 https://mirrors.ctan.org/fonts/ps-type1/cm-super.zip
 
---------------------------------------------------------------------
+Copy *.pfb files from directories containing cmr10.pfb and sfrm1000.pfb to lhplain/
 
-To correctly copy/search quoteleft, minus and quoteright:
+-----------------------------------------------------------------------------------
 
-1)
-cp /usr/share/ghostscript/9.26/Resource/Decoding/Unicode /tmp/
-sed -i '/#0060/s/SD130000/quoteleft/'  /tmp/Unicode
-sed -i '/#2018/s/quoteleft/SD130000/'  /tmp/Unicode
-sed -i '/#002D/s/SP100000/minus/'      /tmp/Unicode
-sed -i '/#2212/s/minus/SP100000/'      /tmp/Unicode
-sed -i '/#0027/s/SP050000/quoteright/' /tmp/Unicode
-sed -i '/#2019/s/quoteright/SP050000/' /tmp/Unicode
-sudo cp /tmp/Unicode /usr/share/ghostscript/9.26/Resource/Decoding/Unicode
-
-2)
+1) Make pdf_simple_font_needs_ToUnicode() return 'true' for CM-fonts:
 xxd -p -c1 /usr/lib/libgs.so.9.26 >/tmp/xxd
 perl -le '@a=<>;chop@a;for$i(0..$#a-1){print"^",$i+1,"\t"if$a[$i]eq"86"&&$a[$i+1]eq"55"}' /tmp/xxd >/tmp/num # (byte order depends on processor)
 nl /tmp/xxd | sed 's/^\s\+//' | grep --color=always -C5 -f /tmp/num >/tmp/out
 objdump -d /usr/lib/libgs.so.9.26 | grep -C3 '\$0x5586,' # 21894 (GS_C_PDF_MAX_GOOD_GLYPH)
 less -R /tmp/out # determine LINENUM accordingly to output from previous command and put it to next command
-sed -i 'LINENUM{N;s/.*/00\n00/}' /tmp/xxd
+sed -i 'LINENUM{N;s/.*/00\n00/}' /tmp/xxd # change to zero
 xxd -r -p /tmp/xxd /tmp/libgs.so.9.26
 sudo cp /tmp/libgs.so.9.26 /usr/lib/libgs.so.9.26
 
-(To see the effect of this, add -dCompressFonts=false to ps2pdf,
-open pdf file via 'less' and search CMap.)
+2) Adjust the mapping that is used to construct the PDF ToUnicode CMap:
+sudo sed -i 's/ minus\b//;/16#002D/s/$/ minus/' /usr/share/ghostscript/9.26/Resource/Decoding/Unicode
+sudo sed -i 's/ quoteright\b//;/16#0027/s/$/ quoteright/' /usr/share/ghostscript/9.26/Resource/Decoding/Unicode
+sudo sed -i 's/ quoteleft\b//;/16#0060/s/$/ quoteleft/' /usr/share/ghostscript/9.26/Resource/Decoding/Unicode

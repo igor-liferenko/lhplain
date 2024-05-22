@@ -9,7 +9,7 @@ Copy *.pfb files from directories containing cmr10.pfb and sfrm1000.pfb to lhpla
 
 -----------------------------------------------------------------------------------
 
-1) Make pdf_simple_font_needs_ToUnicode() return 'true' for CM-fonts(*):
+1)
 xxd -p -c1 /usr/lib/libgs.so.9.26 >/tmp/xxd
 perl -le '@a=<>;chop@a;for$i(0..$#a-1){print"^",$i+1,"\t"if$a[$i]eq"86"&&$a[$i+1]eq"55"}' /tmp/xxd >/tmp/num # (byte order depends on processor)
 nl /tmp/xxd | sed 's/^\s\+//' | grep --color=always -C5 -f /tmp/num >/tmp/out
@@ -19,34 +19,49 @@ sed -i 'LINENUM{N;s/.*/00\n00/}' /tmp/xxd # change to zero
 xxd -r -p /tmp/xxd /tmp/libgs.so.9.26
 sudo cp /tmp/libgs.so.9.26 /usr/lib/libgs.so.9.26
 
-(*) notice, that in ghostscript source GS_C_PDF_MAX_GOOD_GLYPH is used only in one place
-
-2) Adjust the mapping that is used to construct the PDF ToUnicode CMap:
+2)
 sudo sed -i 's/ minus\b//;/16#002D/s/$/ minus/' /usr/share/ghostscript/9.26/Resource/Decoding/Unicode
 sudo sed -i 's/ quoteright\b//;/16#0027/s/$/ quoteright/' /usr/share/ghostscript/9.26/Resource/Decoding/Unicode
 sudo sed -i 's/ quoteleft\b//;/16#0060/s/$/ quoteleft/' /usr/share/ghostscript/9.26/Resource/Decoding/Unicode
 
 For example:
 
-\font\tt=cmtex10 \tt -`' \bye
+\nopagenumbers \font\tt=cmtex10 \tt -`' \bye
 
-(add -dCompressFonts=false to ps2pdf in lhplain/dvipdf)
+This is the diff of PDF file before and after doing 1 (*):
 
-If 1 is not done, CMap is not generated.
-This is the diff of PDF file before and after doing 2:
++13 0 obj
++<</Length 277>>stream
++/CIDInit /ProcSet findresource begin
++12 dict begin
++begincmap
++/CMapType 2 def
++/CMapName/R13 def
++1 begincodespacerange
++<00><ff>
++endcodespacerange
++3 beginbfrange
++<27><27><2019>
++<2d><2d><2212>
++<60><60><2018>
++endbfrange
++endcmap
++CMapName currentdict /CMap defineresource pop
++end end
++
++endstream
++endobj
+ 8 0 obj
+-<</BaseFont/SOCCVA+CMTEX10/FontDescriptor 9 0 R/Type/Font
++<</BaseFont/SOCCVA+CMTEX10/FontDescriptor 9 0 R/ToUnicode 13 0 R/Type/Font
 
- begincmap
- /CMapType 2 def
- /CMapName/R17 def
- 1 begincodespacerange
- <00><ff>
- endcodespacerange
- 3 beginbfrange
+This is the diff of PDF file before and after doing 2 (*):
+
 -<27><27><2019>
 -<2d><2d><2212>
 -<60><60><2018>
 +<27><27><0027>
 +<2d><2d><002d>
 +<60><60><0060>
- endbfrange
- endcmap
+
+(*) - add -dCompressFonts=false to ps2pdf in lhplain/dvipdf

@@ -5,22 +5,21 @@ export VFFONTS=~/lhplain/vf
 export TEXFONTS=~/lhplain/tfm:~/tex/TeXfonts
 export PKFONTS=/none
 file=$1.dvi
+for i in `dvitype -output-level 0 $file | sed -n '/^Postamble starts at byte/,${s/^Font [0-9]\+: \([.[:alnum:]/]\+\).*/\1/p}'`; do
+  if [ $i = ${i#*/} ]; then
+    grep -q "^$i " ~/lhplain/cmfonts.map && continue;
+    [ -e ~/lhplain/vf/$i.vf ] && continue;
+    echo Bitmap font $i is not allowed in PDF
+    exit
+  else
+    echo Font $i is not allowed in PDF
+    exit
+  fi
+done
 eval "$(hexdump -s 15 -n `hexdump -s 14 -n 1 -e '/1 "%d"' $file` -v -e '/1 "%c"' $file | sed 's/.* /p=/;s/x/sp,/;s/[+-][0-9]*/sp x=& y=/')"
-~/dvips/dvips -T $p -O $((x-4736287))sp,$((y-4736287))sp -q -P t1 -M $file
-ret=$?
-if [ -e missfont.log ]; then
-  rm missfont.log
-  echo Bitmap fonts are not allowed in PDF.
-  exit
-fi
-if [ $ret = 0 ]; then
+~/dvips/dvips -T $p -O $((x-4736287))sp,$((y-4736287))sp -q -P t1 $file
+if [ $? = 0 ]; then
   ps2pdf $1.ps $1.pdf || echo PS2PDF ERROR
 else
   echo DVIPS ERROR
 fi
-
-# When name of tex-file is in UTF-8, dvips generates 'Title' which is incorrectly
-# processed by ps2pdf (and incorrectly shown in PS viewers),
-# therefore this change is done in output.c:
-# -      if (*iname)
-# -         (void)fprintf(bitfile, "%%%%Title: %s\n", iname) ;

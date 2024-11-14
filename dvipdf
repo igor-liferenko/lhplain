@@ -4,10 +4,10 @@ for i in `dvitype -output-level 0 $file | sed -n '/^Postamble starts at byte/,${
   if [ $i = ${i#*/} ]; then
     grep -q "^$i " ~/lhplain/cmfonts.map && continue;
     [ -e ~/lhplain/vf/$i.vf ] && continue;
-    echo Bitmap font $i is not allowed in PDF
+    echo PK fonts not appropriate in PDF
     exit
   else
-    echo Font $i is not allowed in PDF
+    echo Fonts with path not allowed in map-file
     exit
   fi
 done

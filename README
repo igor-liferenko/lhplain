@@ -4,8 +4,11 @@ This repo contains dvipdf and supporting files.
 
 https://www.ams.org/arc/tex/amsfonts.zip
 https://mirrors.ctan.org/fonts/ps-type1/cm-super.zip
+https://mirrors.ctan.org/fonts/niceframe.zip
 
-Copy *.pfb files from directories containing cmr10.pfb and sfrm1000.pfb to lhplain/
+Copy *.pfb files from directories containing cmr10.pfb to lhplain/
+Copy *.pfb files from directories containing sfrm1000.pfb to lhplain/
+Copy dingbat.pfb to lhplain/
 
 -----------------------------------------------------------------------------------
 

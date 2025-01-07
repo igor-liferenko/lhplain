@@ -1,7 +1,3 @@
-This repo contains dvipdf and supporting files.
-
------------------------------------------------------------------------------------
-
 https://www.ams.org/arc/tex/amsfonts.zip
 https://mirrors.ctan.org/fonts/ps-type1/cm-super.zip
 https://mirrors.ctan.org/fonts/niceframe.zip
@@ -9,62 +5,3 @@ https://mirrors.ctan.org/fonts/niceframe.zip
 Copy *.pfb files from directories containing cmr10.pfb to lhplain/
 Copy *.pfb files from directories containing sfrm1000.pfb to lhplain/
 Copy dingbat.pfb to lhplain/
-
------------------------------------------------------------------------------------
-
-1)
-xxd -p -c1 /usr/lib/libgs.so.9.26 >/tmp/xxd
-perl -le '@a=<>;chop@a;for$i(0..$#a-1){print"^",$i+1,"\t"if$a[$i]eq"86"&&$a[$i+1]eq"55"}' /tmp/xxd >/tmp/num # (byte order depends on processor)
-nl /tmp/xxd | sed 's/^\s\+//' | grep --color=always -C5 -f /tmp/num >/tmp/out
-objdump -d /usr/lib/libgs.so.9.26 | grep -C3 '\$0x5586,' # 21894 (GS_C_PDF_MAX_GOOD_GLYPH)
-less -R /tmp/out # determine LINENUM accordingly to output from previous command and put it to next command
-sed -i 'LINENUM{N;s/.*/00\n00/}' /tmp/xxd # change to zero
-xxd -r -p /tmp/xxd /tmp/libgs.so.9.26
-sudo cp /tmp/libgs.so.9.26 /usr/lib/libgs.so.9.26
-
-2)
-sudo sed -i 's/ minus\b//;/16#002D/s/$/ minus/' /usr/share/ghostscript/9.26/Resource/Decoding/Unicode
-sudo sed -i 's/ quoteright\b//;/16#0027/s/$/ quoteright/' /usr/share/ghostscript/9.26/Resource/Decoding/Unicode
-sudo sed -i 's/ quoteleft\b//;/16#0060/s/$/ quoteleft/' /usr/share/ghostscript/9.26/Resource/Decoding/Unicode
-
-For example:
-
-\nopagenumbers \font\tt=cmtex10 \tt -`' \bye
-
-This is the diff of PDF file before and after doing 1 (*):
-
-+13 0 obj
-+<</Length 277>>stream
-+/CIDInit /ProcSet findresource begin
-+12 dict begin
-+begincmap
-+/CMapType 2 def
-+/CMapName/R13 def
-+1 begincodespacerange
-+<00><ff>
-+endcodespacerange
-+3 beginbfrange
-+<27><27><2019>
-+<2d><2d><2212>
-+<60><60><2018>
-+endbfrange
-+endcmap
-+CMapName currentdict /CMap defineresource pop
-+end end
-+
-+endstream
-+endobj
- 8 0 obj
--<</BaseFont/SOCCVA+CMTEX10/FontDescriptor 9 0 R/Type/Font
-+<</BaseFont/SOCCVA+CMTEX10/FontDescriptor 9 0 R/ToUnicode 13 0 R/Type/Font
-
-This is the diff of PDF file before and after doing 2 (*):
-
--<27><27><2019>
--<2d><2d><2212>
--<60><60><2018>
-+<27><27><0027>
-+<2d><2d><002d>
-+<60><60><0060>
-
-(*) - add -dCompressFonts=false to ps2pdf in lhplain/dvipdf

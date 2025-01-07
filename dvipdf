@@ -6,7 +6,7 @@ export DVIPSHEADERS=~/lhplain:~/dvips
 export VFFONTS=~/lhplain/vf
 export TEXFONTS=~/lhplain/tfm:~/tex/TeXfonts
 t=a4
-[ $p = 55380990sp,39158276sp ] && t='a4 -t landscape'
+[ ${p#*,} \< ${p%,*} ] && t='a4 -t landscape'
 export err=/tmp/err.$$
 ( ~/dvips/dvips -t $t -O $((x-4736287))sp,$((y-4736287))sp -P t1 -q -o /dev/stdout -M $file || touch $err ) | ps2pdf - $1.pdf
 ret=$?

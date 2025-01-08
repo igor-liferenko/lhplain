@@ -5,10 +5,10 @@ export TEXCONFIG=~/lhplain:~/dvips
 export DVIPSHEADERS=~/lhplain/pfb:~/dvips
 export VFFONTS=~/lhplain/vf
 export TEXFONTS=~/lhplain/tfm:~/tex/TeXfonts
-t=a4
-[ ${p#*,} \< ${p%,*} ] && t='a4 -t landscape'
 export err=/tmp/err.$$
-( ~/dvips/dvips -t $t -O $((x-4736287))sp,$((y-4736287))sp -P t1 -q -o /dev/stdout -M $file || touch $err ) | ps2pdf - $1.pdf
+( ~/dvips/dvips -t a4 `[ ${p#*,} \< ${p%,*} ] && echo -t landscape` \
+  -O $((x-4736287))sp,$((y-4736287))sp -P t1 -q -o /dev/stdout -M $file || touch $err ) | \
+  ps2pdf - $1.pdf
 ret=$?
 if [ -e missfont.log ]; then
   echo PK fonts not appropriate in PDF

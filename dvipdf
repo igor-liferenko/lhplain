@@ -2,7 +2,7 @@
 file=$1.dvi
 eval "$(hexdump -s15 -n `hexdump -s14 -n1 -e '"%u"' $file` -v -e '"%c"' $file | sed 's/.* /p=/;s/x/sp,/;s/[+-][0-9]*/sp x=& y=/')"
 export TEXCONFIG=~/lhplain:~/dvips
-export DVIPSHEADERS=~/lhplain:~/dvips
+export DVIPSHEADERS=~/lhplain/pfb:~/dvips
 export VFFONTS=~/lhplain/vf
 export TEXFONTS=~/lhplain/tfm:~/tex/TeXfonts
 t=a4

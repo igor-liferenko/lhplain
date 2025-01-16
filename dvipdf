@@ -1,26 +1,17 @@
 #!/bin/sh
 file=$1.dvi
-dvitype -output-level 0 $file | grep -q '^Font.*/' && { echo Fonts with path not allowed in map-file; exit 1; }
+dvitype -output-level 0 $file | grep -q '^Font.*/' && { echo Fonts with path not allowed in map-file; exit; }
+for i in `dvitype -output-level 0 $file | sed '/^Postamble starts at byte/,$!d;/^Font [0-9]\+:/!d;s///;s/ scaled [0-9]\+//' | sort | uniq`; do
+  grep -q "^$i " ~/lhplain/omfonts.map && { echo Font name not allowed; exit; }
+  grep -q "^$i " ~/lhplain/*.map && continue;
+  [ -e ~/lhplain/vf/$i.vf ] && continue;
+  echo PK fonts not appropriate in PDF
+  exit
+done
 eval "$(hexdump -s15 -n `hexdump -s14 -n1 -e '"%u"' $file` -v -e '"%c"' $file | sed 's/.* /p=/;s/x/sp,/;s/[+-][0-9]*/sp x=& y=/')"
-export TEXCONFIG=~/lhplain:~/dvips
-export DVIPSHEADERS=~/lhplain:~/lhplain/pfb:~/dvips
+export T1FONTS=~/lhplain/pfb
+export ENCFONTS=~/lhplain
 export VFFONTS=~/lhplain/vf
 export TEXFONTS=~/lhplain/tfm:~/tex/TeXfonts
-export err=/tmp/err.$$
-( ~/dvips/dvips -t a4 `[ ${p#*,} \< ${p%,*} ] && echo -t landscape` \
-  -O $((x-4736287))sp,$((y-4736287))sp -P t1 -q -o /dev/stdout -M $file 2>/dev/null || touch $err ) | \
-  ps2pdf - $1.pdf
-ret=$?
-if [ -e missfont.log ]; then
-  echo PK fonts not appropriate in PDF
-  rm -f missfont.log $1.pdf $err
-  exit
-fi
-if [ -e $err ]; then
-  echo DVIPS ERROR
-  rm -f $1.pdf
-elif [ $ret != 0 ]; then
-  echo PS2PDF ERROR
-  rm -f $1.pdf
-fi
-rm -f $err
+cat ~/lhplain/*.map >/tmp/lhplain.map
+dvipdfmx -f /tmp/lhplain.map -p a4 `[ ${p#*,} \< ${p%,*} ] && echo -l` -x ${x}sp -y ${y}sp -q $file || rm -f $1.pdf

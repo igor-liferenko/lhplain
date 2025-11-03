@@ -42,11 +42,6 @@ Change in path.ch:
   base_default_length 32 -> 56
   base_area_length 22 -> 46
   user -> gk.rosatom.local/ivliferenko (2 times)
-Change in search.ch:
-  user -> gk.rosatom.local/ivliferenko (3 times)
-Change in screen.ch:
-  user -> gk.rosatom.local/ivliferenko
-  mf-wayland -> mf
 make
 echo WIDTHxHEIGHT >~/.gv-size # set red desktop backround, run gv,
   # stretch window borders to sides, create screenshot of it - enable «active window» and

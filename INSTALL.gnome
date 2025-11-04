@@ -7,8 +7,3 @@ cd /home/user/.local/share/gnome-shell/extensions/
 git clone https://github.com/bdaase/noannoyance noannoyance@daase.net
 Re-login
 Enable in Extensions
-
-echo WIDTHxHEIGHT >~/.screen-size # take screenshot - enable
-                                  # «whole screen» and see resolution
-ln -s .screen-size ~/.gv-size # in Gnome3 it is not necessary to specify exact
-                              # gv-size - if size is bigger, it is adjusted automatically

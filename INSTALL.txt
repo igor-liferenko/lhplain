@@ -43,12 +43,8 @@ Change in path.ch:
   base_area_length 22 -> 46
   user -> gk.rosatom.local/ivliferenko (2 times)
 make
-echo WIDTHxHEIGHT >~/.gv-size # set red desktop backround, run gv,
-  # stretch window borders to sides, create screenshot of it - enable «active window» and
-  # «without borders» options, and save to x.png and see WIDTHxHEIGHT via «file x.png» and run
-  # «tex- 'story \end'» and decrease each value one by one separately, followed by
-  # «tex- 'story \end'», until red stripe appears and back up by one
-ln -s .gv-size ~/.screen-size # same size
+echo 200x100 >~/.gv-size # adjust empirically
+echo 400x300 >~/.screen-size # adjust empirically
 == mytex ==
 Unpack mytex repo
 ln -sf open.okular open

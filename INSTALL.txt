@@ -57,12 +57,14 @@ Change in path.ch:
   default_directory_name_length 24 -> 48
 make
 Create ~/bin/dvitype from dvitype/README and
-  change /path/to -> ~ (2 times)
+  change /path/to -> ~
 == gftodvi ==
 Unpack gftodvi repo
 Change in path.ch:
   user -> gk.rosatom.local/ivliferenko
 make
+Create ~/bin/gftodvi from gftodvi/README and
+  change /path/to -> ~
 == gftopk ==
 Unpack gftopk repo
 make

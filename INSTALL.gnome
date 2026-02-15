@@ -7,5 +7,3 @@ cd /home/user/.local/share/gnome-shell/extensions/
 git clone https://github.com/bdaase/noannoyance noannoyance@daase.net
 Re-login
 Enable in Extensions
-
-git config --global core.quotepath false

@@ -13,6 +13,7 @@ Install 9 packages (user linadmin, pass 11): make patch flex bison gv inkscape e
   and change x7f -> b
 10) Set color scheme 'black on white'
 ===============================================================
+cp make-texmf ~/bin/
 cat bashrc >>~/.bashrc
 mkdir ~/bin
 Re-login

@@ -1,21 +1,22 @@
 Install 10 packages (user linadmin, pass 11): make patch flex bison gv inkscape ed gawk libc6-dev python3-pyqt5
 == fly-term ==
-1) Set font 'Liberation Mono 12'
-2) cp ~/.config/rusbitech/fly-term.conf /tmp
-3) Set font 'Liberation Mono 14'
-4) Diff config and in lines, that differ, change 14 to 24
-5) In launcher add --workdir /tmp
-6) Disable scrollbar
-7) Maximize window
-8) Disable tabs
-9) mkdir -p ~/.local/share/konsole
-    cp /usr/share/konsole/default.keytab ~/.local/share/konsole/
-  and change x7f -> b
-10) Set color scheme 'black on white'
+1) In launcher add --workdir /tmp --hide-tabbar
+2) Disable scrollbar
+3) Maximize window
+4) Set font 'Liberation Mono 24' ('stty size' must show '25 100')
+5) Set color scheme 'black on white'
+6) Add '\nopagenumbers' to command menu
+7) Set unlimited scrollback history
+8) cp /usr/share/konsole/default.keytab ~/.local/share/konsole/
+     and change x7f -> b
 ===============================================================
-cat bashrc >>~/.bashrc
+cat ~/lhplain/bashrc >>~/.bashrc
 mkdir ~/bin
 Re-login
+== mytex ==
+Unpack mytex repo
+ln -sf open.okular open
+ln -sf printer.okular printer
 for i in make-texmf tex tex+ tex- mf dvi+ dvi- ctangle cweave tie ctie; do
   ln -s ~/mytex/$i ~/bin/
 done
@@ -25,43 +26,25 @@ make
 == em ==
 Unpack em repo
 Create ~/bin/em from em/README
-==============================================================
-Calculate the number X (an example used in this setup):
-X = strlen "/home/gk.rosatom.local/ivliferenko" - strlen "/home/user" = 24
-Where 'Y -> Z' occurs below, use Y+X for Z.
 == tex ==
 Unpack tex repo
-Change in path.ch:
-  format_default_length 35 -> 59
-  format_area_length 26 -> 50
-  user -> gk.rosatom.local/ivliferenko (3 times)
+Adjust path.ch
 make
 == mf ==
 Unpack mf repo
-Change in path.ch:
-  base_default_length 32 -> 56
-  base_area_length 22 -> 46
-  user -> gk.rosatom.local/ivliferenko (2 times)
-make
+Adjust path.ch
 echo 200x100 >~/.gv-size # adjust empirically
 echo 400x300 >~/.screen-size # adjust empirically
-== mytex ==
-Unpack mytex repo
-ln -sf open.okular open
-ln -sf printer.okular printer
 make
 == dvitype ==
 Unpack dvitype repo
-Change in path.ch:
-  user -> gk.rosatom.local/ivliferenko
-  default_directory_name_length 24 -> 48
+Adjust path.ch
 make
 Create ~/bin/dvitype from dvitype/README and
   change /path/to -> ~
 == gftodvi ==
 Unpack gftodvi repo
-Change in path.ch:
-  user -> gk.rosatom.local/ivliferenko
+Adjust path.ch
 make
 Create ~/bin/gftodvi from gftodvi/README and
   change /path/to -> ~

@@ -59,6 +59,9 @@ Disable 'Показывать заголовок документа в заго�
 == dvips ==
 Unpack dvips repo (differs from dvips/ in http://ftp.cs.stanford.edu/pub/dvips/dvips576.tar.gz)
 make
+cp ~/th/gbsnu/* ~/dvips/
+cp ~/th/gbsnu.map ~/dvips/
+echo p +gbsnu.map > ~/.dvipsrc
 == keyboard ==
 15 characters are already missing in /usr/share/X11/xkb/symbols/ru -- `[]'~@#$^&{}|<>
 Just make another two characters missing via replacing \/ with «» by changing BKSL line

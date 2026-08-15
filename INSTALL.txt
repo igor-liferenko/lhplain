@@ -62,6 +62,7 @@ make
 cp ~/th/gbsnu/* ~/dvips/
 cp ~/th/gbsnu.map ~/dvips/
 echo p +gbsnu.map >~/.dvipsrc
+ln -s ~/th/chinese ~/bin/
 == keyboard ==
 15 characters are already missing in /usr/share/X11/xkb/symbols/ru -- `[]'~@#$^&{}|<>
 Just make another two characters missing via replacing \/ with «» by changing BKSL line

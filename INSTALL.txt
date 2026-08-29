@@ -63,9 +63,8 @@ Disable 'Показывать заголовок документа в заго�
 == dvips ==
 Unpack dvips repo (differs from dvips/ in http://ftp.cs.stanford.edu/pub/dvips/dvips576.tar.gz)
 make
-cp ~/th/gbsnu/* ~/dvips/
-cp ~/th/gbsnu.map ~/dvips/
-echo p +gbsnu.map >~/.dvipsrc
+== th ==
+Unpack th repo
 ln -s ~/th/chinese ~/bin/
 == keyboard ==
 15 characters are already missing in /usr/share/X11/xkb/symbols/ru -- `[]'~@#$^&{}|<>

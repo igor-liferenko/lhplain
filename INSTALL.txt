@@ -1,4 +1,8 @@
-Install 10 packages (user linadmin, pass 11): make patch flex bison gv inkscape ed gawk libc6-dev python3-pyqt5
+Install the following packages: make patch flex bison gv inkscape ed gawk libc6-dev python3-pyqt5 imagemagick gimp git wmctrl
+== correct as root ==
+/etc/ImageMagick-6/policy.xml
+-  <policy domain="coder" rights="none" pattern="EPS" />
++  <policy domain="coder" rights="write" pattern="EPS" />
 == fly-term ==
 1) In launcher add --workdir /tmp --hide-tabbar
 2) Disable scrollbar

@@ -5,3 +5,4 @@ PS1=$PS1$'\[\e[1m\e[34m\]\w'
 PS1=$PS1$'\[\e[m\]$ '
 alias grep='grep --color=auto'
 alias make=make-texmf
+export TEXFONTMAPS=/none

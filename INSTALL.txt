@@ -60,9 +60,6 @@ Create ~/bin/gftopk from gftopk/README and
 == okular ==
 Disable 'Показывать заголовок документа в заголовке окна, если возможно'
 (non-ASCII characters in tex filenames are displayed incorrectly)
-== th ==
-Unpack th repo
-ln -s ~/th/chinese ~/bin/
 == keyboard ==
 15 characters are already missing in /usr/share/X11/xkb/symbols/ru -- `[]'~@#$^&{}|<>
 Just make another two characters missing via replacing \/ with «» by changing BKSL line
